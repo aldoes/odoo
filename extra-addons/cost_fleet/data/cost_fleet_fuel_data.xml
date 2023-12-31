@@ -1,0 +1,126 @@
+<odoo>
+    <data noupdate="1">
+        <!--Load Fuel Provider 
+                Resource: res.partner
+                name varchar NOT NULL,
+            -->
+        <record id='provider01' model="res.partner">
+            <field name="name">Estaciones Bahia SRL - Shell</field>   
+        </record>
+
+        <!-- Load Product Category Fuel -->
+        <record id="cat_fuel" model="product.category">
+            <field name="name">Fuel</field>
+        </record>
+        <record id="cat_fuel_gasoline" model="product.category">
+            <field name="parent_id" ref="cat_fuel"/>
+            <field name="name">Gasoline</field>
+        </record>
+        <record id="cat_fuel_diesel" model="product.category">
+            <field name="parent_id" ref="cat_fuel"/>
+            <field name="name">Diesel</field>
+        </record>
+
+        <!-- Load Fuel Reg 
+            Resource: product.template
+                categ_id integer NOT NULL,
+                uom_id integer NOT NULL,
+                uom_po_id integer NOT NULL,
+                detailed_type NOT NULL,
+                name jsonb NOT NULL
+        -->
+        <record id="prod_fuel_1" model="product.template">
+            <field name="name">Shell Formula Regular Nafta 88</field>
+            <field name="categ_id" ref="cat_fuel_gasoline"/>
+            <field name="standard_price">6000.0</field>
+            <field name="uom_id" ref="uom.product_uom_litre"/>
+            <field name="uom_po_id" ref="uom.product_uom_litre"/>
+            <field name="sale_ok">False</field>
+        </record>
+        <record id="prod_fuel_2" model="product.template">
+            <field name="name">Shell Formula Super Nafta 93</field>
+            <field name="categ_id" ref="cat_fuel_gasoline"/>
+            <field name="standard_price">6500.0</field>
+            <field name="uom_id" ref="uom.product_uom_litre"/>
+            <field name="uom_po_id" ref="uom.product_uom_litre"/>
+            <field name="sale_ok">False</field>
+        </record>
+        <record id="prod_fuel_3" model="product.template">
+            <field name="name">Shell V-Power Nafta 97</field>
+            <field name="categ_id" ref="cat_fuel_gasoline"/>
+            <field name="standard_price">7850</field>
+            <field name="uom_id" ref="uom.product_uom_litre"/>
+            <field name="uom_po_id" ref="uom.product_uom_litre"/>
+            <field name="sale_ok">False</field>
+        </record>
+        <record id="prod_fuel_4" model="product.template">
+            <field name="name">Shell V-Power Diesel</field>
+            <field name="categ_id" ref="cat_fuel_diesel"/>
+            <field name="standard_price">9340.0</field>
+            <field name="uom_id" ref="uom.product_uom_litre"/>
+            <field name="uom_po_id" ref="uom.product_uom_litre"/>
+            <field name="sale_ok">False</field>
+        </record>
+        <record id="prod_fuel_5" model="product.template">
+            <field name="name">Shell Evolux Diesel</field>
+            <field name="categ_id" ref="cat_fuel_diesel"/>
+            <field name="standard_price">7990.0</field>
+            <field name="uom_id" ref="uom.product_uom_litre"/>
+            <field name="uom_po_id" ref="uom.product_uom_litre"/>
+            <field name="sale_ok">False</field>
+        </record>
+
+         <!-- Precios en los proveedores
+            Resource: product.supplierinfo
+                partner_id integer NOT NULL,
+                currency_id integer NOT NULL,
+                delay integer NOT NULL,
+                min_qty numeric NOT NULL,
+                price numeric NOT NULL,
+        -->
+        <record id="product_supplierinfo_1" model="product.supplierinfo">
+            <field name="product_tmpl_id" ref="prod_fuel_1"/>
+            <field name="partner_id" ref="provider01"/>
+            <field name="delay">1</field>
+            <field name="min_qty">1</field>
+            <field name="price">6000.0</field>
+            <field name="currency_id" search="[('name','=','PYG')]"/>
+        </record>
+        <record id="product_supplierinfo_2" model="product.supplierinfo">
+            <field name="product_tmpl_id" ref="prod_fuel_2"/>
+            <field name="partner_id" ref="provider01"/>
+            <field name="delay">1</field>
+            <field name="min_qty">1</field>
+            <field name="price">6500.0</field>
+            <field name="currency_id" search="[('name','=','PYG')]"/>
+        </record>
+        <record id="product_supplierinfo_3" model="product.supplierinfo">
+            <field name="product_tmpl_id" ref="prod_fuel_3"/>
+            <field name="partner_id" ref="provider01"/>
+            <field name="delay">1</field>
+            <field name="min_qty">1</field>
+            <field name="price">7850</field>
+            <field name="currency_id" search="[('name','=','PYG')]"/>
+        </record>
+        <record id="product_supplierinfo_4" model="product.supplierinfo">
+            <field name="product_tmpl_id" ref="prod_fuel_4"/>
+            <field name="partner_id" ref="provider01"/>
+            <field name="delay">1</field>
+            <field name="min_qty">1</field>
+            <field name="price">9340.0</field>
+            <field name="currency_id" search="[('name','=','PYG')]"/>
+        </record>
+        <record id="product_supplierinfo_5" model="product.supplierinfo">
+            <field name="product_tmpl_id" ref="prod_fuel_5"/>
+            <field name="partner_id" ref="provider01"/>
+            <field name="delay">1</field>
+            <field name="min_qty">1</field>
+            <field name="price">7990.0</field>
+            <field name="currency_id" search="[('name','=','PYG')]"/>
+        </record>
+ 
+    </data>
+</odoo>
+
+
+   

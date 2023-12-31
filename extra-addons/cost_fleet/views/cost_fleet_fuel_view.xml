@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+   <!-- Fuel -->
+  <record id='cost_fleet_fuel_view_tree' model='ir.ui.view'>
+    <field name="name">cost.fleet.fuel.tree</field>
+    <field name="model">product.product</field>
+    <field name="arch" type="xml">
+        <tree string="Fuel" delete="0" edit="0">
+            <field name="name"/>
+            <field name="currency_id" invisible="1" nolabel="1"/>    
+            <field name="last_cost" widget="monetary"/>
+            <field name="date_last_purchase"/>                     
+        </tree>
+    </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="action_cost_fleet_fuel">
+    <field name="name">Cost Fuel</field>
+    <field name="res_model">product.product</field>
+    <field name="domain">[('categ_id.complete_name','like','Fuel')]</field>
+    <field name="view_id" ref="cost_fleet_fuel_view_tree"/>
+    <field name="view_mode">tree</field>
+  </record>
+
+  <menuitem id="menu_root" name="Cost" parent="fleet.menu_root"/>
+  <menuitem id="menu_fuel" name="Fuel" parent="menu_root" sequence="20" action="action_cost_fleet_fuel"/>
+    
+</odoo>
