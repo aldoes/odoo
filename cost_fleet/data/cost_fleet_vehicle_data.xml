@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id='cat_pick' model="fleet.vehicle.model.category">
+            <field name="name">Pickup</field>   
+        </record>
+        <record id='cat_hatch' model="fleet.vehicle.model.category">
+            <field name="name">Hatchback</field>   
+        </record>
+
+        <!--
+            Resource: fleet.vehicle.model
+            Fields:
+            name character varying COLLATE pg_catalog."default" NOT NULL,
+            brand_id integer NOT NULL,
+            category_id integer, 
+            transmission character varying COLLATE pg_catalog."default", 
+            vehicle_type character varying COLLATE pg_catalog."default" NOT NULL,    
+            seats integer,
+            doors integer,
+            default_fuel_type character varying COLLATE pg_catalog."default",
+            fuel_effic double precision,
+         -->     
+        <record id='volks_saveiro_t' model="fleet.vehicle.model">
+            <field name="name">Saveiro Trendline</field>
+            <field name="brand_id" ref="fleet.brand_volkswagen"/>
+            <field name="category_id" ref="cat_pick"/>
+            <field name="transmission">manual</field>
+            <field name="vehicle_type">car</field>
+            <field name="seats">2</field>
+            <field name="doors">2</field>
+            <field name="default_fuel_type">gasoline</field>
+    
+        </record>
+        <record id='volks_saveiro_h' model="fleet.vehicle.model">
+            <field name="name">Saveiro Highline</field>
+            <field name="brand_id" ref="fleet.brand_volkswagen"/>
+            <field name="category_id" ref="cat_pick"/>
+            <field name="transmission">manual</field>
+            <field name="vehicle_type">car</field>
+            <field name="seats">2</field>
+            <field name="doors">2</field>
+            <field name="default_fuel_type">gasoline</field>
+      
+        </record>
+        <record id='volks_gol' model="fleet.vehicle.model">
+            <field name="name">Gol</field>
+            <field name="brand_id" ref="fleet.brand_volkswagen"/>
+            <field name="category_id" ref="cat_hatch"/>
+            <field name="transmission">manual</field>
+            <field name="vehicle_type">car</field>
+            <field name="seats">4</field>
+            <field name="doors">4</field>
+            <field name="default_fuel_type">gasoline</field>
+
+        </record>
+
+    </data>
+</odoo>
+
+
+   

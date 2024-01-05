@@ -1,0 +1,31 @@
+id,name
+cons_1,Neumaticos
+cons_2,Pastillas Freno de Disco
+cons_3,Discos de Freno delantero 
+cons_4,Discos de Freno Trasero
+cons_5,Pastillas Freno de Zapatas
+cons_6,Filtro Aceite Motor
+cons_7,Lts de Aceite Motor
+cons_8,Filtro Aire
+cons_9,Filtro Combustible
+cons_10,Lts de Aceite Caja
+cons_11,Filtro Aceite Caja
+cons_12,CableS Bujias
+cons_13,Bujias
+cons_14,Bobina Arranque
+cons_15,Limpiaparabrisa
+cons_16,Bateria
+cons_17,Lubricantes y Fluidos
+cons_18,Fluido Freno
+cons_19,Filtro Aire de Cabina
+cons_2,Correa Dentada
+cons_21,Correa Alternador
+cons_22,Correa Aire
+cons_23,Rodillo tensor correa dentada
+cons_24,Rodillo tensor Correa Alternador
+cons_25,Fluido Freno
+cons_26,Agua Radiador
+cons_27,Foco Alta Delantero
+cons_28,Foco Baja Delantero
+cons_29,Foco Trasero
+cons_30,Fusible

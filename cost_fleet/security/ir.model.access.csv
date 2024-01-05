@@ -1,5 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access.users.fuel,access_users_fuel,model_cost_fleet_fuel,base.group_user,1,1,1,1
+cost_fleet.access_cost_fleet_vehicle_model_spare_cat,access_cost_fleet_vehicle_model_spare_cat,cost_fleet.model_cost_fleet_vehicle_model_spare_cat,base.group_user,1,1,1,1
+
+
 
 
 

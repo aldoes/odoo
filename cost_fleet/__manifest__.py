@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Cost",
+    'name': "Fleet Cost",
 
-    'summary': "Cost Module",
+    'summary': "Fleet Cost Module",
 
     'description': """
-Module for Cost
+Module for Cost of Fleet
     """,
 
     'author': "Aldo Escobar",
@@ -19,17 +19,15 @@ Module for Cost
 
     # any module necessary for this one to work correctly
     #'depends': ['base','purchase','fleet','hr'],.
-    'depends': ['base','purchase'],
+    'depends': ['base','purchase','fleet'],
 
     # always loaded
     'data': [
-        #'security/cost_security.xml',
-        #'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
+        'data/cost.fleet.vehicle.model.spare.cat.csv',
+        'data/cost_fleet_vehicle_data.xml',
         'data/cost_fleet_fuel_data.xml',
-        #'data/cost.fleet.vehicle.model.consumable.cat.csv'
-        'views/cost_fleet_fuel_view.xml', 
-        #'views/cost_fleet_vehicle_model_consumable_cat.xml'   
-        #'views/cost_fleet_vehicle_ext_view_form.xml'    
+        'views/fleet_views.xml',
     ],
 }
 
