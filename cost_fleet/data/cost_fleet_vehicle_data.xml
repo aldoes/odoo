@@ -2,10 +2,10 @@
 <odoo>
     <data noupdate="1">
         <record id='cat_pick' model="fleet.vehicle.model.category">
-            <field name="name">Pickup</field>   
+            <field name="name">Pickup</field>
         </record>
         <record id='cat_hatch' model="fleet.vehicle.model.category">
-            <field name="name">Hatchback</field>   
+            <field name="name">Hatchback</field>
         </record>
 
         <!--
@@ -19,40 +19,67 @@
             seats integer,
             doors integer,
             default_fuel_type character varying COLLATE pg_catalog."default",
-            fuel_effic double precision,
-         -->     
+         -->
         <record id='volks_saveiro_t' model="fleet.vehicle.model">
             <field name="name">Saveiro Trendline</field>
-            <field name="brand_id" ref="fleet.brand_volkswagen"/>
-            <field name="category_id" ref="cat_pick"/>
-            <field name="transmission">manual</field>
-            <field name="vehicle_type">car</field>
-            <field name="seats">2</field>
-            <field name="doors">2</field>
-            <field name="default_fuel_type">biflex</field>            
-        </record>
-        <record id='volks_saveiro_h' model="fleet.vehicle.model">
-            <field name="name">Saveiro Highline</field>
-            <field name="brand_id" ref="fleet.brand_volkswagen"/>
-            <field name="category_id" ref="cat_pick"/>
+            <field name="brand_id" ref="fleet.brand_volkswagen" />
+            <field name="category_id" ref="cat_pick" />
             <field name="transmission">manual</field>
             <field name="vehicle_type">car</field>
             <field name="seats">2</field>
             <field name="doors">2</field>
             <field name="default_fuel_type">biflex</field>
-      
+        </record>
+        <record id='volks_saveiro_h' model="fleet.vehicle.model">
+            <field name="name">Saveiro Highline</field>
+            <field name="brand_id" ref="fleet.brand_volkswagen" />
+            <field name="category_id" ref="cat_pick" />
+            <field name="transmission">manual</field>
+            <field name="vehicle_type">car</field>
+            <field name="seats">2</field>
+            <field name="doors">2</field>
+            <field name="default_fuel_type">biflex</field>
         </record>
         <record id='volks_gol' model="fleet.vehicle.model">
             <field name="name">Gol</field>
-            <field name="brand_id" ref="fleet.brand_volkswagen"/>
-            <field name="category_id" ref="cat_hatch"/>
+            <field name="brand_id" ref="fleet.brand_volkswagen" />
+            <field name="category_id" ref="cat_hatch" />
             <field name="transmission">manual</field>
             <field name="vehicle_type">car</field>
             <field name="seats">4</field>
             <field name="doors">4</field>
             <field name="default_fuel_type">biflex</field>
-
         </record>
+        <!-- Category Fuel -->
+        <!-- "cost_fleet.cat_fuel_gasoline"
+        "cost_fleet.cat_fuel_diesel"
+        "cost_fleet.cat_fuel_alco" -->
+
+        <!-- Load vehicles -->
+        <!-- model_id integer NOT NULL,
+            brand_id integer,
+            license_plate character,
+            state_id integer,
+            seats integer,
+            doors integer,
+            horsepower integer,
+            power integer,
+            category_id integer,
+        active boolean, -->
+
+        <!-- <record id='saveiro_1' model="fleet.vehicle">
+            <field name="brand_id" ref="fleet.brand_volkswagen"/>
+            <field name="model_id" ref="fleet.volks_saveiro_t"/>
+            <field name="model_year">2018</field>            
+            <field name="license_plate"></field>
+            <field name="category_id" ref="cat_pick" />
+            <field name="transmission">manual</field>            
+            <field name="vehicle_type"></field>
+            <field name="seats">4</field>
+            <field name="doors">4</field>
+            <field name="fuel_type">biflex</field>
+            <field name="active">True</field>
+        </record> -->
 
     </data>
 </odoo>
