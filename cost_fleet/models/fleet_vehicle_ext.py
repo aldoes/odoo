@@ -7,7 +7,7 @@ class FleetVehicleEx(models.Model):
     _inherit  = 'fleet.vehicle'
     _description = 'Vehicle Extender'
 
-    fuel_effic = fields.Float(string="Km/lt",required=True, default=10.0)
+    #fuel_effic = fields.Float(string="Km/lt",required=True, default=10.0)
 
     # def _compute_defaul_fuel_effic(self):        
     #     for vehicle in self:

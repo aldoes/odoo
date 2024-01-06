@@ -29,8 +29,7 @@
             <field name="vehicle_type">car</field>
             <field name="seats">2</field>
             <field name="doors">2</field>
-            <field name="default_fuel_type">gasoline</field>
-    
+            <field name="default_fuel_type">biflex</field>            
         </record>
         <record id='volks_saveiro_h' model="fleet.vehicle.model">
             <field name="name">Saveiro Highline</field>
@@ -40,7 +39,7 @@
             <field name="vehicle_type">car</field>
             <field name="seats">2</field>
             <field name="doors">2</field>
-            <field name="default_fuel_type">gasoline</field>
+            <field name="default_fuel_type">biflex</field>
       
         </record>
         <record id='volks_gol' model="fleet.vehicle.model">
@@ -51,7 +50,7 @@
             <field name="vehicle_type">car</field>
             <field name="seats">4</field>
             <field name="doors">4</field>
-            <field name="default_fuel_type">gasoline</field>
+            <field name="default_fuel_type">biflex</field>
 
         </record>
 
