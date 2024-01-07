@@ -80,6 +80,20 @@
             <field name="fuel_type">biflex</field>
             <field name="active">True</field>
         </record> -->
+        <!-- <record id="vehicle_5" model="fleet.vehicle">
+            <field name="license_plate">1-MER-001</field>
+            <field name="vin_sn">789546128</field>
+            <field name="model_id" ref="model_classa"/>
+            <field name="color">Brown</field>
+            <field name="location">Grand-Rosiere</field>
+            <field name="doors">5</field>
+            <field name="driver_id" ref="base.res_partner_address_15" />
+            <field name="acquisition_date" eval="time.strftime('%Y-%m-%d 2:00:00')" />
+            <field name="state_id" ref="fleet_vehicle_state_registered"/>
+            <field name="odometer_unit">kilometers</field>
+            <field name="car_value">18000</field>
+            <field eval="[(6,0,[ref('vehicle_tag_leasing'),ref('fleet.vehicle_tag_purchased'),ref('fleet.vehicle_tag_senior')])]" name="tag_ids"/>
+        </record> -->
 
     </data>
 </odoo>
