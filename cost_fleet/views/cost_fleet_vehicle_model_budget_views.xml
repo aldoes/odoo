@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- View cost.fleet.vehicle.model.budget View Tree -->
+    <record id="view_cost_fleet_vehicle_model_budget_tree" model="ir.ui.view">
+        <field name="name">view.cost.fleet.vehicle.model.budget.tree</field>
+        <field name="model">cost.fleet.vehicle.model.budget</field>
+        <field name="arch" type="xml">
+            <tree string="Cost Fleet Vehicle Model Budget">                
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- View cost.fleet.vehicle.model.budget form -->
+    <record id="view_cost_fleet_vehicle_model_budget_form" model="ir.ui.view">
+        <field name="name">view.cost.fleet.vehicle.model.budget.form</field>
+        <field name="model">cost.fleet.vehicle.model.budget</field>
+        <field name="arch" type="xml">
+            <form string="Cost Fleet Vehicle Model Budget">
+                <header></header>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="Name..."/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- View cost.fleet.vehicle.model.budget search
+    <record id="view_cost_fleet_vehicle_model_budget_search" model="ir.ui.view">
+        <field name="name">view.cost.fleet.vehicle.model.budget.search</field>
+        <field name="model">cost.fleet.vehicle.model.budget</field>
+        <field name="arch" type="xml">
+            <search string="Cost Fleet Vehicle Model Budget">
+                <group expand="1" string="Group By">
+                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}"/>
+                </group>
+            </search>
+        </field>
+    </record> -->
+
+    <!-- Action cost.fleet.vehicle.model.budget -->
+    <record id="action_cost_fleet_vehicle_model_budget" model="ir.actions.act_window">
+        <field name="name">Cost Fleet Vehicle Model Budget</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cost.fleet.vehicle.model.budget</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new Cost Fleet Vehicle Model Budget.
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="menu_model_budget" name="Budget" parent="fleet.fleet_models_configuration" sequence="6" action="action_cost_fleet_vehicle_model_budget" />
+
+</odoo>
