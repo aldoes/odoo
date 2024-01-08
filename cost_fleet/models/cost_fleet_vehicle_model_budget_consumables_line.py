@@ -2,11 +2,11 @@
 
 from odoo import models, fields
 
-class CostFleetModelBudgetConsumablesline(models.Model):
-   _name = 'cost.fleet.model.budget.consumables.line'
+class CostFleetVehicleModelBudgetConsumablesline(models.Model):
+   _name = 'cost.fleet.vehicle.model.budget.consumables.line'
    _description = 'Line Links the model Budget with consumables'
 
-   budget_id = fields.Many2one('cost.fleet.vehicle.model.budget',string='Budget', required=True)
+   budget_id = fields.Many2one('cost.fleet.vehicle.model.budget',string='Budget', required=True, ondelete="cascade")
    spare_cat_id = fields.Many2one('cost.fleet.vehicle.model.spare.cat',string='Consumables', required=True)
    qty = fields.Float(default=1.0,string='Quantity')   
    currency_id = fields.Many2one('res.currency',string='Currency', required=True)
