@@ -177,3 +177,20 @@ msgstr "Extensor de Vehiculo"
 #: model:ir.model,name:cost_fleet.model_fleet_vehicle_model
 msgid "Vehicle Model Extender"
 msgstr "Modelo Extensor de Vehiculo"
+
+#. module: cost_fleet
+#: model:ir.model.fields,field_description:cost_fleet.field_cost_fleet_model_budget_consumables_line__budget_id
+#: model:ir.model.fields,field_description:cost_fleet.field_cost_fleet_model_budget_services_line__budget_id
+#: model:ir.ui.menu,name:cost_fleet.menu_model_budget
+msgid "Budget"
+msgstr "Presupuesto"
+
+#. module: cost_fleet
+#: model:ir.model,name:cost_fleet.model_cost_fleet_model_budget_services_line
+msgid "Line Links the model Budget with services"
+msgstr "Enlaces del modelo del vehiculo con Servicios"
+
+#. module: cost_fleet
+#: model:ir.model,name:cost_fleet.model_cost_fleet_vehicle_model_budget
+msgid "Link the model Vehicle with consumables"
+msgid "Link the model Vehicle Budget with consumables"
