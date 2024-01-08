@@ -73,6 +73,7 @@
                     </h1> 
                     <h2>  
                         <field name="model_id" nolabel="0" placeholder="Vehicle Model"/>  
+                        <!-- #TODO Convertir a many2many con widget -->
                     </h2>
                 </div>               
                 <sheet>                   
