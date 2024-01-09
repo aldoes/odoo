@@ -7,11 +7,11 @@ class CostFleetVehicleModelBudgetConsumablesline(models.Model):
    _description = 'Line Links the model Budget with consumables'
 
    budget_id = fields.Many2one('cost.fleet.vehicle.model.budget',string='Budget', required=True, ondelete="cascade")
-   spare_cat_id = fields.Many2one('cost.fleet.vehicle.model.spare.cat',string='Consumables', required=True)
+   spare_cat_id = fields.Many2one('cost.fleet.vehicle.model.spare.cat',string='Consumables', required=True,ondelete="restrict")
    qty = fields.Float(default=1.0,string='Quantity')   
    currency_id = fields.Many2one('res.currency',string='Currency', required=True)
    value = fields.Monetary(string='Value', required=True)
-   km_use = fields.Integer(string="life (km)")
+   km_use = fields.Integer(string="life (km)", default=100)
    obs= fields.Text(string="Description")
 
 
