@@ -14,6 +14,8 @@ class CostFleetVehicleModelBudgetConsumablesline(models.Model):
    km_use = fields.Integer(string="life (km)", default=100)
    obs= fields.Text(string="Description")
 
+   #TODO - crear campos compute del costo x km de la linea de consumible
+
 
 
 

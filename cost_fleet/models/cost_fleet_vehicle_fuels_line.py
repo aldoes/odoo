@@ -2,8 +2,8 @@
 
 from odoo import models, fields
 
-class CostFleetVehicleModelFuels(models.Model):
-   _name = 'cost.fleet.vehicle.model.fuels'
+class CostFleetVehicleFuelsline(models.Model):
+   _name = 'cost.fleet.vehicle.fuels.line'
    _description = 'Fuels enabled for model'
    
    vehicle_id = fields.Many2one(comodel_name='fleet.vehicle',string='Vehicle',ondelete="cascade")

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from odoo import models, fields
 
-class CostFleetModelBudget(models.Model):
+class CostFleetVehicleModelBudget(models.Model):
    _name = 'cost.fleet.vehicle.model.budget'
    _description = 'Link the model Vehicle with consumables'
 

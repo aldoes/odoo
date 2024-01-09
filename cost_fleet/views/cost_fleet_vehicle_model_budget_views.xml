@@ -102,6 +102,6 @@
     </record>
 
     <menuitem id="menu_model_budget" name="Budget" parent="fleet.fleet_models_configuration"
-        sequence="6" action="action_cost_fleet_vehicle_model_budget" />
+        sequence="12" action="action_cost_fleet_vehicle_model_budget" />
 
 </odoo>
