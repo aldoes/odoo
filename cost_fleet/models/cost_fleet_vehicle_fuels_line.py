@@ -15,4 +15,6 @@ class CostFleetVehicleFuelsline(models.Model):
    )
    fuel_effic = fields.Float(string="Km/lt",required=True, default=10.0)
 
+   #TODO Agregar constraint unique vehicle_id,fuel_cat_id
+
 

@@ -11,3 +11,11 @@ class FleetVehicleEx(models.Model):
         comodel_name='cost.fleet.vehicle.fuels.line', 
         inverse_name="vehicle_id", 
         string="Fuel Category Enabled")
+    values_ids = fields.One2many(
+        comodel_name='cost.fleet.vehicle.values.line', 
+        inverse_name="vehicle_id", 
+        string="Values for year")
+
+    
+
+  

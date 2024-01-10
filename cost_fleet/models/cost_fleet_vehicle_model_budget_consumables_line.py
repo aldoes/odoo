@@ -15,6 +15,7 @@ class CostFleetVehicleModelBudgetConsumablesline(models.Model):
    obs= fields.Text(string="Description")
 
    #TODO - crear campos compute del costo x km de la linea de consumible
+   #TODO Agregar constraint UNIQUE budget_id,spare_cat_id
 
 
 

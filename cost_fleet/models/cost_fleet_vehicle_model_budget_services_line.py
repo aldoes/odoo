@@ -14,6 +14,7 @@ class CostFleetVehicleModelBudgetServicesline(models.Model):
    obs = fields.Text(string="Description")
 
     #TODO - crear campos compute del costo x km de la linea de servicio
+    #TODO Agregar constraint UNIQUE budget_id,service_type_id
 
 
 

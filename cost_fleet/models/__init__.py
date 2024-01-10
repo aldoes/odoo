@@ -9,3 +9,4 @@ from . import cost_fleet_vehicle_fuels_line
 from . import cost_fleet_vehicle_model_budget
 from . import cost_fleet_vehicle_model_budget_services_line
 from . import cost_fleet_vehicle_model_budget_consumables_line
+from . import cost_fleet_vehicle_values_line
