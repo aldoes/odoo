@@ -19,12 +19,15 @@
         <field name="name">view.cost.fleet.vehicle.model.budget.consumables.line.tree</field>
         <field name="model">cost.fleet.vehicle.model.budget.consumables.line</field>
         <field name="arch" type="xml">
-            <tree string="Services" edit="1" editable="top">
+            <tree string="Consumables" edit="1" editable="top">
                 <field name="spare_cat_id" />
                 <field name="qty" />
-                <field name="value" />
+                <field name="unit_price" />
                 <field name="currency_id" />
+                <field name="taxes_id" widget="many2many_tags"
+                       domain="[('type_tax_use', '=', 'purchase')]"/>
                 <field name="km_use" />
+                <field name="cost_km" />
                 <field name="obs" />
             </tree>
         </field>
@@ -37,9 +40,12 @@
         <field name="arch" type="xml">
             <tree string="Services" edit="1" editable="top">
                 <field name="service_type_id" />
-                <field name="value" />
+                <field name="price" />
                 <field name="currency_id" />
+                <field name="taxes_id" widget="many2many_tags"
+                       domain="[('type_tax_use', '=', 'purchase')]"/>
                 <field name="km_use" />
+                <field name="cost_km" />
                 <field name="obs" />
             </tree>
         </field>

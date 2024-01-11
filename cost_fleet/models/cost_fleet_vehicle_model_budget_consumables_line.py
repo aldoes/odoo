@@ -11,18 +11,21 @@ class CostFleetVehicleModelBudgetConsumablesline(models.Model):
    spare_cat_id = fields.Many2one('cost.fleet.vehicle.model.spare.cat',string='Consumables', required=True,ondelete="restrict")
    qty = fields.Float(default=1.0,string='Quantity')   
    currency_id = fields.Many2one('res.currency',string='Currency', required=True)
-   value = fields.Monetary(string='Value', required=True,default=1.0)
+   unit_price = fields.Monetary(string='Unit Price', required=True,default=1.0, help="Price with tax")
+   taxes_id = fields.Many2one('account.tax', string='Taxes', domain=['|', ('active', '=', False), ('active', '=', True)], context={'active_test': False})
    km_use = fields.Integer(string="life (km)", default=100)
    cost_km = fields.Monetary(string='Cost/Km',compute='_compute_cost_by_km', stored=True)
-   obs= fields.Text(string="Description")
+   obs= fields.Text(string="Details")
    
-   @api.depends('value','km_use')
+   @api.depends('qty','unit_price','km_use')
    def _compute_cost_by_km(self):
       for line in self
          if line.km_use = 0.0:
             line.cost_km = 0.0
          else:
-            line.cost_km = line.value / line.km_use
+            line.cost_km = line.unit_price / (line.axes_id.amount/100) * qty / line.km_use #formula provisoria
+
+   #TODO usar calculo de impuesto incluido o no
 
 
 
