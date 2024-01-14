@@ -25,7 +25,7 @@ Module for Cost of Fleet
     "data": [
         "security/ir.model.access.csv",
         "data/cost.fleet.vehicle.model.spare.cat.csv",
-        #"data/fleet_model_service.xml", TODO: falta cargar datos
+        "data/fleet_model_service.xml", TODO: falta cargar datos
         "data/cost_fleet_vehicle_data.xml",
         "data/cost_fleet_fuel_data.xml",
         "views/account_fiscal_year_views.xml",
