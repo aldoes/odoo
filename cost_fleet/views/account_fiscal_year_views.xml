@@ -10,14 +10,14 @@
             </xpath>
         </field>
     </record>
-    <!-- <record id="account_fiscal_year_ext_tree_view" model="ir.ui.view">
+    <record id="account_fiscal_year_ext_tree_view" model="ir.ui.view">
         <field name="name">Tree view for account.fiscal.year</field>
         <field name="model">account.fiscal.year</field>
         <field name="inherit_id" ref="account_fiscal_year.account_fiscal_year_tree_view"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='date_to']" position='after'>
+            <xpath expr="//tree/field[@name='date_to']" position='after'>
                 <field name="is_open"/>
             </xpath>
         </field>
-    </record> -->
+    </record>
 </odoo>
