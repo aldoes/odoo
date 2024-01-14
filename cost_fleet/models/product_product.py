@@ -3,7 +3,7 @@
 from odoo import api, fields, models
 from datetime import date
 
-class ProductProductExt(models.Model):
+class ProductProduct(models.Model):
     _inherit = 'product.product'
 
     last_cost = fields.Monetary(string="Last Cost", compute='_compute_last_cost')

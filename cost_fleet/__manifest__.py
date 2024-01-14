@@ -19,7 +19,7 @@ Module for Cost of Fleet
 
     # any module necessary for this one to work correctly
     #'depends': ['base','purchase','fleet','hr'],.
-    'depends': ['base','purchase','fleet'],
+    'depends': ['base','purchase','fleet','account_fiscal_year'],
 
     # always loaded
     "data": [
@@ -28,9 +28,11 @@ Module for Cost of Fleet
         #"data/fleet_model_service.xml", TODO: falta cargar datos
         "data/cost_fleet_vehicle_data.xml",
         "data/cost_fleet_fuel_data.xml",
-        "views/cost_fleet_views.xml",
-        "views/cost_fleet_vehicle_model_budget_views.xml",
+        "views/account_fiscal_year_views.xml",
         "views/fleet_views.xml",
+        "views/cost_fleet_views.xml",
+        "views/cost_fleet_menu.xml",
     ],
+    'license':"LGPL-3",
 }
 

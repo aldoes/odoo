@@ -3,7 +3,7 @@
 from odoo import api, fields, models
 from datetime import date
 
-class AccountMoveEx(models.Model):
+class AccountMove(models.Model):
     _inherit = "account.move"
 
     def _get_last_purchase(self, product, date_limit= date.today()):      

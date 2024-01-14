@@ -32,7 +32,8 @@
           <group>
             <field name="values_ids" widget="one2many" string="Values" mode="tree">
                <tree editable="top" >       
-                <!-- <field name="year"/> -->      
+                <!-- <field name="year"/> -->  
+                  <field name="fiscal_year_id"/>    
                   <field name="value"/>
                   <field name="currency_id"/>
                   <field name="km_use"/>

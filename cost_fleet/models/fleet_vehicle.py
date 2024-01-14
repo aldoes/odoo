@@ -3,7 +3,7 @@
 from odoo import api, fields, models
 from datetime import date
 
-class FleetVehicleEx(models.Model):
+class FleetVehicle(models.Model):
     _inherit  = 'fleet.vehicle'
     _description = 'Vehicle Extender'
 

@@ -9,7 +9,7 @@ FUEL_TYPES.extend([
         ('biflex', 'Gasolina-Alcohol'),
     ])
 
-class FleetVehicleModelEx(models.Model):
+class FleetVehicleModel(models.Model):
     _inherit  = 'fleet.vehicle.model'
     _description = 'Vehicle Model Extender'
 
