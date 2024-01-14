@@ -10,22 +10,26 @@ class CostFleetVehicleModelBudgetConsumablesline(models.Model):
    budget_id = fields.Many2one('cost.fleet.vehicle.model.budget',string='Budget', required=True, ondelete="cascade")
    spare_cat_id = fields.Many2one('cost.fleet.vehicle.model.spare.cat',string='Consumables', required=True,ondelete="restrict")
    qty = fields.Float(default=1.0,string='Quantity')   
-   currency_id = fields.Many2one('res.currency',string='Currency', required=True)
-   unit_price = fields.Monetary(string='Unit Price', required=True,default=1.0, help="Price with tax")
-   taxes_id = fields.Many2one('account.tax', string='Taxes', domain=['|', ('active', '=', False), ('active', '=', True)], context={'active_test': False})
    km_use = fields.Integer(string="life (km)", default=100)
-   cost_km = fields.Monetary(string='Cost/Km',compute='_compute_cost_by_km', store=True)
+   last_cost = fields.Monetary(string="Last Cost", store=False, readonly=True)
+   date_last_purchase = fields.Date(string="Date of Last Purchase", store=False,readonly=True)
+   cost_km = fields.Monetary(string='Cost/Km',compute='_compute_cost_km')
    obs= fields.Text(string="Details")
    
-   @api.depends('qty','unit_price','km_use')
-   def _compute_cost_by_km(self):
+   @api.depends('spare_cat_id','qty','km_use')
+   def _compute_cost_km(self):      
       for line in self:
-         if line.km_use == 0.0:
-            line.cost_km = 0.0
-         else:
-            line.cost_km = line.unit_price / (line.taxes_id.amount/100) * line.qty / line.km_use #formula provisoria
+         ####
+            '''
+               TODO last_cost: usar calculo de costo sin impuestos
+               TODO : Debe traer el ultimo costo sin impueso de la pieza comprada de la categoria de ese consumible/repuesto
+               que haya sido adquirido pare ese modelo.
+               TODO : Adaptar productos para registrar compras de repuestos e insumos para el modelo de vehiculo               
+            '''
+         ####
+      pass
 
-   #TODO usar calculo de impuesto incluido o no
+   
 
 
 

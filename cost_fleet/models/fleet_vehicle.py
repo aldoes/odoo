@@ -8,7 +8,7 @@ class FleetVehicle(models.Model):
     _description = 'Vehicle Extender'
 
     fuel_enab_cat_ids = fields.One2many(
-        comodel_name='cost.fleet.vehicle.fuels.line', 
+        comodel_name='cost.fleet.vehicle.fuel.cats.line', 
         inverse_name="vehicle_id", 
         string="Fuel Category Enabled")
     values_ids = fields.One2many(

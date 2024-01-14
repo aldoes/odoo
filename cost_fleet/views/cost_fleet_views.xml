@@ -21,10 +21,10 @@
             <tree string="Consumables" edit="1" editable="top">
                 <field name="spare_cat_id" />
                 <field name="qty" />
-                <field name="unit_price" />
+                <!-- <field name="unit_price" />
                 <field name="currency_id" />
                 <field name="taxes_id" widget="many2many_tags"
-                       domain="[('type_tax_use', '=', 'purchase')]"/>
+                       domain="[('type_tax_use', '=', 'purchase')]"/> -->
                 <field name="km_use" />
                 <field name="cost_km" />
                 <field name="obs" />
@@ -39,10 +39,10 @@
         <field name="arch" type="xml">
             <tree string="Services" edit="1" editable="top">
                 <field name="service_type_id" />
-                <field name="price" />
+                <!-- <field name="price" />
                 <field name="currency_id" />
                 <field name="taxes_id" widget="many2many_tags"
-                       domain="[('type_tax_use', '=', 'purchase')]"/>
+                       domain="[('type_tax_use', '=', 'purchase')]"/> -->
                 <field name="km_use" />
                 <field name="cost_km" />
                 <field name="obs" />
@@ -106,7 +106,7 @@
         </field>
     </record>
 
-  <!-- Fuel -->
+  <!-- Fuel
   <record id='cost_fleet_fuel_view_tree' model='ir.ui.view'>
     <field name="name">cost.fleet.fuel.tree</field>
     <field name="model">product.product</field>
@@ -114,13 +114,13 @@
       <tree string="Fuel" delete="0" edit="0">
         <field name="name" />
         <field name="categ_id"/>
-        <!-- <field name="categ_id" domain="[('complete_name','=like','Fuel_')]"/> -->
+        <field name="categ_id" domain="[('complete_name','=like','Fuel_')]"/> 
         <field name="currency_id" invisible="1" nolabel="1" />
         <field name="last_cost" widget="monetary" />
         <field name="date_last_purchase" />
       </tree>
     </field>
-  </record>
+  </record> -->
 
   <record id='cost_fleet_vehicle_model_spare_cat_view_tree' model='ir.ui.view'>
     <field name="name">cost.fleet.vehicle.model.spare.cat.tree</field>
@@ -133,13 +133,13 @@
     </field>
   </record>
 
-  <record model="ir.actions.act_window" id="action_cost_fleet_fuel">
+  <!-- <record model="ir.actions.act_window" id="action_cost_fleet_fuel">
     <field name="name">Cost Fuel</field>
     <field name="res_model">product.product</field>
     <field name="domain">[('categ_id.complete_name','like','Fuel')]</field>
      <field name="view_id" ref="cost_fleet_fuel_view_tree" />
     <field name="view_mode">tree</field>
-  </record>
+  </record> -->
 
   <record model="ir.actions.act_window" id="action_cost_fleet_vehicle_model_spare_cat">
     <field name="name">Consumables and Spare Parts</field>

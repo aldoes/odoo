@@ -27,14 +27,14 @@
         </record>
 
         <!-- Load Fuel Reg 
-            Resource: product.template
+            Resource: cost.fleet.vehicle.fuel
                 categ_id integer NOT NULL,
                 uom_id integer NOT NULL,
                 uom_po_id integer NOT NULL,
                 detailed_type NOT NULL,
                 name jsonb NOT NULL
         -->
-        <record id="prod_fuel_1" model="product.template">
+        <record id="prod_fuel_1" model="cost.fleet.vehicle.fuel">
             <field name="name">Shell Formula Regular Nafta 88</field>
             <field name="categ_id" ref="cat_fuel_gasoline"/>
             <field name="standard_price">6000.0</field>
@@ -42,7 +42,7 @@
             <field name="uom_po_id" ref="uom.product_uom_litre"/>
             <field name="sale_ok">False</field>
         </record>
-        <record id="prod_fuel_2" model="product.template">
+        <record id="prod_fuel_2" model="cost.fleet.vehicle.fuel">
             <field name="name">Shell Formula Super Nafta 93</field>
             <field name="categ_id" ref="cat_fuel_gasoline"/>
             <field name="standard_price">6500.0</field>
@@ -50,7 +50,7 @@
             <field name="uom_po_id" ref="uom.product_uom_litre"/>
             <field name="sale_ok">False</field>
         </record>
-        <record id="prod_fuel_3" model="product.template">
+        <record id="prod_fuel_3" model="cost.fleet.vehicle.fuel">
             <field name="name">Shell V-Power Nafta 97</field>
             <field name="categ_id" ref="cat_fuel_gasoline"/>
             <field name="standard_price">7850</field>
@@ -58,7 +58,7 @@
             <field name="uom_po_id" ref="uom.product_uom_litre"/>
             <field name="sale_ok">False</field>
         </record>
-        <record id="prod_fuel_4" model="product.template">
+        <record id="prod_fuel_4" model="cost.fleet.vehicle.fuel">
             <field name="name">Shell V-Power Diesel</field>
             <field name="categ_id" ref="cat_fuel_diesel"/>
             <field name="standard_price">9340.0</field>
@@ -66,7 +66,7 @@
             <field name="uom_po_id" ref="uom.product_uom_litre"/>
             <field name="sale_ok">False</field>
         </record>
-        <record id="prod_fuel_5" model="product.template">
+        <record id="prod_fuel_5" model="cost.fleet.vehicle.fuel">
             <field name="name">Shell Evolux Diesel</field>
             <field name="categ_id" ref="cat_fuel_diesel"/>
             <field name="standard_price">7990.0</field>
@@ -83,8 +83,8 @@
                 min_qty numeric NOT NULL,
                 price numeric NOT NULL,
         -->
-        <record id="product_supplierinfo_1" model="product.supplierinfo">
-            <field name="product_tmpl_id" ref="prod_fuel_1"/>
+         <!--<record id="product_supplierinfo_1" model="product.supplierinfo">
+            <field name="product_tmpl_id" ref="prod_fuel_1_cost_fleet_vehicle_fuel_product_product_product_template"/>
             <field name="partner_id" ref="provider01"/>
             <field name="delay">1</field>
             <field name="min_qty">1</field>
@@ -122,7 +122,7 @@
             <field name="min_qty">1</field>
             <field name="price">7990.0</field>
             <field name="currency_id" search="[('name','=','PYG')]"/>
-        </record>
+        </record> -->
     </data>
 </odoo>
 

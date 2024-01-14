@@ -8,6 +8,10 @@
             <field name="name">Hatchback</field>
         </record>
 
+        <record id="cat_vehicle_spare" model="product.category">
+            <field name="name">Vehicle Spare</field>
+        </record>
+
         <!--
             Resource: fleet.vehicle.model
             Fields:
