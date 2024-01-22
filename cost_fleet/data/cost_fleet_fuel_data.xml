@@ -73,7 +73,7 @@
             <field name="uom_id" ref="uom.product_uom_litre"/>
             <field name="uom_po_id" ref="uom.product_uom_litre"/>
             <field name="sale_ok">False</field>
-        </record>
+        </record> 
 
          <!-- Precios en los proveedores
             Resource: product.supplierinfo
@@ -83,15 +83,15 @@
                 min_qty numeric NOT NULL,
                 price numeric NOT NULL,
         -->
-         <!--<record id="product_supplierinfo_1" model="product.supplierinfo">
-            <field name="product_tmpl_id" ref="prod_fuel_1_cost_fleet_vehicle_fuel_product_product_product_template"/>
-            <field name="partner_id" ref="provider01"/>
-            <field name="delay">1</field>
-            <field name="min_qty">1</field>
-            <field name="price">6000.0</field>
-            <field name="currency_id" search="[('name','=','PYG')]"/>
-        </record>
-        <record id="product_supplierinfo_2" model="product.supplierinfo">
+          <!-- record id="product_supplierinfo_1" model="product.supplierinfo">
+            field name="product_tmpl_id" ref="?????????"                
+            field name="partner_id" ref="provider01"/
+            field name="delay">1</field>
+            field name="min_qty">1</field>
+            field name="price">6000.0</field>
+            field name="currency_id" search="[('name','=','PYG')]"/>
+        /record> -->
+        <!--<record id="product_supplierinfo_2" model="product.supplierinfo">
             <field name="product_tmpl_id" ref="prod_fuel_2"/>
             <field name="partner_id" ref="provider01"/>
             <field name="delay">1</field>

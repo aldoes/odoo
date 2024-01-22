@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id='cost_fleet_vehicle_model_spare_view_tree' model='ir.ui.view'>
+    <field name="name">cost.fleet.vehicle.model.spare.tree</field>
+    <field name="model">cost.fleet.vehicle.model.spare</field>
+    <field name="arch" type="xml">
+      <tree string="Consumables and Spare Parts">
+        <field name="name"/>
+        <field name="model_ids" widget="many2many_tags"/>
+        <field name="categ_id"/>
+      </tree>
+    </field>
+  </record>
+
+  <!-- <record id='cost_fleet_vehicle_model_spare_view_form' model='ir.ui.view'>
+    <field name="name">cost.fleet.vehicle.model.spare.form</field>
+    <field name="model">cost.fleet.vehicle.model.spare</field>
+    <field name="inherit_id" ref="product.product_template_only_form_view"/>
+    <field name="arch" type="xml"/>
+      <form>
+        <group>
+            <field name="name"/>
+        </group>
+      </form>
+      <xpath expr="//field[@name='detailed_type']" position="after">
+        <field name="model_ids" widget="many2many_tags"/>
+      </xpath> 
+    </field>
+  </record> -->
+
+  <record model="ir.actions.act_window" id="action_cost_fleet_vehicle_model_spare">
+    <field name="name">Consumables and Spare Parts</field>
+    <field name="res_model">cost.fleet.vehicle.model.spare</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+</odoo>

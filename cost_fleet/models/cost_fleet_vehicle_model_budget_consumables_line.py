@@ -8,24 +8,26 @@ class CostFleetVehicleModelBudgetConsumablesline(models.Model):
    _sql_constraints = [('spare_cat_uniq', 'unique(budget_id,spare_cat_id )', "Duplicate consumable or spare part line"), ]
 
    budget_id = fields.Many2one('cost.fleet.vehicle.model.budget',string='Budget', required=True, ondelete="cascade")
-   spare_cat_id = fields.Many2one('cost.fleet.vehicle.model.spare.cat',string='Consumables', required=True,ondelete="restrict")
+   spare_cat_id = fields.Many2one('product.category',string='Consumables', required=True,ondelete="restrict")
    qty = fields.Float(default=1.0,string='Quantity')   
    km_use = fields.Integer(string="life (km)", default=100)
-   last_cost = fields.Monetary(string="Last Cost", store=False, readonly=True)
-   date_last_purchase = fields.Date(string="Date of Last Purchase", store=False,readonly=True)
-   cost_km = fields.Monetary(string='Cost/Km',compute='_compute_cost_km')
+   #last_cost = fields.Monetary(string="Last Cost", store=False, readonly=True)
+   #date_last_purchase = fields.Date(string="Date of Last Purchase", store=False,readonly=True)
+   # currency_id = fields.Many2one('res.currency',string='Currency', required=True)
+   # cost_km = fields.Monetary(string='Cost/Km',compute='_compute_cost_km')
    obs= fields.Text(string="Details")
    
    @api.depends('spare_cat_id','qty','km_use')
    def _compute_cost_km(self):      
       for line in self:
+         line.cost_km = 0.0
          ####
-            '''
-               TODO last_cost: usar calculo de costo sin impuestos
-               TODO : Debe traer el ultimo costo sin impueso de la pieza comprada de la categoria de ese consumible/repuesto
-               que haya sido adquirido pare ese modelo.
-               TODO : Adaptar productos para registrar compras de repuestos e insumos para el modelo de vehiculo               
-            '''
+         '''
+            TODO last_cost: usar calculo de costo sin impuestos
+            TODO : Debe traer el ultimo costo sin impueso de la pieza comprada de la categoria de ese consumible/repuesto
+            que haya sido adquirido pare ese modelo.
+            TODO : Adaptar productos para registrar compras de repuestos e insumos para el modelo de vehiculo               
+         '''
          ####
       pass
 

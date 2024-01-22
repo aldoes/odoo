@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id='cost_fleet_fuel_view_tree' model='ir.ui.view'>
+    <field name="name">cost.fleet.vehicle.fuel.tree</field>
+    <field name="model">cost.fleet.vehicle.fuel</field>
+    <field name="arch" type="xml">
+      <tree string="Fuel">
+        <field name="name" />
+        <field name="categ_id"/>
+        <!-- <field name="currency_id" invisible="1" nolabel="1" />
+        <field name="last_cost" widget="monetary" />
+        <field name="date_last_purchase" /> -->
+      </tree>
+    </field>
+  </record>
+<!-- 
+  <record id='cost_fleet_vehicle_model_spare_view_form' model='ir.ui.view'>
+    <field name="name">cost.fleet.vehicle.fuel.form</field>
+    <field name="model">cost.fleet.vehicle.fuel</field>
+    <field name="inherit_id" ref="product.product_template_only_form_view"/>
+    <field name="arch" type="xml"/>
+  </record> -->
+  <record model="ir.actions.act_window" id="action_cost_fleet_fuel">
+    <field name="name">Cost Fuel</field>
+    <field name="res_model">cost.fleet.vehicle.fuel</field>
+    <field name="view_mode">tree,form</field>
+  </record>
+</odoo>

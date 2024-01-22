@@ -10,10 +10,6 @@ Module for Cost of Fleet
 
     'author': "Aldo Escobar",
     'website': "",
-
-    # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/15.0/odoo/addons/base/data/ir_module_category_data.xml
-    # for the full list
     'category': 'Cost',
     'version': '0.2.0',
 
@@ -23,16 +19,19 @@ Module for Cost of Fleet
 
     # always loaded
     "data": [
-        "security/ir.model.access.csv",
-        "data/cost.fleet.vehicle.model.spare.cat.csv",
+        "security/ir.model.access.csv",    
         #"data/fleet_model_service.xml", TODO: falta cargar datos
         "data/cost_fleet_vehicle_data.xml",
         "data/cost_fleet_fuel_data.xml",
+        "data/cost_fleet_spare_cat_data.xml",
+        "data/product.category.csv",
         "views/account_fiscal_year_views.xml",
+        "views/product_category_views.xml",
+        "views/cost_fleet_model_spare_views.xml",
+        "views/cost_fleet_vehicle_fuel.xml",
         "views/fleet_views.xml",
         "views/cost_fleet_views.xml",
         "views/cost_fleet_menu.xml",
-        #"views/product_product_views.xml",
     ],
     'license':"LGPL-3",
 }

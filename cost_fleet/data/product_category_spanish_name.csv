@@ -1,0 +1,30 @@
+id,parent_id/id,name,sequence
+cons_1,cost_fleet.cat_spare,Neumaticos,10
+cons_2,cost_fleet.cat_spare,Pastillas Freno de Disco,20
+cons_3,cost_fleet.cat_spare,Discos de Freno,30
+cons_4,cost_fleet.cat_spare,Pastillas Freno de Zapatas,40
+cons_5,cost_fleet.cat_spare,Filtro Aceite Motor,50
+cons_6,cost_fleet.cat_spare,Lts de Aceite Motor,60
+cons_7,cost_fleet.cat_spare,Filtro Aire,70
+cons_8,cost_fleet.cat_spare,Filtro Combustible,80
+cons_9,cost_fleet.cat_spare,Lts de Aceite Caja,90
+cons_10,cost_fleet.cat_spare,Filtro Aceite Caja,100
+cons_11,cost_fleet.cat_spare,CableS Bujias,110
+cons_12,cost_fleet.cat_spare,Bujias,120
+cons_13,cost_fleet.cat_spare,Bobina Arranque,130
+cons_14,cost_fleet.cat_spare,Limpiaparabrisa,140
+cons_15,cost_fleet.cat_spare,Bateria,150
+cons_16,cost_fleet.cat_spare,Lubricantes y Fluidos,160
+cons_17,cost_fleet.cat_spare,Fluido Freno,170
+cons_18,cost_fleet.cat_spare,Filtro Aire de Cabina,180
+cons_19,cost_fleet.cat_spare,Correa Dentada,190
+cons_20,cost_fleet.cat_spare,Correa Alternador,200
+cons_21,cost_fleet.cat_spare,Correa Aire,210
+cons_22,cost_fleet.cat_spare,Rodillo tensor correa dentada,220
+cons_23,cost_fleet.cat_spare,Rodillo tensor Correa Alternador,230
+cons_24,cost_fleet.cat_spare,Fluido Freno,240
+cons_25,cost_fleet.cat_spare,Agua Radiador,250
+cons_26,cost_fleet.cat_spare,Foco Alta,260
+cons_27,cost_fleet.cat_spare,Foco Baja,270
+cons_28,cost_fleet.cat_spare,Foco Trasero,280
+cons_29,cost_fleet.cat_spare,Fusible,290

@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
   <!-- Add Fields to  fleet.vehicle form view -->
-  <!-- <record id='cost_fleet_vehicle_view_form' model='ir.ui.view'>
-    <field name="name">cost.fleet.vehicle.form</field>
-    <field name="res_model">fleet.vehicle</field>
-    <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
-    <field name="arch" type="xml">
-        <xpath expr="//field[@name='fuel_type']" position="after">
-          <field name="fuel_effic"/>
-      </xpath>
-    </field>
-  </record> -->
-
   <record id='cost_fleet_vehicle_ext_view_form' model='ir.ui.view'>
     <field name="name">cost.fleet.vehicle.ext.form</field>
     <field name="model">fleet.vehicle</field>
@@ -32,7 +21,6 @@
           <group>
             <field name="values_ids" widget="one2many" string="Values" mode="tree">
                <tree editable="top" >       
-                <!-- <field name="year"/> -->  
                   <field name="fiscal_year_id"/>    
                   <field name="value"/>
                   <field name="currency_id"/>
