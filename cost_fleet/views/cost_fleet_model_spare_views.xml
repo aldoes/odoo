@@ -35,7 +35,10 @@
             <h3>
               <field name="categ_id" string="Product Category" on_change="1" can_write="True" field_id="categ_id_0" domain="[('complete_name','like', 'Vehicular /')]"/>
             </h3>
+            <label for="model_ids" string="Models"/>
+            <field name="model_ids" nolabel="0" placeholder="Vehicle Model" widget="many2many_tags" />
           </div>
+           <newline />
           <div name="options">
             <span class="d-inline-block">
               <field name="sale_ok" field_id="sale_ok_0"/>
@@ -46,6 +49,7 @@
               <label for="purchase_ok"/>
             </span>
           </div>
+          <newline />
           <notebook>
             <page string="General Information" name="general_information">
               <group>

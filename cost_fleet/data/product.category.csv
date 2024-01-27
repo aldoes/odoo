@@ -28,3 +28,10 @@ cons_v_spa_3,cost_fleet.cat_veh_spare,Air Conditioning Belt,210
 cons_v_spa_4,cost_fleet.cat_veh_spare,Timing belt tensioner roller,220
 cons_v_spa_5,cost_fleet.cat_veh_spare,Alternator Belt Tensioner Roller,230
 cons_v_spa_6,cost_fleet.cat_veh_spare,Starter Coil,130
+cons_v_spa_7,cost_fleet.cat_veh_spare,Catalizer,140
+cons_v_spa_8,cost_fleet.cat_veh_spare,Valve,150
+cons_v_spa_9,cost_fleet.cat_veh_spare,Direction Pump,160
+cons_v_spa_10,cost_fleet.cat_veh_spare,Fuel Pump,170
+cons_v_spa_11,cost_fleet.cat_veh_spare,Oxygen sensor,180
+cons_v_spa_12,cost_fleet.cat_veh_spare,Bushings,190
+cons_v_spa_13,cost_fleet.cat_veh_spare,Connecting rods,200
