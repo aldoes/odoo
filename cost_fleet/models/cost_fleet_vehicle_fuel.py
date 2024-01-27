@@ -10,4 +10,5 @@ class costFleetVehicleFuel(models.Model):
     product_id = fields.Many2one(
         'product.product', 'Product Id',
         auto_join=True, index=True, ondelete="cascade", required=True)
+
     

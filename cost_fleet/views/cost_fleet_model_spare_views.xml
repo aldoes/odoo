@@ -11,23 +11,127 @@
       </tree>
     </field>
   </record>
-
-  <!-- <record id='cost_fleet_vehicle_model_spare_view_form' model='ir.ui.view'>
+  <record id='cost_fleet_vehicle_model_spare_view_form' model='ir.ui.view'>
     <field name="name">cost.fleet.vehicle.model.spare.form</field>
     <field name="model">cost.fleet.vehicle.model.spare</field>
-    <field name="inherit_id" ref="product.product_template_only_form_view"/>
-    <field name="arch" type="xml"/>
-      <form>
-        <group>
-            <field name="name"/>
-        </group>
+    <field name="arch" type="xml">
+      <form string="Vehicular Spare and Consumable" name="Product Template">
+        <field name="product_variant_count" invisible="1" field_id="product_variant_count_0"/>
+        <field name="is_product_variant" invisible="1" field_id="is_product_variant_0"/>
+        <field name="attribute_line_ids" invisible="1" on_change="1" field_id="attribute_line_ids_0"/>
+        <field name="type" invisible="1" on_change="1" field_id="type_0"/>
+        <field name="company_id" invisible="1" on_change="1" can_create="True" can_write="True" field_id="company_id_0"/>
+        <field name="fiscal_country_codes" invisible="1" field_id="fiscal_country_codes_0"/>
+        <sheet name="fuel_form">
+          <div class="oe_title">
+            <label for="name" string="Spare Name"/>
+            <h1>
+              <div class="d-flex">
+                <field name="priority" widget="priority" class="me-3" field_id="priority_0"/>
+                <field class="text-break" name="name" options="{'line_breaks': False}" widget="text" placeholder="e.g. Oil Model" field_id="name_0"/>
+              </div>
+            </h1>
+            <label for="categ_id" string="Category"/>
+            <h3>
+              <field name="categ_id" string="Product Category" on_change="1" can_create="True" can_write="True" field_id="categ_id_0"/>
+            </h3>
+          </div>
+          <div name="options">
+            <span class="d-inline-block">
+              <field name="sale_ok" field_id="sale_ok_0"/>
+              <label for="sale_ok"/>
+            </span>
+            <span class="d-inline-block">
+              <field name="purchase_ok" field_id="purchase_ok_0"/>
+              <label for="purchase_ok"/>
+            </span>
+          </div>
+          <notebook>
+            <page string="General Information" name="general_information">
+              <group>
+                <group name="group_general">
+                  <field name="active" invisible="1" field_id="active_0"/>
+                  <field name="detailed_type" on_change="1" field_id="detailed_type_0"/>
+                  <field name="product_tooltip" string="" class="fst-italic text-muted" invisible="type == 'service' and not sale_ok" field_id="product_tooltip_0"/>
+                </group>
+                <group name="group_standard_price">
+                  <label for="list_price"/>
+                  <div name="pricing" class="o_row">
+                    <field name="list_price" class="oe_inline" widget="monetary" options="{'currency_field': 'currency_id', 'field_digits': True}" on_change="1" field_id="list_price_0"/>
+                    <span class="ms-2"/>
+                    <field name="tax_string" field_id="tax_string_0"/>
+                  </div>
+                  <field name="taxes_id" widget="many2many_tags" context="{'default_type_tax_use':'sale', 'search_default_sale': 1, 'search_default_service': type == 'service', 'search_default_goods': type == 'consu'}" on_change="1" can_create="True" can_write="True" field_id="taxes_id_0"/>
+                  <label for="standard_price" invisible="product_variant_count &gt; 1 and not is_product_variant"/>
+                  <div name="standard_price_uom" invisible="product_variant_count &gt; 1 and not is_product_variant">
+                    <field name="standard_price" class="oe_inline" widget="monetary" options="{'currency_field': 'cost_currency_id', 'field_digits': True}" field_id="standard_price_0"/>
+                  </div>
+                  <field name="default_code" invisible="product_variant_count &gt; 1" on_change="1" field_id="default_code_0"/>
+                  <field name="valid_product_template_attribute_line_ids" invisible="1" field_id="valid_product_template_attribute_line_ids_0"/>
+                  <field name="currency_id" invisible="1" field_id="currency_id_0"/>
+                  <field name="cost_currency_id" invisible="1" field_id="cost_currency_id_0"/>
+                  <field name="product_variant_id" invisible="1" field_id="product_variant_id_0"/>
+                </group>
+                <field name="product_properties" columns="2" field_id="product_properties_0"/>
+              </group>
+              <group string="Internal Notes">
+                <field colspan="2" name="description" nolabel="1" placeholder="This note is only for internal purposes." field_id="description_0"/>
+              </group>
+            </page>
+            <page string="Purchase" name="purchase" invisible="not purchase_ok">
+              <field name="seller_ids" context="{'default_product_tmpl_id': id, 'product_template_invisible_variant': True, 'tree_view_ref':'purchase.product_supplierinfo_tree_view2'}" nolabel="1" invisible="product_variant_count &gt; 1" readonly="product_variant_count &gt; 1" field_id="seller_ids_0">
+                <tree string="Vendor Information" multi_edit="1" editable="bottom">
+                  <field name="sequence" widget="handle" field_id="sequence_0"/>
+                  <field name="partner_id" readonly="0" on_change="1" can_create="True" can_write="True" field_id="partner_id_0"/>
+                  <field name="product_id" optional="hide" readonly="0" column_invisible="context.get('product_template_invisible_variant', False)" domain="[('product_tmpl_id', '=', context.get('default_product_tmpl_id'))] if context.get('default_product_tmpl_id') else [('product_tmpl_id', '=', product_tmpl_id)]" options="{'no_create': True, 'no_open': True}" can_create="True" can_write="True" field_id="product_id_0"/>
+                  <field name="product_tmpl_id" string="Product" readonly="1" column_invisible="context.get('visible_product_tmpl_id', True)" on_change="1" field_id="product_tmpl_id_0"/>
+                  <field name="product_name" optional="hide" field_id="product_name_0"/>
+                  <field name="product_code" optional="hide" field_id="product_code_0"/>
+                  <field name="date_start" optional="hide" field_id="date_start_0"/>
+                  <field name="date_end" optional="hide" field_id="date_end_0"/>
+                  <field name="min_qty" optional="hide" field_id="min_qty_0"/>
+                  <field name="price" string="Price" field_id="price_0"/>
+                  <field name="discount" optional="hide" field_id="discount_0"/>
+                  <field name="currency_id" can_create="True" can_write="True" field_id="currency_id_0"/>
+                  <field name="delay" optional="show" field_id="delay_0"/>
+                  <field name="company_id" column_invisible="True" can_create="True" can_write="True" field_id="company_id_0"/>
+                </tree>
+              </field>
+              <field name="variant_seller_ids" context="{'model': 'product.template', 'active_id': id, 'tree_view_ref':'purchase.product_supplierinfo_tree_view2'}" nolabel="1" invisible="product_variant_count &lt;= 1" readonly="product_variant_count &lt;= 1" field_id="variant_seller_ids_0">
+                <tree string="Vendor Information" multi_edit="1" editable="bottom">
+                  <field name="sequence" widget="handle" field_id="sequence_0"/>
+                  <field name="partner_id" readonly="0" on_change="1" can_create="True" can_write="True" field_id="partner_id_0"/>
+                  <field name="product_id" optional="hide" readonly="0" column_invisible="context.get('product_template_invisible_variant', False)" domain="[('product_tmpl_id', '=', context.get('default_product_tmpl_id'))] if context.get('default_product_tmpl_id') else [('product_tmpl_id', '=', product_tmpl_id)]" options="{'no_create': True, 'no_open': True}" can_create="True" can_write="True" field_id="product_id_0"/>
+                  <field name="product_tmpl_id" string="Product" readonly="1" column_invisible="context.get('visible_product_tmpl_id', True)" on_change="1" field_id="product_tmpl_id_0"/>
+                  <field name="product_name" optional="hide" field_id="product_name_0"/>
+                  <field name="product_code" optional="hide" field_id="product_code_0"/>
+                  <field name="date_start" optional="hide" field_id="date_start_0"/>
+                  <field name="date_end" optional="hide" field_id="date_end_0"/>
+                  <field name="min_qty" optional="hide" field_id="min_qty_0"/>
+                  <field name="price" string="Price" field_id="price_0"/>
+                  <field name="discount" optional="hide" field_id="discount_0"/>
+                  <field name="currency_id" can_create="True" can_write="True" field_id="currency_id_0"/>
+                  <field name="delay" optional="show" field_id="delay_0"/>
+                  <field name="company_id" column_invisible="True" can_create="True" can_write="True" field_id="company_id_0"/>
+                </tree>
+              </field>
+              <group name="purchase">
+                <group string="Vendor Bills" name="bill">
+                  <field name="supplier_taxes_id" colspan="2" widget="many2many_tags" readonly="purchase_ok == 0" context="{'default_type_tax_use':'purchase'}" can_create="True" can_write="True" field_id="supplier_taxes_id_0"/>
+                  <field name="purchase_method" widget="radio" field_id="purchase_method_0"/>
+                </group>
+                <group col="1">
+                  <group string="Purchase Description">
+                    <field name="description_purchase" nolabel="1" colspan="2" placeholder="This note is added to purchase orders." field_id="description_purchase_0"/>
+                  </group>
+                </group>
+              </group>
+            </page>
+          </notebook>
+        </sheet>
       </form>
-      <xpath expr="//field[@name='detailed_type']" position="after">
-        <field name="model_ids" widget="many2many_tags"/>
-      </xpath> 
     </field>
-  </record> -->
-
+  </record>
   <record model="ir.actions.act_window" id="action_cost_fleet_vehicle_model_spare">
     <field name="name">Consumables and Spare Parts</field>
     <field name="res_model">cost.fleet.vehicle.model.spare</field>
