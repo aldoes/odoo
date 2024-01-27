@@ -10,7 +10,6 @@ FUEL_TYPES.extend([
 
 class FleetVehicleModel(models.Model):
     _inherit  = 'fleet.vehicle.model'
-    _description = 'Vehicle Model Extender'
 
     budget_ids = fields.Many2many('cost.fleet.vehicle.model.budget', string="Budgets")
     

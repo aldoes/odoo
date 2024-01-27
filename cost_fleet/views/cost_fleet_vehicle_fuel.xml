@@ -35,7 +35,7 @@
               </h1>
               <label for="categ_id" string="Category"/>
             <h3>
-            <field name="categ_id" string="Product Category" on_change="1" can_create="True" can_write="True" field_id="categ_id_0"/>
+            <field name="categ_id" string="Product Category" on_change="1" can_write="True" field_id="categ_id_0" domain="['|',('complete_name','like', 'Fuel /'),('complete_name','like', 'Combustible /')]"/>
             </h3>
           </div>
           <div name="options">

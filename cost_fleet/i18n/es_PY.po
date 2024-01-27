@@ -223,7 +223,7 @@ msgstr "Vehicular / Consumible / Pastilla de Freno Zapata"
 #. module: cost_fleet
 #: model:product.category,complete_name:cost_fleet.cons_v_con_17
 msgid "Vehicular / Consumable / Cabin Air Filter"
-msgstr "Vehicular / Consumaile / Filtro de aire de cabina"
+msgstr "Vehicular / Consumible / Filtro de aire de cabina"
 
 #. module: cost_fleet
 #: model:product.category,complete_name:cost_fleet.cons_v_con_2
@@ -349,3 +349,23 @@ msgstr "Agua Radiador"
 #: model:product.category,name:cost_fleet.cons_v_con_13
 msgid "Windshield wiper"
 msgstr "Limpiaparabrisas"
+
+#. module: cost_fleet
+#: model:product.category,complete_name:cost_fleet.cat_fuel_alco
+msgid "Fuel / Alcohol"
+msgstr "Combustible / Alcohol"
+
+#. module: cost_fleet
+#: model:product.category,complete_name:cost_fleet.cat_fuel_diesel
+msgid "Fuel / Diesel"
+msgstr "Combustible / Diesel"
+
+#. module: cost_fleet
+#: model:product.category,complete_name:cost_fleet.cat_fuel_gasoline
+msgid "Fuel / Gasoline"
+msgstr "Combustible / Gasolina"
+
+#. module: cost_fleet
+#: model:product.category,name:cost_fleet.cat_fuel_gasoline
+msgid "Gasoline"
+msgstr "Gasolina"

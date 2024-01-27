@@ -4,7 +4,6 @@ from odoo import models, fields
 
 class ProductCategoryEx(models.Model):
    _inherit = 'product.category'   
-   _description = 'Product Category Ex'
    _order="sequence desc"
    
    name = fields.Char('Name', index='trigram', required=True,translate=True)

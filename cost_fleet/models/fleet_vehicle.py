@@ -5,7 +5,6 @@ from datetime import date
 
 class FleetVehicle(models.Model):
     _inherit  = 'fleet.vehicle'
-    _description = 'Vehicle Extender'
 
     fuel_enab_cat_ids = fields.One2many(
         comodel_name='cost.fleet.vehicle.fuel.cats.line', 
