@@ -11,4 +11,5 @@ from . import cost_fleet_vehicle_model_budget_consumables_line
 from . import cost_fleet_vehicle_model_budget
 from . import product_category
 from . import cost_fleet_vehicle_model_spare
+from . import account_move
 
