@@ -7,6 +7,7 @@ from . import account_fiscal_year
 from . import abstract_purchase_fields
 from . import cost_fleet_vehicle_fuel
 from . import cost_fleet_vehicle_fuel_cats_line
+from . import abstract_kmcost_fields
 from . import cost_fleet_vehicle_model_budget_services_line
 from . import cost_fleet_vehicle_model_budget_consumables_line
 from . import cost_fleet_vehicle_model_budget

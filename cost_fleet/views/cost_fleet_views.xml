@@ -25,7 +25,7 @@
                 <field name="currency_id" />
                 <field name="taxes_id" widget="many2many_tags"
                        domain="[('type_tax_use', '=', 'purchase')]"/> -->
-                <field name="km_use" />
+                <field name="costkm" />
                 <!-- <field name="cost_km" /> -->
                 <field name="obs" />
             </tree>
@@ -43,7 +43,7 @@
                 <field name="currency_id" />
                 <field name="taxes_id" widget="many2many_tags"
                        domain="[('type_tax_use', '=', 'purchase')]"/> -->
-                <field name="km_use" />
+                <field name="costkm" />
                 <!-- <field name="cost_km" /> -->
                 <field name="obs" />
             </tree>

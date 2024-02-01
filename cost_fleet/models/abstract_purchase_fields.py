@@ -10,10 +10,14 @@ class AbstractPurchaseFields(models.AbstractModel):
                                       store=True)
     last_purch_currency_id = fields.Many2one('res.currency',string='Last Purchase Currency')
     last_purch_date = fields.Date(string="Date Last Purchase")
+
+    #TODO - mostrar el costo sin Impuesto
+    #TODO - Si no existe compra, Traer el costo Anotado en Seccion Supplierinfo sino cero
+
     
     def recalculate_last_cost(self):
         self._compute_last_cost()
-
+        
         
     def _compute_last_cost(self, date_limit= date.today()):
         for record in self:
@@ -23,9 +27,9 @@ class AbstractPurchaseFields(models.AbstractModel):
                 record.last_purch_currency_id = self.env.company.currency_id
                 record.last_purch_date = purchase.move_id.invoice_date
             else:
-                record.last_purch_cost = 1.0
+                record.last_purch_cost = 0.0
                 record.last_purch_currency_id = self.env.company.currency_id
-                record.last_purch_date = date_limit
+                record.last_purch_date = date_limit     
     
     
     def action_purchase_history(self):
