@@ -5,9 +5,15 @@
     <field name="name">cost.fleet.vehicle.fuel.tree</field>
     <field name="model">cost.fleet.vehicle.fuel</field>
     <field name="arch" type="xml">
+      <header>
+          <button name="recalculate_last_cost" type="object" icon="fa-refresh" title="Recalculate"/>
+      </header>
       <tree string="Fuel">
         <field name="name" />
         <field name="categ_id"/>
+        <field name="last_purch_cost" readonly="1"/>
+        <field name="last_purch_currency_id" invisible="1"/>        
+        <field name="last_purch_date" readonly="1"/>
         <button name="action_purchase_history" type="object" icon="fa-history" title="Purchase History" invisible="not id"/>
       </tree>
     </field>
@@ -135,18 +141,6 @@
       </form>
     </field>
   </record>
-
-  <!-- <record id="action_fuel_purchase_history" model="ir.actions.act_window">
-        <field name="res_model">purchase.order.line</field>
-        <field name="view_mode">tree</field>
-        <field name="view_id" ref="purchase.purchase_history_tree"/>
-        <field name="context">{}</field>
-        <field name="help" type="html">
-            <p class="o_view_nocontent_smiling_face">
-                No purchase order were made for this product yet!
-            </p>
-        </field>
-    </record> -->
 
   <record model="ir.actions.act_window" id="action_cost_fleet_vehicle_fuel">
     <field name="name">Fuels</field>

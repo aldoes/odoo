@@ -4,6 +4,7 @@ from odoo import models, fields
 
 class CostFleetVehicleModelSpare(models.Model):
    _name = 'cost.fleet.vehicle.model.spare'
+   _inherit = 'abstract.purchase.fields'
    _inherits = {'product.product': 'product_id'}
    _description = 'Vehicle Spare and Consumable'
    _order="sequence desc"
