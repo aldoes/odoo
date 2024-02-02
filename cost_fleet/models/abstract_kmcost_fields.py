@@ -3,6 +3,7 @@ from odoo import api, fields, models, _
 class AbstractKmCostFields(models.AbstractModel):
     _name ='abstract.kmcost.fields'   
     _description = 'Abstract Model with Km cost fields and its methods' 
+    _sql_constraints = [('km_est_gtOne', 'CHECK (costkm_km_est > 0.0)', "km estimate must be grant than zero"),]
 
     qty = fields.Float(default=1.0,string='Quantity')   
     costkm_km_est = fields.Integer(string="Estimate Use (km)", default=1)
@@ -14,7 +15,6 @@ class AbstractKmCostFields(models.AbstractModel):
      
     def _compute_km_cost(self):
             for record in self:
-                pass 
-                # record.cost_km = record.last_purch_cost / record.qty / record.km_use
+             record.cost_km = record.last_purch_cost / record.qty / record.km_use
 
      #TODO - El km_cost debe estar en moneda local, los costos pueden estan en moneda extranjera
