@@ -10,14 +10,4 @@
             </xpath>
         </field>
     </record>
-    <!-- <record id='cost_fleet_product_category_ex_view_form' model='ir.ui.view'>
-        <field name="name">product.category.ex.form</field>
-        <field name="model">product.category</field>
-        <field name="inherit_id" ref="product.product_category_form_view"/>
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='name']" position="after">
-                <field name="sequence" widget="handle"/>
-            </xpath >
-        </field>
-    </record> -->
 </odoo>
