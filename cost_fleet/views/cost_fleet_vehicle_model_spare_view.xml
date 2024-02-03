@@ -8,6 +8,11 @@
         <field name="name"/>
         <field name="model_ids" widget="many2many_tags"/>
         <field name="categ_id"/>
+        <field name="last_purch_cost" readonly="1" />
+        <field name="last_purch_currency_id" invisible="1" />
+        <field name="last_purch_date" readonly="1" />
+        <button name="action_purchase_history" type="object" icon="fa-history"
+          title="Purchase History" invisible="not id" />
       </tree>
     </field>
   </record>
