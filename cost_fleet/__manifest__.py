@@ -11,7 +11,7 @@ Module for Cost of Fleet
     'author': "Aldo Escobar",
     'website': "",
     'category': 'Cost',
-    'version': '0.2.0',
+    'version': '"17.0.0.3.0',
 
     # any module necessary for this one to work correctly
     #'depends': ['base','purchase','fleet','hr'],.
