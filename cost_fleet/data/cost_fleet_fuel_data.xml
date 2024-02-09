@@ -40,6 +40,7 @@
             <field name="standard_price">6000.0</field>
             <field name="uom_id" ref="uom.product_uom_litre"/>
             <field name="uom_po_id" ref="uom.product_uom_litre"/>
+            <field name="can_be_expensed" eval="True"/>
             <field name="sale_ok">False</field>
         </record>
         <record id="prod_fuel_2" model="cost.fleet.vehicle.fuel">
@@ -48,6 +49,7 @@
             <field name="standard_price">6500.0</field>
             <field name="uom_id" ref="uom.product_uom_litre"/>
             <field name="uom_po_id" ref="uom.product_uom_litre"/>
+            <field name="can_be_expensed" eval="True"/>
             <field name="sale_ok">False</field>
         </record>
         <record id="prod_fuel_3" model="cost.fleet.vehicle.fuel">
@@ -56,6 +58,7 @@
             <field name="standard_price">7850</field>
             <field name="uom_id" ref="uom.product_uom_litre"/>
             <field name="uom_po_id" ref="uom.product_uom_litre"/>
+            <field name="can_be_expensed" eval="True"/>
             <field name="sale_ok">False</field>
         </record>
         <record id="prod_fuel_4" model="cost.fleet.vehicle.fuel">
@@ -64,6 +67,7 @@
             <field name="standard_price">9340.0</field>
             <field name="uom_id" ref="uom.product_uom_litre"/>
             <field name="uom_po_id" ref="uom.product_uom_litre"/>
+            <field name="can_be_expensed" eval="True"/>
             <field name="sale_ok">False</field>
         </record>
         <record id="prod_fuel_5" model="cost.fleet.vehicle.fuel">
@@ -72,6 +76,7 @@
             <field name="standard_price">7990.0</field>
             <field name="uom_id" ref="uom.product_uom_litre"/>
             <field name="uom_po_id" ref="uom.product_uom_litre"/>
+            <field name="can_be_expensed" eval="True"/>
             <field name="sale_ok">False</field>
         </record> 
 

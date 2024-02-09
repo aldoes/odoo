@@ -11,6 +11,6 @@ class AccountMove(models.Model):
     def get_last_purchased_line_to_date(self, product, date_limit= date.today()):      
             product.ensure_one()
             '''Get last purchase line of active purchase invoiced before or on limit date or return false  '''
-            return self.env['account.move.line'].get_last_purchase_line_to_date(product)
+            return self.env['account.move.line'].get_last_purchase_line_to_date(product, date_limit)
 
 

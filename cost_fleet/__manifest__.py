@@ -11,16 +11,15 @@ Module for Cost of Fleet
     'author': "Aldo Escobar",
     'website': "",
     'category': 'Cost',
-    'version': '"17.0.0.3.0',
+    'version': '17.0.0.3.0',
 
     # any module necessary for this one to work correctly
     #'depends': ['base','purchase','fleet','hr'],.
-    'depends': ['base','purchase','fleet','account_fiscal_year'],
+    'depends': ['base','purchase','fleet',"hr_expense",'account_fiscal_year'],
 
     # always loaded
     "data": [
-        "security/ir.model.access.csv",    
-        #"data/fleet_model_service.xml", TODO: falta cargar datos
+        "security/ir.model.access.csv",
         "data/cost_fleet_vehicle_data.xml",
         "data/cost_fleet_fuel_data.xml",
         "data/cost_fleet_spare_cat_data.xml",
@@ -32,6 +31,7 @@ Module for Cost of Fleet
         "views/fleet_views.xml",
         "views/cost_fleet_vehicle_model_budget_view.xml",
         "views/cost_fleet_menu.xml",
+        "views/hr_expense_views.xml"
     ],
     'license':"LGPL-3",
 }

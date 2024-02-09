@@ -4,6 +4,7 @@ from odoo import api, fields, models, _
 class AbstractPurchaseFields(models.AbstractModel):
     _name ='abstract.purchase.fields'   
     _description = 'Abstract Model with last purchase data fields and its methods' 
+    
     last_purch_cost = fields.Monetary(string='Last Cost',
                                       currency_field='last_purch_currency_id',
                                       compute='_compute_last_adquire_cost')
@@ -13,12 +14,15 @@ class AbstractPurchaseFields(models.AbstractModel):
         
     def _compute_last_adquire_cost(self, date_limit= date.today()):
         for record in self:
-            purchase = self.env['account.move'].get_last_purchased_line_to_date(record.product_id, date_limit)
-            record.last_purch_cost = purchase.price_unit 
-            record.last_purch_currency_id = purchase.currency_id if purchase.currency_id.id else self.env.company.currency_id
-            record.last_purch_date = purchase.move_id.invoice_date if purchase.move_id.invoice_date else date_limit
-        #TODO - mostrar el costo sin Impuesto
-        #TODO - Si no existe compra, Traer el costo Anotado en Seccion Supplierinfo sino cero
+            purchaseLine = self.env['account.move'].get_last_purchased_line_to_date(record.product_id, date_limit)
+            supplierCost = self.env["product.supplierinfo"].get_highest_cost_supplierinfo_line(record.product_id)
+
+            record.last_purch_cost = (purchaseLine.price_unit if purchaseLine.move_id.invoice_date else (supplierCost.price if supplierCost.currency_id.id else 0.0))
+            record.last_purch_currency_id = (purchaseLine.currency_id if purchaseLine.currency_id.id else (supplierCost.currency_id if supplierCost.currency_id.id else self.env.company.currency_id))
+            record.last_purch_date = (purchaseLine.move_id.invoice_date if purchaseLine.move_id.invoice_date else date_limit)
+
+            #TODO - mostrar el costo sin Impuesto
+            #TODO - Si no existe compra, Traer el costo Anotado en Seccion Supplierinfo sino cero
 
     def action_purchase_history(self):
         self.ensure_one()
