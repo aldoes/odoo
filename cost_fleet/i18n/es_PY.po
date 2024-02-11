@@ -409,3 +409,16 @@ msgstr "Combustible / Gasolina"
 #: model:product.category,name:cost_fleet.cat_fuel_gasoline
 msgid "Gasoline"
 msgstr "Gasolina"
+
+
+#. module: hr_expense
+#: model:ir.actions.act_window,name:hr_expense.action_hr_expense_sheet_my_all
+#: model:ir.ui.menu,name:hr_expense.menu_hr_expense_sheet_my_reports
+#: model_terms:ir.ui.view,arch_db:hr_expense.hr_expense_sheet_view_search
+msgid "My Reports"
+msgstr "Mis Rendiciones"
+
+#. module: hr_expense
+#: model:ir.actions.act_window,name:hr_expense.action_hr_expense_sheet_all
+msgid "All Reports"
+msgstr "Todas las Rendiciones"
