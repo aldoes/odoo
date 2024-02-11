@@ -15,4 +15,18 @@
         </field>
     </record>
 
+    <record id="view_hr_expense_sheet_ext_form" model="ir.ui.view">
+        <field name="name">view.hr.expense.sheet.ext.form</field>
+        <field name="model">hr.expense.sheet</field>
+        <field name="inherit_id" ref="hr_expense.view_hr_expense_sheet_form" />
+        <field name="arch" type="xml">
+            <field name="payment_mode" position="after">                
+                    <field name="budget_expen"/>
+                    <field name="budg_currency_id"/>                
+            </field>
+            <!-- <field name="employee_id" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </field> Revisar por tiene permiso de modificacion-->
+        </field>
+    </record>
 </odoo>
