@@ -31,7 +31,6 @@ Module for Cost of Fleet
         "views/fleet_views.xml",
         "views/cost_fleet_vehicle_model_budget_view.xml",
         "views/cost_fleet_menu.xml",
-        "views/hr_expense_views.xml"
     ],
     'license':"LGPL-3",
 }
