@@ -23,7 +23,7 @@
             <field name="payment_mode" position="after">
                 <label for="budget_expen" string="Budget Amount" />
                 <div class="o_row">
-                         <field name="budget_expen" width="" nolabel="1" />
+                         <field name="budget_expen" nolabel="1" />
                         <field name="budg_currency_id" nolabel="1" />
                 </div>
             </field>
