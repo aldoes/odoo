@@ -48,12 +48,8 @@
           <newline />
           <div name="options">
             <span class="d-inline-block">
-              <field name="sale_ok" field_id="sale_ok_0" />
-              <label for="sale_ok" />
-            </span>
-            <span class="d-inline-block">
-              <field name="purchase_ok" field_id="purchase_ok_0" />
-              <label for="purchase_ok" />
+              <field name="can_be_expensed" />
+              <label for="can_be_expensed" />
             </span>
           </div>
           <newline />
