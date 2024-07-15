@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Spare -->
+        <record id="cat_veh" model="product.category">
+            <field name="name">Vehicular</field>
+        </record>
+        <record id="cat_veh_spare" model="product.category">
+            <field name="parent_id" ref="cat_veh"/>
+            <field name="name">Spare</field>
+        </record>
+        <record id="cat_veh_cons" model="product.category">
+            <field name="parent_id" ref="cat_veh"/>
+            <field name="name">Consumable</field>
+        </record>
+    </data>
+</odoo>
