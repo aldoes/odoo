@@ -21,15 +21,15 @@ Module for Cost of Fleet
     # always loaded
     "data": [
         "security/ir.model.access.csv",
-        #"data/cost_fleet_vehicle_data.xml",
+        "data/cost_fleet_vehicle_data.xml",
         "data/cost_fleet_fuel_data.xml",
         # "data/cost_fleet_spare_cat_data.xml",
         # "data/product.category.csv",
-        # "views/account_fiscal_year_views.xml",
+        "views/account_fiscal_year_views.xml",
         "views/product_category_views.xml",
         # "views/cost_fleet_vehicle_model_spare_view.xml",
         "views/cost_fleet_vehicle_fuel_view.xml",
-        # "views/fleet_views.xml",
+        "views/fleet_views.xml",
         # "views/cost_fleet_vehicle_model_budget_view.xml",
        "views/cost_fleet_menu.xml",
     ],
