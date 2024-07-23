@@ -7,23 +7,13 @@
         <record id='cat_hatch' model="fleet.vehicle.model.category">
             <field name="name">Hatchback</field>
         </record>
-
+        <record id='cat_sedan' model="fleet.vehicle.model.category">
+            <field name="name">Sedan</field>
+        </record>
         <record id="cat_vehicle_spare" model="product.category">
             <field name="name">Vehicle Spare</field>
         </record>
 
-        <!--
-            Resource: fleet.vehicle.model
-            Fields:
-            name character varying COLLATE pg_catalog."default" NOT NULL,
-            brand_id integer NOT NULL,
-            category_id integer, 
-            transmission character varying COLLATE pg_catalog."default", 
-            vehicle_type character varying COLLATE pg_catalog."default" NOT NULL,    
-            seats integer,
-            doors integer,
-            default_fuel_type character varying COLLATE pg_catalog."default",
-         -->
         <record id='volks_saveiro_t' model="fleet.vehicle.model">
             <field name="name">Saveiro Trendline</field>
             <field name="brand_id" ref="fleet.brand_volkswagen" />
@@ -50,9 +40,19 @@
             <field name="category_id" ref="cat_hatch" />
             <field name="transmission">manual</field>
             <field name="vehicle_type">car</field>
-            <field name="seats">4</field>
-            <field name="doors">4</field>
+            <field name="seats">5</field>
+            <field name="doors">5</field>
             <field name="default_fuel_type">biflex</field>
+        </record>
+        <record id='toyo_probox' model="fleet.vehicle.model">
+            <field name="name">Probox</field>
+            <field name="brand_id" ref="fleet.brand_toyota" />
+            <field name="category_id" ref="cat_hatch" />
+            <field name="transmission">manual</field>
+            <field name="vehicle_type">car</field>
+            <field name="seats">5</field>
+            <field name="doors">5</field>
+            <field name="default_fuel_type">diesel</field>
         </record>
         <!-- Category Fuel -->
         <!-- "cost_fleet.cat_fuel_gasoline"
@@ -71,19 +71,90 @@
             category_id integer,
         active boolean, -->
 
-        <!-- <record id='saveiro_1' model="fleet.vehicle">
+         <record id='saveiro_1' model="fleet.vehicle">
             <field name="brand_id" ref="fleet.brand_volkswagen"/>
-            <field name="model_id" ref="fleet.volks_saveiro_t"/>
+            <field name="model_id" ref="volks_saveiro_t"/>
+            <field name="license_plate">HEY685</field>
+            <field name="net_car_value">19000</field>
             <field name="model_year">2018</field>            
-            <field name="license_plate"></field>
             <field name="category_id" ref="cat_pick" />
             <field name="transmission">manual</field>            
             <field name="vehicle_type"></field>
-            <field name="seats">4</field>
-            <field name="doors">4</field>
+            <field name="seats">2</field>
+            <field name="doors">2</field>
             <field name="fuel_type">biflex</field>
             <field name="active">True</field>
-        </record> -->
+        </record>
+        <record id='saveiro_2' model="fleet.vehicle">
+            <field name="brand_id" ref="fleet.brand_volkswagen"/>
+            <field name="model_id" ref="volks_saveiro_t"/>
+            <field name="license_plate">SAV_1</field>
+            <field name="net_car_value">19000</field>
+            <field name="model_year">2018</field>            
+            <field name="category_id" ref="cat_pick" />
+            <field name="transmission">manual</field>            
+            <field name="vehicle_type"></field>
+            <field name="seats">2</field>
+            <field name="doors">2</field>
+            <field name="fuel_type">biflex</field>
+            <field name="active">True</field>
+        </record>
+        <record id='saveiro_3' model="fleet.vehicle">
+            <field name="brand_id" ref="fleet.brand_volkswagen"/>
+            <field name="model_id" ref="volks_saveiro_t"/>
+            <field name="license_plate">SAV_2</field>
+            <field name="net_car_value">19000</field>
+            <field name="model_year">2018</field>            
+            <field name="category_id" ref="cat_pick" />
+            <field name="transmission">manual</field>            
+            <field name="vehicle_type"></field>
+            <field name="seats">2</field>
+            <field name="doors">2</field>
+            <field name="fuel_type">biflex</field>
+            <field name="active">True</field>
+        </record>
+        <record id='gol_1' model="fleet.vehicle">
+            <field name="brand_id" ref="fleet.brand_volkswagen"/>
+            <field name="model_id" ref="volks_gol"/>
+            <field name="license_plate">GOL_1</field>
+            <field name="net_car_value">10000</field>
+            <field name="model_year">2018</field>            
+            <field name="category_id" ref="cat_sedan"/>
+            <field name="transmission">manual</field>            
+            <field name="vehicle_type"></field>
+            <field name="seats">5</field>
+            <field name="doors">5</field>
+            <field name="fuel_type">biflex</field>
+            <field name="active">True</field>
+        </record>
+        <record id='gol_2' model="fleet.vehicle">
+            <field name="brand_id" ref="fleet.brand_volkswagen"/>
+            <field name="model_id" ref="volks_gol"/>
+            <field name="license_plate">GOL_2</field>
+            <field name="net_car_value">10000</field>
+            <field name="model_year">2018</field>            
+            <field name="category_id" ref="cat_sedan"/>
+            <field name="transmission">manual</field>            
+            <field name="vehicle_type"></field>
+            <field name="seats">5</field>
+            <field name="doors">5</field>
+            <field name="fuel_type">biflex</field>
+            <field name="active">True</field>
+        </record>
+        <record id='probox' model="fleet.vehicle">
+            <field name="brand_id" ref="fleet.brand_toyota"/>
+            <field name="model_id" ref="toyo_probox"/>
+            <field name="license_plate">BTP804</field>
+            <field name="net_car_value">6000</field>
+            <field name="model_year">2005</field>            
+            <field name="category_id" ref="cat_sedan" />
+            <field name="transmission">manual</field>            
+            <field name="vehicle_type"></field>
+            <field name="seats">5</field>
+            <field name="doors">5</field>
+            <field name="fuel_type">diesel</field>
+            <field name="active">True</field>
+        </record>
         <!-- <record id="vehicle_5" model="fleet.vehicle">
             <field name="license_plate">1-MER-001</field>
             <field name="vin_sn">789546128</field>
