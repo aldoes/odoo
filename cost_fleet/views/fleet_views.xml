@@ -33,13 +33,18 @@
      <xpath expr="//field[@name='net_car_value']" position="after">
       <label for="km_use" string="Uso Estimado (Km/años)" />
         <div class="o_row o_hr_narrow_field" >
-          <!-- <field name="km_use" string="Uso Estimado (Km/años)"/> -->
           <field name="km_use"/>
           <field name="years_use"/>
         </div> 
       </xpath>
-
-      </field>
+      <xpath expr="//field[@name='currency_id']" position="attributes">
+          <attribute name='invisible'>0</attribute>
+          <attribute name='readonly'>0</attribute>
+      </xpath>
+      <xpath expr="//field[@name='net_car_value']" position="after">
+        <xpath expr="//field[@name='currency_id']" position="move"/>
+      </xpath>
+    </field>
   </record>
 
   <record id='cost_fleet_vehicle_model_ext_view_form' model='ir.ui.view'>

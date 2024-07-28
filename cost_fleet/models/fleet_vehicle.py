@@ -21,6 +21,7 @@ class FleetVehicle(models.Model):
         ('kilometers', 'km'),
         ('miles', 'mi')
         ], 'Odometer Unit', default='kilometers', required=True, readonly=True)
+    currency_id = fields.Many2one(comodel_name='res.currency',string='Moneda Compra', required=True)
 
     def get_cost_vehicle_by_km(self, vehicle, date_limit= date.today()):
         vehicle.ensure_one() 

@@ -76,6 +76,9 @@
             <field name="model_id" ref="volks_saveiro_t"/>
             <field name="license_plate">HEY685</field>
             <field name="net_car_value">19000</field>
+            <field name="currency_id" ref="base.USD"/>
+            <field name="km_use">500000</field>
+            <field name="years_use">10</field>
             <field name="model_year">2018</field>            
             <field name="category_id" ref="cat_pick" />
             <field name="transmission">manual</field>            
@@ -90,6 +93,9 @@
             <field name="model_id" ref="volks_saveiro_t"/>
             <field name="license_plate">SAV_1</field>
             <field name="net_car_value">19000</field>
+            <field name="currency_id" ref="base.USD"/>
+            <field name="km_use">500000</field>
+            <field name="years_use">10</field>
             <field name="model_year">2018</field>            
             <field name="category_id" ref="cat_pick" />
             <field name="transmission">manual</field>            
@@ -104,6 +110,9 @@
             <field name="model_id" ref="volks_saveiro_t"/>
             <field name="license_plate">SAV_2</field>
             <field name="net_car_value">19000</field>
+            <field name="currency_id" ref="base.USD"/>
+            <field name="km_use">500000</field>
+            <field name="years_use">10</field>
             <field name="model_year">2018</field>            
             <field name="category_id" ref="cat_pick" />
             <field name="transmission">manual</field>            
@@ -118,6 +127,9 @@
             <field name="model_id" ref="volks_gol"/>
             <field name="license_plate">GOL_1</field>
             <field name="net_car_value">10000</field>
+            <field name="currency_id" ref="base.USD"/>
+            <field name="km_use">400000</field>
+            <field name="years_use">10</field>
             <field name="model_year">2018</field>            
             <field name="category_id" ref="cat_sedan"/>
             <field name="transmission">manual</field>            
@@ -132,6 +144,9 @@
             <field name="model_id" ref="volks_gol"/>
             <field name="license_plate">GOL_2</field>
             <field name="net_car_value">10000</field>
+            <field name="currency_id" ref="base.USD"/>
+            <field name="km_use">400000</field>
+            <field name="years_use">10</field>
             <field name="model_year">2018</field>            
             <field name="category_id" ref="cat_sedan"/>
             <field name="transmission">manual</field>            
@@ -145,8 +160,11 @@
             <field name="brand_id" ref="fleet.brand_toyota"/>
             <field name="model_id" ref="toyo_probox"/>
             <field name="license_plate">BTP804</field>
-            <field name="net_car_value">6000</field>
-            <field name="model_year">2005</field>            
+            <field name="net_car_value">44000000</field>
+            <field name="currency_id" ref="base.PYG"/>
+            <field name="km_use">250000</field>
+            <field name="years_use">5</field>
+            <field name="model_year">2006</field>            
             <field name="category_id" ref="cat_sedan" />
             <field name="transmission">manual</field>            
             <field name="vehicle_type"></field>
