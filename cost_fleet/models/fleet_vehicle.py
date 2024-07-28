@@ -15,9 +15,12 @@ class FleetVehicle(models.Model):
         comodel_name='cost.fleet.vehicle.values.line', 
         inverse_name="vehicle_id", 
         string="Values for year")
-    #currency_id = fields.Many2one('res.currency', related='company_id.currency_id')
-    # value_currency_id = fields.Many2one('res.currency', string='Purchase Currency', required=True)
-    # life_km = fields.Integer(string="life (km)", default=300000)
+    km_use = fields.Integer(string="life (km)", default=300000)
+    years_use = fields.Integer(string="life (years)", default=5)
+    odometer_unit = fields.Selection([
+        ('kilometers', 'km'),
+        ('miles', 'mi')
+        ], 'Odometer Unit', default='kilometers', required=True, readonly=True)
 
     def get_cost_vehicle_by_km(self, vehicle, date_limit= date.today()):
         vehicle.ensure_one() 
@@ -32,6 +35,27 @@ class FleetVehicle(models.Model):
 
     def get_cost_consumables_by_km(self, vehicle,date_limit= date.today()):
         pass
+
+# net_car_value = fields.Float(string="Purchase Value")
+
+    # odometer = fields.Float(compute='_get_odometer', inverse='_set_odometer', string='Last Odometer',
+    #     help='Odometer measure of the vehicle at the moment of this log')
+
+    #   def _get_odometer(self):
+    #     FleetVehicalOdometer = self.env['fleet.vehicle.odometer']
+    #     for record in self:
+    #         vehicle_odometer = FleetVehicalOdometer.search([('vehicle_id', '=', record.id)], limit=1, order='value desc')
+    #         if vehicle_odometer:
+    #             record.odometer = vehicle_odometer.value
+    #         else:
+    #             record.odometer = 0
+
+    #  def _set_odometer(self):
+    #     for record in self:
+    #         if record.odometer:
+    #             date = fields.Date.context_today(record)
+    #             data = {'value': record.odometer, 'date': date, 'vehicle_id': record.id}
+    #             self.env['fleet.vehicle.odometer'].create(data)
 
         #TODO cambiar a visible <field name="currency_id" invisible="1"/> y poner al costado de compra
         #TODO cambiar ultimo odometro a Vida Estimada

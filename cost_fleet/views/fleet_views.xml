@@ -30,6 +30,15 @@
           </group>
         </page>
       </xpath>  
+     <xpath expr="//field[@name='net_car_value']" position="after">
+      <label for="km_use" string="Uso Estimado (Km/años)" />
+        <div class="o_row o_hr_narrow_field" >
+          <!-- <field name="km_use" string="Uso Estimado (Km/años)"/> -->
+          <field name="km_use"/>
+          <field name="years_use"/>
+        </div> 
+      </xpath>
+
       </field>
   </record>
 
