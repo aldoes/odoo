@@ -23,8 +23,24 @@ class FleetVehicle(models.Model):
         ], 'Odometer Unit', default='kilometers', required=True, readonly=True)
     currency_id = fields.Many2one(comodel_name='res.currency',string='Moneda Compra', required=True)
 
+    cost_value_km = fields.Monetary(string='Last KM Value Cost',
+                                      currency_field='cost_value_curr_id',
+                                      compute='_compute_last_cost_value_km',
+                                      readonly=True,)
+    cost_value_curr_id = fields.Many2one(comodel_name='res.currency',string='Moneda Valor', readonly=True, store=False)
+    
+    def _compute_last_cost_value_km(self):        
+        for vehicle in self:
+            vehicle.cost_value_km=0.0
+            vehicle.cost_value_curr_id=self.env.company.currency_id 
+        #     computed_cost = self.get_cost_vehicle_by_km(vehicle,date.today())            
+        #     vehicle.cost_value_km=computed_cost.value/computed_cost.km_use
+        #     vehicle.cost_value_curr=computed_cost.currency_id
+        pass
+
     def get_cost_vehicle_by_km(self, vehicle, date_limit= date.today()):
         vehicle.ensure_one() 
+
         pass
     
     def get_cost_value_by_km_for_year(self, vehicle,current_year=date.today().year):
