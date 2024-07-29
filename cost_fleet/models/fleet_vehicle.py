@@ -39,18 +39,15 @@ class FleetVehicle(models.Model):
         pass
 
     def get_cost_vehicle_by_km(self, vehicle, date_limit= date.today()):
-        vehicle.ensure_one() 
-
+        vehicle.ensure_one()
         pass
-    
-    def get_cost_value_by_km_for_year(self, vehicle,current_year=date.today().year):
-        pass
-  
 
     def get_cost_fuel_by_km(self, vehicle,date_limit= date.today()):
+        vehicle.ensure_one()
         pass
 
     def get_cost_consumables_by_km(self, vehicle,date_limit= date.today()):
+        vehicle.ensure_one()
         pass
 
 # net_car_value = fields.Float(string="Purchase Value")
@@ -74,8 +71,7 @@ class FleetVehicle(models.Model):
     #             data = {'value': record.odometer, 'date': date, 'vehicle_id': record.id}
     #             self.env['fleet.vehicle.odometer'].create(data)
 
-        #TODO cambiar a visible <field name="currency_id" invisible="1"/> y poner al costado de compra
-        #TODO cambiar ultimo odometro a Vida Estimada
+
     
 
   
