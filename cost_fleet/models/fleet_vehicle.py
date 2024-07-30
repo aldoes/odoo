@@ -38,27 +38,25 @@ class FleetVehicle(models.Model):
                                       readonly=True)
     cost_curr_id = fields.Many2one(comodel_name='res.currency', related='company_id.currency_id',string='Local Currency', readonly=True, store=False)
 
-
+    #TODO convertir a moneda local los costos
     def _compute_last_cost_value_km(self):        
         for vehicle in self:
             vehicle.cost_value_km=0.0
+        #####call vehicle.get_cost_vehicle_by_km(vehicle)
         #     vehicle.cost_value_curr_id=self.env.company.currency_id 
         #     computed_cost = self.get_cost_vehicle_by_km(vehicle,date.today())            
         #     vehicle.cost_value_km=computed_cost.value/computed_cost.km_use
         #     vehicle.cost_value_curr=computed_cost.currency_id
-        pass
 
     def _compute_last_cost_fuel_km(self):        
         for vehicle in self:
             vehicle.cost_fuel_km=0.0
-            #call vehicle.get_cost_vehicle_by_km(vehicle)
-        pass
+        #####call vehicle.get_cost_fuel_by_km(vehicle)
 
     def _compute_last_cost_cons_km(self):        
         for vehicle in self:
             vehicle.cost_consu_km=0.0
-            #call vehicle.get_cost_fuel_by_km(vehicle)
-        pass
+        #####call vehicle.get_cost_consumables_by_km(vehicle)
 
     def get_cost_vehicle_by_km(self, vehicle, date_limit= date.today()):
         vehicle.ensure_one()
