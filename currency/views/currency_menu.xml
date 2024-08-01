@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_currency_rates" name="Cambios de Divisas" parent="account.account_account_menu" sequence="5" action="base.act_view_currency_rates" /> 
+</odoo>
