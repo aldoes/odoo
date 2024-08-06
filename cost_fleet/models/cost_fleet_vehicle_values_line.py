@@ -10,7 +10,7 @@ class CostFleetVehicleValuesline(models.Model):
 
    vehicle_id = fields.Many2one(comodel_name='fleet.vehicle',string='Vehicle',ondelete="cascade")
    fiscal_year_id = fields.Many2one(comodel_name='account.fiscal.year',string='Fiscal year',ondelete="cascade")
-   currency_id = fields.Many2one('res.currency',string='Currency', required=True)
+   currency_id = fields.Many2one(comodel_name='res.currency',string='Currency', related='vehicle_id.currency_id',store=False)
    value = fields.Monetary(string='Value', required=True)
    km_use = fields.Integer(string="life (km)", default=300000)
 
