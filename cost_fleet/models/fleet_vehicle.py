@@ -21,7 +21,8 @@ class FleetVehicle(models.Model):
         ('kilometers', 'km'),
         ('miles', 'mi')
         ], 'Odometer Unit', default='kilometers', required=True, readonly=True)
-    currency_id = fields.Many2one(comodel_name='res.currency',string='Moneda Compra', required=True)
+    currency_id = fields.Many2one(comodel_name='res.currency',string='Moneda Compra', related='company_id.currency_id',store=True,  required=True)
+
 
     cost_value_km = fields.Monetary(string='Last Km Value Cost',
                                       currency_field='cost_curr_id',
