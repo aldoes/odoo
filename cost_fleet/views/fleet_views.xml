@@ -23,7 +23,7 @@
                <tree editable="top" >       
                   <field name="fiscal_year_id" string="Año Fiscal"/>    
                   <field name="value" string="Valor"/>
-                  <field name="currency_id" string="Moneda"/>
+                  <field name="currency_id" invisible="1" nolabel="1"/>
                   <field name="km_use" string="Vida(Km)"/>
                 </tree> 
               </field>
