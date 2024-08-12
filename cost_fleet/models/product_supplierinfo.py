@@ -4,7 +4,7 @@ from odoo import api, fields, models, _
 
 class SupplierInfo(models.Model):
     _inherit = "product.supplierinfo"
-    _sql_constraints =  [('partnerPrice_delay_unique', 'unique(partner_id ,delay)', "You can't insert another Partner price in the same delay term"), ]
+    _sql_constraints =  [('partnerPrice_delay_unique', 'unique(partner_id,product_id ,delay)', "You can't insert another Partner price in the same delay term"), ]
 
     def get_highest_cost_supplierinfo_line(self, product):
         product.ensure_one()

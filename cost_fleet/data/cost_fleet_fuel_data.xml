@@ -84,6 +84,16 @@
             <field name="sale_ok" eval="False"/>
             <field name="default_code">DIE.SHELL.EVO</field>
         </record> 
+        <record id="prod_fuel_6" model="cost.fleet.vehicle.fuel">
+            <field name="name">Shell Alcohol</field>
+            <field name="categ_id" ref="cat_fuel_alco"/>
+            <field name="standard_price">5590.0</field>
+            <field name="uom_id" ref="uom.product_uom_litre"/>
+            <field name="uom_po_id" ref="uom.product_uom_litre"/>
+            <!-- <field name="can_be_expensed" eval="True"/> -->
+            <field name="sale_ok" eval="False"/>
+            <field name="default_code">ALC.SHELL</field>
+        </record>
 
          <!-- Precios en los proveedores
             Resource: product.supplierinfo
