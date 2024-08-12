@@ -26,7 +26,6 @@ class FleetVehicle(models.Model):
                                       currency_field='cost_curr_id',
                                       compute='_compute_last_cost_value_km',
                                       readonly=True)
-
     cost_fuel_km = fields.Monetary(string='Last Km Fuel Cost',
                                       currency_field='cost_curr_id',
                                       compute='_compute_last_cost_fuel_km',
@@ -40,16 +39,11 @@ class FleetVehicle(models.Model):
     #TODO convertir a moneda local los costos
     def _compute_last_cost_value_km(self):        
         for vehicle in self:
-            vehicle.cost_value_km=0.0
-        #####call vehicle.get_cost_vehicle_by_km(vehicle)
-        #     vehicle.cost_value_curr_id=self.env.company.currency_id 
-        #     computed_cost = self.get_cost_vehicle_by_km(vehicle,date.today())            
-        #     vehicle.cost_value_km=computed_cost.value/computed_cost.km_use
-        #     vehicle.cost_value_curr=computed_cost.currency_id
+            vehicle.cost_value_km = vehicle.get_cost_vehicle_by_km()
 
     def _compute_last_cost_fuel_km(self):        
         for vehicle in self:
-            vehicle.cost_fuel_km=0.0
+            vehicle.cost_fuel_km = 0.0
         #####call vehicle.get_cost_fuel_by_km(vehicle)
 
     def _compute_last_cost_cons_km(self):        
@@ -57,9 +51,13 @@ class FleetVehicle(models.Model):
             vehicle.cost_consu_km=0.0
         #####call vehicle.get_cost_consumables_by_km(vehicle)
 
-    def get_cost_vehicle_by_km(self, vehicle, date_limit= date.today()):
+    # def get_cost_vehicle_by_km(self, vehicle, date_limit= date.today()):
+    def get_cost_vehicle_by_km(self, date_limit= date.today()):
+        vehicle = self
         vehicle.ensure_one()
-        pass
+        value_line = self.env['cost.fleet.vehicle.values.line'].get_last_value_to_year(vehicle)
+        return round(value_line.currency_id._convert(value_line.value,self.env.company.currency_id)/value_line.km_use,0)
+
 
     def get_cost_fuel_by_km(self, vehicle,date_limit= date.today()):
         vehicle.ensure_one()

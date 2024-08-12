@@ -6,7 +6,8 @@ from datetime import date
 class CostFleetVehicleValuesline(models.Model):
    _name = 'cost.fleet.vehicle.values.line'
    _description = 'Values of the vehicle'
-   _sql_constraints = [('value_fiscalyear_uniq', 'unique(vehicle_id ,fiscal_year_id)', "Duplicate value in the same fiscal year"), ]
+   _sql_constraints = [('value_fiscalyear_uniq', 'unique(vehicle_id ,fiscal_year_id)', "Duplicate value in the same fiscal year"), 
+                       ('kmUse_greaterThanZero', 'km_use>0', "km use must be greater than zero")]
 
    vehicle_id = fields.Many2one(comodel_name='fleet.vehicle',string='Vehicle',ondelete="cascade")
    fiscal_year_id = fields.Many2one(comodel_name='account.fiscal.year',string='Fiscal year',ondelete="cascade")
