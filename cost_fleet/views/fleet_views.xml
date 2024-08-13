@@ -9,12 +9,14 @@
       <xpath expr="//notebook" position="inside">
         <page string="Combustibles Hab." name="page_fuel_enalb">
           <group>
-            <!-- <field name="fuel_enab_cat_ids" widget="one2many" string="Fuels Enabled" mode="tree">
+            <field name="fuel_enab_cat_ids" widget="one2many" string="Fuels Enabled" mode="tree">
                <tree editable="top" >             
                   <field name="fuel_cat_id"/>
                   <field name="fuel_effic"/>
+                  <field name="default_for_cost"/>
+
                 </tree> 
-              </field> -->
+              </field>
           </group>
         </page>
         <page string="Valor" name="page_values">
