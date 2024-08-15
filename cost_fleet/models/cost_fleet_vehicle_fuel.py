@@ -12,5 +12,12 @@ class costFleetVehicleFuel(models.Model):
     product_id = fields.Many2one(
         'product.product', 'Product Id',
         auto_join=True, index=True, ondelete="cascade", required=True)
+
+    def get_fuels_by_cat(self, category):
+        category.ensure_one()
+        domain=[('categ_id.complete_name','like','Fuel / '+ category.name)]
+        return self.search(domain)
+
+
     
     
