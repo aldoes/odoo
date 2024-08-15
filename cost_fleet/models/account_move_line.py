@@ -22,4 +22,5 @@ class AccountMoveLine(models.Model):
                 ('move_id.state', '!=', 'cancel'),
                 ('move_id.invoice_date', '<=', date_limit)] 
 
-        return self.env['account.move.line'].search(domain)
+        #return self.env['account.move.line'].search(domain)
+        return self.search(domain)
