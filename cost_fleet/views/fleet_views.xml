@@ -13,7 +13,7 @@
                <tree editable="top" >             
                   <field name="fuel_cat_id"/>
                   <field name="fuel_effic"/>
-                  <field name="default_for_cost"/>
+                  <field name="priority" widget='handle'/>
 
                 </tree> 
               </field>

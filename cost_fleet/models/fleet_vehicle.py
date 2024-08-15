@@ -36,6 +36,12 @@ class FleetVehicle(models.Model):
                                       readonly=True)
     cost_curr_id = fields.Many2one(comodel_name='res.currency', related='company_id.currency_id',string='Local Currency', readonly=True, store=False)
 
+    def get_fuel_cat_cost_def(self):
+        vehicle = self
+        vehicle.ensure_one()
+        domain = [('vehicle_id', '=', vehicle.id)]
+        return vehicle.fuel_enab_cat_ids.search(domain,order='priority')[0]
+        
     #TODO convertir a moneda local los costos
     def _compute_last_cost_value_km(self):        
         for vehicle in self:
@@ -59,11 +65,26 @@ class FleetVehicle(models.Model):
         return round(value_line.currency_id._convert(value_line.value,self.env.company.currency_id)/value_line.km_use,0)
 
 
-    def get_cost_fuel_by_km(self, vehicle,date_limit= date.today()):
+    def get_cost_fuel_by_km(self, date_limit= date.today()):
+        vehicle = self
         vehicle.ensure_one()
+        #traer la ultima compra de combustible para ese vehiculo
+        #Sino
+        #traer la ultima compra del combustible de la categoria default que usa para el calculo de costos del vehiculo
+        #Sino 
+        #traer valor registrado en supplierinfo
+        #sino
+        #Valor default 1.0
         pass
+    
+    #Buscar la ultima compra del combustible de este vehiculo
+    def get_last_fuel_purchase_for_vehicule(self):
+        # vehicle = self
+        # vehicle.ensure_one()
+        return False
 
-    def get_cost_consumables_by_km(self, vehicle,date_limit= date.today()):
+    def get_cost_consumables_by_km(self, date_limit= date.today()):
+        vehicle = self
         vehicle.ensure_one()
         pass
 
