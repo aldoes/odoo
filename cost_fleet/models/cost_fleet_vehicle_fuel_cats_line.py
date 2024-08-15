@@ -15,7 +15,7 @@ class CostFleetVehicleFuelCatsline(models.Model):
         ondelete="restrict"
    )
    fuel_effic = fields.Float(string="Km/lt",required=True, default=10.0)
-   priority = fields.Integer(string="Priority")
+   priority = fields.Integer(string="Priority",required=True)
 
 
 
