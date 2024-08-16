@@ -36,11 +36,11 @@ class FleetVehicle(models.Model):
                                       readonly=True)
     cost_curr_id = fields.Many2one(comodel_name='res.currency', related='company_id.currency_id',string='Local Currency', readonly=True, store=False)
 
-    def get_fuel_cat_cost_def(self):
+    def get_line_fuel_cat_cost_def(self):
         vehicle = self
         vehicle.ensure_one()
         domain = [('vehicle_id', '=', vehicle.id)]
-        return vehicle.fuel_enab_cat_ids.search(domain,order='priority')[0].fuel_cat_id
+        return vehicle.fuel_enab_cat_ids.search(domain,order='priority')[0] 
         
     #TODO convertir a moneda local los costos
     def _compute_last_cost_value_km(self):        
@@ -49,8 +49,7 @@ class FleetVehicle(models.Model):
 
     def _compute_last_cost_fuel_km(self):        
         for vehicle in self:
-            vehicle.cost_fuel_km = 0.0
-        #####call vehicle.get_cost_fuel_by_km(vehicle)
+            vehicle.cost_fuel_km = vehicle.get_cost_fuel_by_km()
 
     def _compute_last_cost_cons_km(self):        
         for vehicle in self:
@@ -68,14 +67,14 @@ class FleetVehicle(models.Model):
     def get_cost_fuel_by_km(self, date_limit= date.today()):
         vehicle = self
         vehicle.ensure_one()
+        fuel_line = vehicle.get_line_fuel_cat_cost_def()
         #traer la ultima compra de combustible para ese vehiculo
-        #Sino
-        #traer la ultima compra del combustible de la categoria default que usa para el calculo de costos del vehiculo
-        #Sino 
-        #traer valor registrado en supplierinfo
+        #use function get_last_fuel_purchase_for_vehicule()
         #sino
         #Valor default 1.0
-        pass
+        #Trae el mayor costo del combustible de la categoria prioritaria del vehiculo
+        return self.env['cost.fleet.vehicle.fuel'].get_fuels_by_cat(fuel_line.fuel_cat_id, True)[0].last_cost/fuel_line.fuel_effic
+        
     
     #Buscar la ultima compra del combustible de este vehiculo
     def get_last_fuel_purchase_for_vehicule(self):
