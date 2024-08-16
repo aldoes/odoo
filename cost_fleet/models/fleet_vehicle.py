@@ -40,7 +40,7 @@ class FleetVehicle(models.Model):
         vehicle = self
         vehicle.ensure_one()
         domain = [('vehicle_id', '=', vehicle.id)]
-        return vehicle.fuel_enab_cat_ids.search(domain,order='priority')[0]
+        return vehicle.fuel_enab_cat_ids.search(domain,order='priority')[0].fuel_cat_id
         
     #TODO convertir a moneda local los costos
     def _compute_last_cost_value_km(self):        
