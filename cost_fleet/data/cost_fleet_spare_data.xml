@@ -13,5 +13,17 @@
             <field name="parent_id" ref="cat_veh"/>
             <field name="name">Consumable</field>
         </record>
+
+        <!-- <record id="con_con_1" model="cost.fleet.vehicle.fuel">
+            <field name="name">Shell Evolux Diesel</field>
+            <field name="categ_id" ref="cat_fuel_diesel"/>
+            <field name="standard_price">7990.0</field>
+            <field name="uom_id" ref="uom.product_uom_litre"/>
+            <field name="uom_po_id" ref="uom.product_uom_litre"/>
+            <!-- <field name="can_be_expensed" eval="True"/> -->
+            <field name="sale_ok" eval="False"/>
+            <field name="default_code">DIE.SHELL.EVO</field>
+        </record>  -->
+
     </data>
 </odoo>
