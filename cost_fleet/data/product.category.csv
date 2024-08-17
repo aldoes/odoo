@@ -1,0 +1,35 @@
+id,parent_id/id,name,sequence
+cons_1,cost_fleet.cat_veh_cons,Neumaticos,10
+cons_2,cost_fleet.cat_veh_cons,Foco Trasero,20
+cons_3,cost_fleet.cat_veh_cons,Discos de Freno,30
+cons_4,cost_fleet.cat_veh_cons,Pastillas Freno de Zapatas,40
+cons_5,cost_fleet.cat_veh_cons,Filtro Aceite Motor,50
+cons_6,cost_fleet.cat_veh_cons,Lts de Aceite Motor,60
+cons_7,cost_fleet.cat_veh_cons,Filtro Aire,70
+cons_8,cost_fleet.cat_veh_cons,Filtro Combustible,80
+cons_9,cost_fleet.cat_veh_cons,Aceite Caja,90
+cons_10,cost_fleet.cat_veh_cons,Filtro Aceite Caja,100
+cons_11,cost_fleet.cat_veh_cons,Agua Radiador,110
+cons_12,cost_fleet.cat_veh_cons,Foco Alta,120
+cons_13,cost_fleet.cat_veh_cons,Foco Baja,130
+cons_14,cost_fleet.cat_veh_cons,Limpiaparabrisa,140
+cons_15,cost_fleet.cat_veh_cons,Bateria,150
+cons_16,cost_fleet.cat_veh_cons,Lubricantes y Fluidos,160
+cons_17,cost_fleet.cat_veh_cons,Fluido Freno,170
+cons_18,cost_fleet.cat_veh_cons,Filtro Aire de Cabina,180
+cons_19,cost_fleet.cat_veh_cons,Fluido Freno,190
+spare_1,cost_fleet.cat_veh_spare,Rodillo tensor correa dentada,200
+spare_2,cost_fleet.cat_veh_spare,Rodillo tensor Correa Alternador,210
+spare_3,cost_fleet.cat_veh_spare,Correa Aire Acondicionador,220
+spare_4,cost_fleet.cat_veh_spare,Bobina Arranque,230
+spare_5,cost_fleet.cat_veh_spare,Pastillas Freno de Disco,240
+spare_6,cost_fleet.cat_veh_spare,Correa Dentada,250
+spare_7,cost_fleet.cat_veh_spare,Correa Alternador,260
+spare_8,cost_fleet.cat_veh_spare,Correa Aire,270
+spare_9,cost_fleet.cat_veh_spare,Cables Bujias,280
+spare_10,cost_fleet.cat_veh_spare,Bujias,290
+spare_11,cost_fleet.cat_veh_spare,Fusibles,300
+spare_12,cost_fleet.cat_veh_spare,Catalizador,310
+spare_13,cost_fleet.cat_veh_spare,sensor lamda,320
+spare_14,cost_fleet.cat_veh_spare,Valvula Combustible,330
+spare_15,cost_fleet.cat_veh_spare,Bomba de Direccion,340

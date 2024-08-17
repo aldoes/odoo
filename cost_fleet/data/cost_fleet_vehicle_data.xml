@@ -10,9 +10,9 @@
         <record id='cat_sedan' model="fleet.vehicle.model.category">
             <field name="name">Sedan</field>
         </record>
-        <record id="cat_vehicle_spare" model="product.category">
+        <!-- <record id="cat_vehicle_spare" model="product.category">
             <field name="name">Vehicle Spare</field>
-        </record>
+        </record> -->
 
         <record id='volks_saveiro_t' model="fleet.vehicle.model">
             <field name="name">Saveiro Trendline</field>
