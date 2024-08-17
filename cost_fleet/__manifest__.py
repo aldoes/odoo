@@ -27,7 +27,7 @@ Module for Cost of Fleet
         "data/cost_fleet_fuel_data.xml",
         "views/account_fiscal_year_views.xml",
         "views/product_category_views.xml",
-        # "views/cost_fleet_vehicle_model_spare_view.xml",
+        "views/cost_fleet_vehicle_model_spare_view.xml",
         "views/cost_fleet_vehicle_fuel_view.xml",
         "views/fleet_views.xml",
         # "views/cost_fleet_vehicle_model_budget_view.xml",

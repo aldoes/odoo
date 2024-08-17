@@ -2,6 +2,6 @@
 <odoo>
     <!-- <menuitem id="menu_model_budget" name="Budget" parent="fleet.fleet_models_configuration" sequence="12" action="action_cost_fleet_vehicle_model_budget" />-->
     <menuitem id="menu_fuel" name="Fuel" parent="fleet.fleet_models_configuration" sequence="20" action="action_cost_fleet_vehicle_fuel" /> 
-    <!-- <menuitem id="menu_spare" name="Spares and Consumables" parent="fleet.fleet_models_configuration" sequence="11" action="action_cost_fleet_vehicle_model_spare" /> -->
+    <menuitem id="menu_spare" name="Spares and Consumables" parent="fleet.fleet_models_configuration" sequence="11" action="action_cost_fleet_vehicle_model_spare" />
 
 </odoo>
