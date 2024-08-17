@@ -68,10 +68,10 @@ class FleetVehicle(models.Model):
         vehicle = self
         vehicle.ensure_one()
         fuel_line = vehicle.get_line_fuel_cat_cost_def()
-        #traer la ultima compra de combustible para ese vehiculo
+        #TODO traer la ultima compra de combustible registrada para ese vehiculo
         #use function get_last_fuel_purchase_for_vehicule()
         #sino
-        #Valor default 1.0
+        #TODO Valor default 1.0
         #Trae el mayor costo del combustible de la categoria prioritaria del vehiculo
         return self.env['cost.fleet.vehicle.fuel'].get_fuels_by_cat(fuel_line.fuel_cat_id, True)[0].last_cost/fuel_line.fuel_effic
         
