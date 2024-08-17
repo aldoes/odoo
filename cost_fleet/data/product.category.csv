@@ -1,7 +1,7 @@
 id,parent_id/id,name,sequence
 cons_1,cost_fleet.cat_veh_cons,Neumaticos,10
 cons_2,cost_fleet.cat_veh_cons,Foco Trasero,20
-cons_3,cost_fleet.cat_veh_cons,Discos de Freno,30
+cons_3,cost_fleet.cat_veh_cons,Pastillas Freno de Disco,30
 cons_4,cost_fleet.cat_veh_cons,Pastillas Freno de Zapatas,40
 cons_5,cost_fleet.cat_veh_cons,Filtro Aceite Motor,50
 cons_6,cost_fleet.cat_veh_cons,Lts de Aceite Motor,60
@@ -22,7 +22,7 @@ spare_1,cost_fleet.cat_veh_spare,Rodillo tensor correa dentada,200
 spare_2,cost_fleet.cat_veh_spare,Rodillo tensor Correa Alternador,210
 spare_3,cost_fleet.cat_veh_spare,Correa Aire Acondicionador,220
 spare_4,cost_fleet.cat_veh_spare,Bobina Arranque,230
-spare_5,cost_fleet.cat_veh_spare,Pastillas Freno de Disco,240
+spare_5,cost_fleet.cat_veh_spare,Discos de Freno,240
 spare_6,cost_fleet.cat_veh_spare,Correa Dentada,250
 spare_7,cost_fleet.cat_veh_spare,Correa Alternador,260
 spare_8,cost_fleet.cat_veh_spare,Correa Aire,270
@@ -33,3 +33,5 @@ spare_12,cost_fleet.cat_veh_spare,Catalizador,310
 spare_13,cost_fleet.cat_veh_spare,sensor lamda,320
 spare_14,cost_fleet.cat_veh_spare,Valvula Combustible,330
 spare_15,cost_fleet.cat_veh_spare,Bomba de Direccion,340
+spare_16,cost_fleet.cat_veh_spare,Termostato,350
+
