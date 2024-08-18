@@ -4,7 +4,7 @@ from odoo import models, fields
 
 class CostFleetVehicleModelSpare(models.Model):
    _name = 'cost.fleet.vehicle.model.spare'
-   _inherit = ['abstract.purchase.fields','abstract.kmcost.fields']
+   _inherit = ['abstract.purchase.fields']
    _inherits = {'product.product': 'product_id'}
    _description = 'Vehicle Spare and Consumable'
    _order="sequence desc"
@@ -13,6 +13,7 @@ class CostFleetVehicleModelSpare(models.Model):
    product_id = fields.Many2one(
       'product.product', 'Product Id',
        auto_join=True, index=True, ondelete="cascade", required=True)
+   km_use = fields.Integer(string="Estimate Use (km)", default=5000)
 
 #    def get_spare_by_cat_for_model(self, model, sortBy_highest_cost=False):
 #         model.ensure_one()

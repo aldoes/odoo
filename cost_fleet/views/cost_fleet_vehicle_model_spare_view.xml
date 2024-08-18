@@ -61,6 +61,7 @@
                 <group name="group_general">
                   <field name="active" invisible="1" field_id="active_0"/>
                   <field name="detailed_type" on_change="1" field_id="detailed_type_0"/>
+                  <field name="km_use" />
                   <field name="product_tooltip" string="" class="fst-italic text-muted" invisible="type == 'service' and not sale_ok" field_id="product_tooltip_0"/>
                 </group>
                 <group name="group_standard_price">
