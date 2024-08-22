@@ -6,6 +6,7 @@ cons_4,cost_fleet.cat_veh_cons,Pastillas Freno de Zapatas,40
 cons_5,cost_fleet.cat_veh_cons,Filtro Aceite Motor,50
 cons_6,cost_fleet.cat_veh_cons,Lts de Aceite Motor,60
 cons_7,cost_fleet.cat_veh_cons,Filtro Aire,70
+cons_20,cost_fleet.cat_veh_cons,Filtro Polen,71
 cons_8,cost_fleet.cat_veh_cons,Filtro Combustible,80
 cons_9,cost_fleet.cat_veh_cons,Aceite Caja,90
 cons_10,cost_fleet.cat_veh_cons,Filtro Aceite Caja,100
