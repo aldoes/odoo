@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data noupdate="1">
-        <!-- Spare -->
+          <!-- Provider -->
+        <record id='provider01' model="res.partner">
+            <field name="name">DIESA SA</field>   
+        </record>
+
+        <!-- Spare Cat-->
         <record id="cat_veh" model="product.category">
             <field name="name">Vehicular</field>
         </record>
@@ -14,6 +19,7 @@
             <field name="name">Consumable</field>
         </record>
 
+         <!-- Spare -->
         <record id="ms_spa_1" model="cost.fleet.vehicle.model.spare">
             <field name="name">Disco de freno trasero</field>
             <field name="categ_id" ref="spare_5"/>
@@ -24,18 +30,7 @@
             <!-- <field name="can_be_expensed" eval="True"/> -->
             <field name="sale_ok" eval="False"/>
             <field name="default_code">DIESA.DIS.FREN.TRAS</field>
-        </record> 
-        <record id="ms_spa_2" model="cost.fleet.vehicle.model.spare">
-            <field name="name">Pastilla de freno trasero PAR</field>
-            <field name="categ_id" ref="cons_3"/>
-            <field name="standard_price">275090.0</field>
-            <field name="uom_id" ref="uom.product_uom_unit"/>
-            <field name="uom_po_id" ref="uom.product_uom_unit"/>            
-            <field name="model_ids" eval="[(6, 0, [ref('cost_fleet.volks_saveiro_t'), ref('cost_fleet.volks_saveiro_h'), ref('cost_fleet.volks_gol')])]" />
-            <!-- <field name="can_be_expensed" eval="True"/> -->
-            <field name="sale_ok" eval="False"/>
-            <field name="default_code">DIESA.PAS.FREN.TRAS</field>
-        </record> 
+        </record>
         <record id="ms_spa_2" model="cost.fleet.vehicle.model.spare">
             <field name="name">Correa Alternador</field>
             <field name="categ_id" ref="spare_7"/>
@@ -47,7 +42,7 @@
             <field name="sale_ok" eval="False"/>
             <field name="default_code">DIESA.CORREA.ALT</field>
         </record> 
-        <record id="ms_spa_2" model="cost.fleet.vehicle.model.spare">
+        <record id="ms_spa_3" model="cost.fleet.vehicle.model.spare">
             <field name="name">Caja Termostato</field>
             <field name="categ_id" ref="spare_16"/>
             <field name="standard_price">784785.0</field>
@@ -58,5 +53,90 @@
             <field name="sale_ok" eval="False"/>
             <field name="default_code">DIESA.TERMOST</field>
         </record> 
+        <record id="ms_spa_4" model="cost.fleet.vehicle.model.spare">
+            <field name="name">Kit Cable Bujia</field>
+            <field name="categ_id" ref="spare_9"/>
+            <field name="standard_price">600000.0</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>            
+            <field name="model_ids" eval="[(6, 0, [ref('cost_fleet.volks_saveiro_t'), ref('cost_fleet.volks_saveiro_h'), ref('cost_fleet.volks_gol')])]" />
+            <!-- <field name="can_be_expensed" eval="True"/> -->
+            <field name="sale_ok" eval="False"/>
+            <field name="default_code">DIESA.BUJIA</field>
+        </record> 
+
+
+        <!-- Consumables -->
+        <record id="ms_con_1" model="cost.fleet.vehicle.model.spare">
+            <field name="name">Pastilla de freno trasero PAR</field>
+            <field name="categ_id" ref="cons_3"/>
+            <field name="standard_price">275090.0</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>            
+            <field name="model_ids" eval="[(6, 0, [ref('cost_fleet.volks_saveiro_t'), ref('cost_fleet.volks_saveiro_h'), ref('cost_fleet.volks_gol')])]" />
+            <!-- <field name="can_be_expensed" eval="True"/> -->
+            <field name="sale_ok" eval="False"/>
+            <field name="default_code">DIESA.PAS.FREN.TRAS</field>
+        </record> 
+
+        <record id="ms_con_2" model="cost.fleet.vehicle.model.spare">
+            <field name="name">Aceite 5W40</field>
+            <field name="categ_id" ref="cons_6"/>
+            <field name="standard_price">120740.0</field>
+            <field name="uom_id" ref="uom.product_uom_litre"/>
+            <field name="uom_po_id" ref="uom.product_uom_litre"/>            
+            <field name="model_ids" eval="[(6, 0, [ref('cost_fleet.volks_saveiro_t'), ref('cost_fleet.volks_saveiro_h'), ref('cost_fleet.volks_gol')])]" />
+            <!-- <field name="can_be_expensed" eval="True"/> -->
+            <field name="sale_ok" eval="False"/>
+            <field name="default_code">DIESA.ACEITE.5W40</field>
+        </record> 
+
+        <record id="ms_con_3" model="cost.fleet.vehicle.model.spare">
+            <field name="name">Filtro de Aceite</field>
+            <field name="categ_id" ref="cons_5"/>
+            <field name="standard_price">31000.0</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>            
+            <field name="model_ids" eval="[(6, 0, [ref('cost_fleet.volks_saveiro_t'), ref('cost_fleet.volks_saveiro_h'), ref('cost_fleet.volks_gol')])]" />
+            <!-- <field name="can_be_expensed" eval="True"/> -->
+            <field name="sale_ok" eval="False"/>
+            <field name="default_code">DIESA.FILTRO.ACEITE</field>
+        </record> 
+
+        <record id="ms_con_4" model="cost.fleet.vehicle.model.spare">
+            <field name="name">Filtro de Aire</field>
+            <field name="categ_id" ref="cons_7"/>
+            <field name="standard_price">215600.0</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>            
+            <field name="model_ids" eval="[(6, 0, [ref('cost_fleet.volks_saveiro_t'), ref('cost_fleet.volks_saveiro_h'), ref('cost_fleet.volks_gol')])]" />
+            <!-- <field name="can_be_expensed" eval="True"/> -->
+            <field name="sale_ok" eval="False"/>
+            <field name="default_code">DIESA.FILTRO.AIRE</field>
+        </record> 
+        <record id="ms_con_5" model="cost.fleet.vehicle.model.spare">
+            <field name="name">Filtro de Combustible</field>
+            <field name="categ_id" ref="cons_8"/>
+            <field name="standard_price">50466.0</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>            
+            <field name="model_ids" eval="[(6, 0, [ref('cost_fleet.volks_saveiro_t'), ref('cost_fleet.volks_saveiro_h'), ref('cost_fleet.volks_gol')])]" />
+            <!-- <field name="can_be_expensed" eval="True"/> -->
+            <field name="sale_ok" eval="False"/>
+            <field name="default_code">DIESA.FILTRO.COMB</field>
+        </record> 
+
+        <record id="ms_con_6" model="cost.fleet.vehicle.model.spare">
+            <field name="name">Filtro de Polen</field>
+            <field name="categ_id" ref="cons_20"/>
+            <field name="standard_price">74456.0</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>            
+            <field name="model_ids" eval="[(6, 0, [ref('cost_fleet.volks_saveiro_t'), ref('cost_fleet.volks_saveiro_h'), ref('cost_fleet.volks_gol')])]" />
+            <!-- <field name="can_be_expensed" eval="True"/> -->
+            <field name="sale_ok" eval="False"/>
+            <field name="default_code">DIESA.FILTRO.POLEN</field>
+        </record>
+
     </data>
 </odoo>
