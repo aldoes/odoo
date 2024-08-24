@@ -25,6 +25,10 @@ class CostFleetVehicleModelSpare(models.Model):
             list_spare = list_spare.sorted(key=lambda r: r.last_cost, reverse=True)
         return list_spare
 
+   def get_spare_higherCost_inCategory_for_model(self, model, category):
+        category.ensure_one()
+        model.ensure_one()
+        return self.get_spare_for_model(model, category,True)[0].last_cost
 
    
 
