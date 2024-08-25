@@ -30,8 +30,8 @@ Module for Cost of Fleet
         "views/cost_fleet_vehicle_model_spare_view.xml",
         "views/cost_fleet_vehicle_fuel_view.xml",
         "views/fleet_views.xml",
-        # "views/cost_fleet_vehicle_model_budget_view.xml",
-       "views/cost_fleet_menu.xml",
+        "views/cost_fleet_vehicle_model_budget_view.xml",
+        "views/cost_fleet_menu.xml",
     ],
     'license':"LGPL-3",
 }

@@ -18,7 +18,7 @@ from . import abstract_kmcost_fields
 from . import cost_fleet_vehicle_model_spare
 # from . import cost_fleet_vehicle_model_budget_services_line
 # from . import cost_fleet_vehicle_model_budget_consumables_line
-# from . import cost_fleet_vehicle_model_budget
+from . import cost_fleet_vehicle_model_budget
 
 
 

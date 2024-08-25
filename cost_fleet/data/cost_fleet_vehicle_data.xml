@@ -73,7 +73,7 @@
 
          <record id='saveiro_1' model="fleet.vehicle">
             <field name="brand_id" ref="fleet.brand_volkswagen"/>
-            <field name="model_id" ref="volks_saveiro_t"/>
+            <field name="model_id" ref="volks_saveiro_h"/>
             <field name="license_plate">HEY685</field>
             <field name="net_car_value">19000</field>
             <field name="currency_id" ref="base.USD"/>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+  <!-- View cost.fleet.vehicle.model.budget View Tree -->
+    <record id="view_cost_fleet_vehicle_model_budget_tree" model="ir.ui.view">
+        <field name="name">view.cost.fleet.vehicle.model.budget.tree</field>
+        <field name="model">cost.fleet.vehicle.model.budget</field>
+        <field name="arch" type="xml">
+            <tree string="Cost Fleet Vehicle Model Budget">
+                <field name="name" />
+                <field name="model_ids" widget="many2many_tags" />
+                <field name="budg_type" placeholder="Tipo" /> 
+            </tree>
+        </field>
+    </record>
+
+    <!-- View cost.fleet.vehicle.model.budget.consumables.line tree -->
+    <!-- <record id="cost_fleet_vehicle_model_budget_consumables_line_view_tree" model="ir.ui.view">
+        <field name="name">view.cost.fleet.vehicle.model.budget.consumables.line.tree</field>
+        <field name="model">cost.fleet.vehicle.model.budget.consumables.line</field>
+        <field name="arch" type="xml">
+            <tree string="Consumables" edit="1" editable="top">
+                <field name="spare_cat_id" />
+                <field name="qty" />
+                <field name="km_use" />
+                 <field name="unit_price" />
+                <field name="currency_id" />
+                <field name="taxes_id" widget="many2many_tags"
+                       domain="[('type_tax_use', '=', 'purchase')]"/> -->
+                <!-- <field name="costkm" /> -->
+                <!-- <field name="cost_km" /> 
+                <field name="obs" />
+            </tree>
+        </field>
+    </record> -->
+
+    
+
+    <!-- View cost.fleet.vehicle.model.budget search -->
+    <!-- <record id="view_cost_fleet_vehicle_model_budget_search" model="ir.ui.view">
+        <field name="name">view.cost.fleet.vehicle.model.budget.search</field>
+        <field name="model">cost.fleet.vehicle.model.budget</field>
+        <field name="arch" type="xml">
+            <search string="Cost Fleet Vehicle Model Budget">
+                <group expand="1" string="Group By">
+                    <filter string="Name" name="name" domain="[]" context="{'group_by':'name'}" />
+                </group>
+            </search>
+        </field>
+    </record> -->
+
+    <!-- View cost.fleet.vehicle.model.budget form -->
+    <record id="view_cost_fleet_vehicle_model_budget_form" model="ir.ui.view">
+        <field name="name">view.cost.fleet.vehicle.model.budget.form</field>
+        <field name="model">cost.fleet.vehicle.model.budget</field>
+        <field name="arch" type="xml">
+            <form string="Cost Fleet Vehicle Model Budget">
+                <header> </header>
+                <div class="oe_title">
+                    <h1>
+                        <label for="name" />
+                        <field name="name" placeholder="Titulo" />
+                    </h1>
+                </div>
+                <sheet>
+                    <group>
+                        <field name="model_ids" placeholder="Modelos" widget="many2many_tags" />     
+                        <field name="partner_id" placeholder="Proveedor" />   
+                        <field name="budg_type" placeholder="Tipo" /> 
+                        <field name="obs" placeholder="Detalles" />       
+                    </group>          
+                    <!-- 
+                        <group>
+                            <field name="services_ids" /> 
+                            <field name="consumable_cat_ids" />
+                        </group>
+                    </sheet> -->
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action cost.fleet.vehicle.model.budget -->
+    <record id="action_cost_fleet_vehicle_model_budget" model="ir.actions.act_window">
+        <field name="name">Cost Fleet Vehicle Model Budget</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cost.fleet.vehicle.model.budget</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                There is no examples click here to add new Cost Fleet Vehicle Model Budget.
+            </p>
+        </field>
+    </record>
+</odoo>
