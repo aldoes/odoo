@@ -23,16 +23,18 @@ class CostFleetVehicleModelBudget(models.Model):
         ondelete='restrict',
     )
   obs= fields.Text(string="Details")
+  consum_cat_line_ids = fields.One2many(comodel_name='cost.fleet.vehicle.model.budget.consumables.line', 
+      inverse_name="budget_id",
+      string="Consumables Items",
+      copy=True
+  )
+
   # amount_total = fields.Monetary(
   #       string='Total',
   #       compute='_compute_amount', store=True, readonly=True
   # )
    # services_ids = fields.One2many(comodel_name='cost.fleet.vehicle.model.budget.services.line', inverse_name="budget_id", string="Services")
-  # consum_cat_line_ids = fields.One2many(comodel_name='cost.fleet.vehicle.model.budget.consumables.line', 
-  #     inverse_name="budget_id",
-  #     string="Consumables Items",
-  #     copy=True
-  # )
+
 
   # def _compute_amount(self):
   #   for line in self.consum_cat_line_ids:
