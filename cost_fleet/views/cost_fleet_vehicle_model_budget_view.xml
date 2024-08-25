@@ -20,7 +20,10 @@
         <field name="model">cost.fleet.vehicle.model.budget.consumables.line</field>
         <field name="arch" type="xml">
             <tree string="Consumibles y Repuestos" edit="1" editable="top">
-                <field name="spare_cat_id" string="Categoria"/>
+                <field name="spare_cat_id" string="Categoria" 
+                    domain="['|',
+                                ('parent_id', '=', %(cost_fleet.cat_veh_cons)d),
+                                ('parent_id', '=', %(cost_fleet.cat_veh_spare)d)]"/>
                 <field name="qty" string="Cant."/>
                 <field name="km_use" string="Km Uso"/>
                  <!-- <field name="unit_price" />
