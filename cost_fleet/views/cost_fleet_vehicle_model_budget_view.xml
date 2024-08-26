@@ -57,10 +57,10 @@
         <field name="model">cost.fleet.vehicle.model.budget</field>
         <field name="arch" type="xml">
             <form string="Presupuesto de Vehículos">
-                <sheet>
+                <sheet>                    
                     <div class="oe_title">
                         <h1>
-                            <label for="name" string="Título" />
+                            <label for="name" string="Servicio" />
                             <field name="name" />
                         </h1>
                     </div>
@@ -69,17 +69,29 @@
                         <field name="budg_type" /> 
                     </h3>                
                     <group>
+                        <field name="obs" string="Detalles" />
                         <field name="model_ids" string="Modelos" widget="many2many_tags" />     
-                        <field name="partner_id" string="Proveedor" />   
-                        <field name="km_use" string="Km Estimado"/>
-                        <field name="obs" string="Detalles" />       
-                    </group>          
-                    
-                        <group>
-                            <!-- <field name="services_ids" />  -->
-                            <field name="consum_cat_line_ids" string="Consumibles y Repuestos"/>
+                        <field name="partner_id" string="Proveedor" />  
+                        <field name="km_use" string="Km Estimado"/>    
+                        <!-- <field name="standard_price" string="Costo" /> 
+                        <field name="currency_id" string="Moneda" />   -->
+                    </group>  
+                    <group>
+                        <group col='3'>
+                            <group>
+                                <field name="standard_price" string="Costo" /> 
+                            </group>
+                            <group>
+                                <field name="currency_id" string="Moneda" />  
+                            </group>
+                            <group>
+                                <field name="supplier_taxes_id" string="Impuesto" colspan="2" widget="many2many_tags" context="{'default_type_tax_use':'purchase'}" field_id="supplier_taxes_id_0"/>
+                            </group>
                         </group>
-
+                    </group>                      
+                    <group>
+                        <field name="consum_cat_line_ids" string="Consumibles y Repuestos"/>
+                    </group> 
                 </sheet>
             </form>
         </field>
