@@ -22,6 +22,7 @@ class CostFleetVehicleModelBudget(models.Model):
         store=True,
         ondelete='restrict',
     )
+  km_use = fields.Integer(string="km Estimados", default=5000)
   obs= fields.Text(string="Details")
   consum_cat_line_ids = fields.One2many(comodel_name='cost.fleet.vehicle.model.budget.consumables.line', 
       inverse_name="budget_id",

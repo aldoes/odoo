@@ -21,8 +21,7 @@ class CostFleetVehicleModelBudgetConsumablesline(models.Model):
    spare_cat_id = fields.Many2one('product.category',
       string='Consumables', 
       required=True,
-      ondelete="restrict",
-      # domain="[('parent_id','=', %(cost_fleet.cat_veh)d)]"
+      ondelete="restrict"
       )   
    qty = fields.Float(default=1.0,string='Quantity')   
    # price_unit = fields.Float(
@@ -32,7 +31,6 @@ class CostFleetVehicleModelBudgetConsumablesline(models.Model):
    #    #   , precompute=True,
    #      digits='Product Price'
    # )
-   km_use = fields.Integer(string="Estimate Use (km)", default=5000)
    obs= fields.Text(string="Details")
 
    # @api.depends('spare_cat_id')

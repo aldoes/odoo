@@ -10,6 +10,7 @@
                 <field name="name" />
                 <field name="model_ids" widget="many2many_tags" />
                 <field name="budg_type" placeholder="Tipo" /> 
+                <field name="km_use" string="Km Estimados"/>
             </tree>
         </field>
     </record>
@@ -24,8 +25,7 @@
                     domain="['|',
                                 ('parent_id', '=', %(cost_fleet.cat_veh_cons)d),
                                 ('parent_id', '=', %(cost_fleet.cat_veh_spare)d)]"/>
-                <field name="qty" string="Cant."/>
-                <field name="km_use" string="Km Uso"/>
+                <field name="qty" string="Cant."/>            
                  <!-- <field name="unit_price" />
                 <field name="currency_id" /> -->
                 <!--<field name="taxes_id" widget="many2many_tags" domain="[('type_tax_use', '=', 'purchase')]"/> -->
@@ -71,7 +71,7 @@
                     <group>
                         <field name="model_ids" string="Modelos" widget="many2many_tags" />     
                         <field name="partner_id" string="Proveedor" />   
-                        
+                        <field name="km_use" string="Km Estimado"/>
                         <field name="obs" string="Detalles" />       
                     </group>          
                     
