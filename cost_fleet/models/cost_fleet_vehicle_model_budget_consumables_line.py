@@ -24,36 +24,32 @@ class CostFleetVehicleModelBudgetConsumablesline(models.Model):
       ondelete="restrict"
       )   
    qty = fields.Float(default=1.0,string='Quantity')   
-   # price_unit = fields.Float(
-   #      string='Unit Price',
-   #      compute="_compute_price_unit", 
-   #      readonly=True,
-   #    #   , precompute=True,
-   #      digits='Product Price'
-   # )
+   price_unit = fields.Float(
+        string='Unit Price',
+        readonly=True,
+        digits='Product Price'
+   )
    obs= fields.Text(string="Details")
 
    # @api.depends('spare_cat_id')
-   # def _compute_price_unit(self):
-   #    for line in self:
-   #       self.price_unit=0.0
-   #      for line in self:
-   #          if not line.product_id or line.display_type in ('line_section', 'line_note'):
-   #              continue
-   #          if line.move_id.is_sale_document(include_receipts=True):
-   #              document_type = 'sale'
-   #          elif line.move_id.is_purchase_document(include_receipts=True):
-   #              document_type = 'purchase'
-   #          else:
-   #              document_type = 'other'
-   #          line.price_unit = line.product_id._get_tax_included_unit_price(
-   #              line.move_id.company_id,
-   #              line.move_id.currency_id,
-   #              line.move_id.date,
-   #              document_type,
-   #              fiscal_position=line.move_id.fiscal_position_id,
-   #              product_uom=line.product_uom_id,
-   #          )
+   def compute_price_unit(self):
+        for line in self:
+            line.price_unit = self.env['cost.fleet.vehicle.model.spare'].get_higherCost_spare_inCategory_for_model(line.budget_id.model_ids, line.spare_cat_id).last_cost
+            # if not line.product_id or line.display_type in ('line_section', 'line_note'):
+            #     continue
+            # if line.move_id.is_sale_document(include_receipts=True):
+            #     document_type = 'sale'
+            # elif line.move_id.is_purchase_document(include_receipts=True):
+            #     document_type = 'purchase'
+            # else:
+            #     document_type = 'other'
+            # line.price_unit = line.product_id._get_tax_included_unit_price(
+            #     line.move_id.company_id,
+            #     line.move_id.currency_id,
+            #     line.move_id.date,
+            #     document_type,
+            #     fiscal_position=line.move_id.fiscal_position_id,
+            #     product_uom=line.product_uom_id,)
 
    # @api.depends('spare_cat_id','qty','km_use')
    # def _compute_cost_km(self):      
