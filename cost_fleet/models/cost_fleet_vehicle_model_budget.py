@@ -12,9 +12,9 @@ class CostFleetVehicleModelBudget(models.Model):
   _name = 'cost.fleet.vehicle.model.budget'
   _description = 'Link the model Vehicle with consumables'
 
-  name= fields.Char(string='Title', required=True)
+  name= fields.Char(string='Servicio', required=True)
   model_ids = fields.Many2many('fleet.vehicle.model',string='Models', required=True)  
-  budg_type = fields.Selection(BUDGET_TYPES, 'Budget Type', default='mant_rut', required=True)
+  budg_type = fields.Selection(BUDGET_TYPES, 'Tipo', default='mant_rut', required=True)
   partner_id = fields.Many2one(
         comodel_name='res.partner',
         string='Partner',
@@ -37,7 +37,7 @@ class CostFleetVehicleModelBudget(models.Model):
   obs= fields.Text(string="Details")
   consum_cat_line_ids = fields.One2many(comodel_name='cost.fleet.vehicle.model.budget.consumables.line', 
       inverse_name="budget_id",
-      string="Consumables Items",
+      string="Items",
       copy=True
   )
 
