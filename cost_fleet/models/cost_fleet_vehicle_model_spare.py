@@ -29,12 +29,10 @@ class CostFleetVehicleModelSpare(models.Model):
         category.ensure_one()
         spare_list = self.env['cost.fleet.vehicle.model.spare']
         for model in models:
-            spare_list += self.get_spare_for_model(model, category,True)[0]        
+                items = self.get_spare_for_model(model, category,True)
+                if (items):
+                    spare_list += items[0]        
         if ( len(spare_list)>1):
             spare_list = spare_list.sorted(key=lambda r: r.last_cost, reverse=True)
         return spare_list[0]
 
-#    def get_spare_higherCost_inCategory_for_model(self, model, category):
-#         category.ensure_one()
-#         model.ensure_one()
-#         return self.get_spare_for_model(model, category,True)[0].last_cost
