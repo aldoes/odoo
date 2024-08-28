@@ -45,12 +45,13 @@ class CostFleetVehicleModelBudget(models.Model):
   #       string='Total',
   #       compute='_compute_amount', store=True, readonly=True
   # )
-   # services_ids = fields.One2many(comodel_name='cost.fleet.vehicle.model.budget.services.line', inverse_name="budget_id", string="Services")
+    # services_ids = fields.One2many(comodel_name='cost.fleet.vehicle.model.budget.services.line', inverse_name="budget_id", string="Services")
 
 
   # def _compute_amount(self):
   #   for line in self.consum_cat_line_ids:
   #     self.amount_total += 0.0
   #   pass
-
-     #TODO Campo sumatoria de lineas de servicios y consumibles
+  def update_budget_cost(self):
+      self.consum_cat_line_ids.calculate_price_unit()
+      #TODO Campo sumatoria de lineas de servicios y consumibles

@@ -4,7 +4,7 @@ from odoo import models, fields,api
 
 class CostFleetVehicleModelBudgetConsumablesline(models.Model):
    _name = 'cost.fleet.vehicle.model.budget.consumables.line'
-   _inherit = ['abstract.kmcost.fields'] 
+   # _inherit = ['abstract.kmcost.fields'] 
    _description = 'Line Links the model Budget with consumables'
    _sql_constraints = [('spare_cat_uniq', 'unique(budget_id,spare_cat_id )', "Duplicate consumable or spare part line"), ]
       # ('km_est_gtOne', 'CHECK (costkm_km_est > 0.0)', "km estimate must be grant than zero"),]
@@ -32,9 +32,9 @@ class CostFleetVehicleModelBudgetConsumablesline(models.Model):
    obs= fields.Text(string="Details")
 
    # @api.depends('spare_cat_id')
-   def compute_price_unit(self):
+   def calculate_price_unit(self):
         for line in self:
-            line.price_unit = self.env['cost.fleet.vehicle.model.spare'].get_higherCost_spare_inCategory_for_model(line.budget_id.model_ids, line.spare_cat_id).last_cost
+            line.price_unit = self.env['cost.fleet.vehicle.model.spare'].get_higherCost_spare_inCategory_for_model(line.budget_id.model_ids, line.spare_cat_id).last_cost or 0.0
             # if not line.product_id or line.display_type in ('line_section', 'line_note'):
             #     continue
             # if line.move_id.is_sale_document(include_receipts=True):
