@@ -7,7 +7,6 @@ class CostFleetVehicleModelBudgetConsumablesline(models.Model):
    # _inherit = ['abstract.kmcost.fields'] 
    _description = 'Line Links the model Budget with consumables'
    _sql_constraints = [('spare_cat_uniq', 'unique(budget_id,spare_cat_id )', "Duplicate consumable or spare part line"), ]
-      # ('km_est_gtOne', 'CHECK (costkm_km_est > 0.0)', "km estimate must be grant than zero"),]
 
    budget_id = fields.Many2one(
       comodel_name='cost.fleet.vehicle.model.budget',
@@ -17,24 +16,45 @@ class CostFleetVehicleModelBudgetConsumablesline(models.Model):
       auto_join=True,
       required=True, 
       ondelete="cascade"
-      )
+   )
    spare_cat_id = fields.Many2one('product.category',
       string='Consumables', 
       required=True,
       ondelete="restrict"
-      )   
+   )   
    qty = fields.Float(default=1.0,string='Quantity')   
-   price_unit = fields.Float(
-        string='Unit Price',
+   cost_unit = fields.Monetary(
+        string='Unit Cost',
         readonly=True,
+        store=True,
         digits='Product Price'
+   )   
+   cost_date = fields.Date(
+      string='Date Cost',
+      store=True,
+      readonly=True,
    )
-   obs= fields.Text(string="Details")
+   cost_km = fields.Monetary(
+        string='Cost Km',
+        readonly=True,
+        store=False,
+      #   digits='Product Price',
+        compute ="_calculate_km_cost"
+   )
 
-   # @api.depends('spare_cat_id')
+   obs= fields.Text(string="Details")
+   currency_id = fields.Many2one(comodel_name='res.currency', default=lambda self: self.env.company.currency_id, string='Moneda')
+
+   @api.depends('cost_unit')
+   def _calculate_km_cost(self):
+      for line in self:
+            line.cost_km=(line.cost_unit*line.qty)/line.budget_id.km_use
+
    def calculate_price_unit(self):
         for line in self:
-            line.price_unit = self.env['cost.fleet.vehicle.model.spare'].get_higherCost_spare_inCategory_for_model(line.budget_id.model_ids, line.spare_cat_id).last_cost or 0.0
+            spare = self.env['cost.fleet.vehicle.model.spare'].get_higherCost_spare_inCategory_for_model(line.budget_id.model_ids, line.spare_cat_id)
+            line.cost_unit = spare.last_cost or 0.0
+            line.cost_date= spare.last_info_date
             # if not line.product_id or line.display_type in ('line_section', 'line_note'):
             #     continue
             # if line.move_id.is_sale_document(include_receipts=True):

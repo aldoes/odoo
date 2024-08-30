@@ -11,6 +11,8 @@
                 <field name="model_ids" widget="many2many_tags" />
                 <field name="budg_type" placeholder="Tipo" /> 
                 <field name="km_use" string="Km Estimados"/>
+                <!-- <field name="costKm_total" string="Km Estimados"/>
+                <field name="write_date" readonly='1' string="Ult.Actualización"/>  -->
             </tree>
         </field>
     </record>
@@ -26,7 +28,10 @@
                                 ('parent_id', '=', %(cost_fleet.cat_veh_cons)d),
                                 ('parent_id', '=', %(cost_fleet.cat_veh_spare)d)]"/>
                 <field name="qty" string="Cant."/>            
-                <field name="price_unit" />
+                <field name="cost_unit" string="Costo Unit"/>
+                <field name="cost_km" string="Costo Km"/>
+                <field name="cost_date" string="Ult.Actualiz."/>
+                <field name="currency_id" invisible="1" nolabel="1" />
                 <!-- <field name="currency_id" /> -->
                 <!--<field name="taxes_id" widget="many2many_tags" domain="[('type_tax_use', '=', 'purchase')]"/> -->
                 <!-- <field name="costkm" /> -->
@@ -84,10 +89,10 @@
                     <group>
                         <group col='3'>
                             <group>
-                                <field name="standard_price" string="Costo" /> 
+                                <field name="service_price" string="Costo Servicio" /> 
                             </group>
                             <group>
-                                <field name="currency_id" string="Moneda" />  
+                                <field name="currency_id" string="Moneda" invisible='1' nolabel='1'/>  
                             </group>
                             <group>
                                 <field name="supplier_taxes_id" string="Impuesto" colspan="2" widget="many2many_tags" context="{'default_type_tax_use':'purchase'}" field_id="supplier_taxes_id_0"/>
