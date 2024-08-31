@@ -42,13 +42,13 @@ class FleetVehicle(models.Model):
     #     'cost_fleet_vehicle_model_budget_id', 
     #     string="Presupuestos")
         
-    # budget_ids = fields.Many2many(comodel_name='cost.fleet.vehicle.model.budget', 
-    #     compute='get_model_budget_ids',
-    #     string="Presupuestos")
+    budget_ids = fields.Many2many(comodel_name='cost.fleet.vehicle.model.budget', 
+        compute='get_model_budget_ids',
+        string="Presupuestos")
 
-    # def get_model_budget_ids(self):
-    #         domain=[('fleet_vehicle_model_id', '=', self.model_id),]
-    #         self.budget_ids= self.env['cost.fleet.vehicle.model.budget'].search(domain)
+    def get_model_budget_ids(self):
+        for line in self:
+            line.budget_ids= self.env['cost.fleet.vehicle.model.budget'].get_budgets_by_models(line.model_id)
 
     def get_line_fuel_cat_cost_def(self):
         vehicle = self

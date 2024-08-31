@@ -14,7 +14,6 @@
                   <field name="fuel_cat_id"/>
                   <field name="fuel_effic"/>
                   <field name="priority" widget='handle'/>
-
                 </tree> 
               </field>
           </group>
@@ -31,6 +30,22 @@
               </field>
           </group>
         </page>
+        
+        <page string="Presupuestos" name="budget">
+          <group>
+            <field name="budget_ids" widget="one2many" string="Presupuestos" mode="tree">
+              <tree string="Servicios">
+                <field name="name" String="Servicio"/>
+                <field name="budg_type" String="Tipo" /> 
+                <field name="km_use" string="Km Estimados"/>
+                <field name="costKm_total" string="Costo Km" readonly='1' /> 
+                <field name="budget_date_upd" readonly='1' string="Ult.Actualización"/>
+                <field name="currency_id" invisible="1" nolabel="1" />                
+              </tree>
+            </field>
+          </group>
+        </page>
+
       </xpath>  
      <xpath expr="//field[@name='net_car_value']" position="after">
       <label for="km_use" string="Uso Estimado (Km/años)" />
