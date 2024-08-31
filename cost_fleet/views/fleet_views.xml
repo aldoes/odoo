@@ -62,6 +62,9 @@
                 <field name="name" String="Servicio"/>
                 <field name="budg_type" String="Tipo" /> 
                 <field name="km_use" string="Km Estimados"/>
+                <field name="costKm_total" string="Costo Km" readonly='1' /> 
+                <field name="budget_date_upd" readonly='1' string="Ult.Actualización"/>
+                <field name="currency_id" invisible="1" nolabel="1" />                
               </tree>
             </field>
           </group>
