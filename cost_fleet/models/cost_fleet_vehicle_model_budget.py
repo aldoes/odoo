@@ -45,31 +45,34 @@ class CostFleetVehicleModelBudget(models.Model):
   amount_total = fields.Monetary(
         string='Total',
         compute='_compute_amount', 
-        # store=True, 
         readonly=True
   )
   costKm_total = fields.Monetary(
         string='Total Cost Km',
-        # compute='_compute_costKm', 
-        # store=True, 
         readonly=True
   )
   currency_id = fields.Many2one(comodel_name='res.currency', default=lambda self: self.env.company.currency_id, string='Moneda')
+  budget_date_upd= fields.Datetime(string="Ult. Actualizacion")
 
-  @api.depends('km_use','service_price')
+  @api.depends('service_price')
   def _compute_amount(self):
-    self.amount_total=0
-    for line in self.consum_cat_line_ids:
-      self.amount_total += (line.cost_unit*line.qty)
-    self.amount_total += self.service_price
+      for budget in self:
+        budget.amount_total=0
+        for det in budget.consum_cat_line_ids:
+            budget.amount_total += (det.cost_unit*det.qty)
+        budget.amount_total += budget.service_price
+        budget._compute_costKm()
   
-  # @api.depends('km_use','service_price')
-  # def _compute_costKm(self):
-  #   self.costKm_total=self.amount_total/self.km_use
+  @api.depends('km_use')
+  def _compute_costKm(self):
+      for budget in self:
+          budget.costKm_total=budget.amount_total/budget.km_use
 
   def update_budget_cost(self):
-      self.consum_cat_line_ids.calculate_price_unit()
-      self._compute_amount()
-      # self._compute_costKm()
-      self.write_date=fields.Datetime.to_string(datetime.now())
+      self.ensure_one()
+      for line in self:
+          line.consum_cat_line_ids.calculate_price_unit()
+          line._compute_amount()
+          line.budget_date_upd=fields.Datetime.now()
+          # line.budget_date_upd=fields.Datetime.to_string(datetime.now())
       #TODO Campo sumatoria de lineas de servicios y consumibles

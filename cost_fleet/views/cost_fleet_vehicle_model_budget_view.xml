@@ -11,8 +11,9 @@
                 <field name="model_ids" widget="many2many_tags" />
                 <field name="budg_type" placeholder="Tipo" /> 
                 <field name="km_use" string="Km Estimados"/>
-                <!-- <field name="costKm_total" string="Km Estimados"/>
-                <field name="write_date" readonly='1' string="Ult.Actualización"/>  -->
+                <field name="amount_total" string="Costo Total" readonly='1' /> 
+                <field name="costKm_total" string="Costo Km" readonly='1' /> 
+                <field name="budget_date_upd" readonly='1' string="Ult.Actualización"/>
             </tree>
         </field>
     </record>
@@ -64,7 +65,7 @@
             <form string="Presupuesto de Vehículos">
                 <header>
                     <button name="update_budget_cost" string="Actualizar Costos" type="object" class="oe_highlight"/>
-                    <field name="write_date" readonly='1' string="Ult.Actualización"/> 
+                    <field name="budget_date_upd" readonly='1' string="Ult.Actualización"/> 
                 </header>   
                 <sheet>                    
                     <div class="oe_title">
@@ -76,7 +77,15 @@
                     <label for="budg_type" string="Tipo" />
                     <h3>
                         <field name="budg_type" /> 
-                    </h3>                
+                    </h3>        
+                    <group>
+                        <group>
+                            <field name="amount_total" string="Costo Total" readonly='1' /> 
+                        </group>               
+                        <group>
+                            <field name="costKm_total" string="Costo Km" readonly='1' /> 
+                        </group>
+                    </group>
                     <group>
                         <field name="obs" string="Detalles" />
                         <field name="model_ids" string="Modelos" widget="many2many_tags" />     
@@ -98,6 +107,7 @@
                                 <field name="supplier_taxes_id" string="Impuesto" colspan="2" widget="many2many_tags" context="{'default_type_tax_use':'purchase'}" field_id="supplier_taxes_id_0"/>
                             </group>
                         </group>
+                       
                     </group>                      
                     <group>
 
