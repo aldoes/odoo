@@ -76,3 +76,26 @@ class CostFleetVehicleModelBudget(models.Model):
           line.budget_date_upd=fields.Datetime.now()
           # line.budget_date_upd=fields.Datetime.to_string(datetime.now())
       #TODO Campo sumatoria de lineas de servicios y consumibles
+
+  def get_budgets_by_models(self, models):
+        budgets = self.env['cost.fleet.vehicle.model.budget']
+        for model in models:
+            domain=[('model_ids','in', model.id),]            
+            if( list_budgets := self.search(domain)):
+              budgets+=list_budgets
+        return budgets
+
+
+
+
+
+    #             budgets_list = self.get_spare_for_model(model, category,True)
+    #             if (spare_list):
+    #                 if(len(spare_list)>1):
+    #                     higherCost_spare += spare_list[0]   
+    #                 else:
+    #                     higherCost_spare+= spare_list
+    #     if ( len(higherCost_spare)>1):
+    #         higherCost_spare= higherCost_spare.sorted(key=lambda r: r.last_cost, reverse=True)[0]
+    #     return higherCost_spare
+    # pass

@@ -35,6 +35,20 @@ class FleetVehicle(models.Model):
                                       compute='_compute_last_cost_cons_km',
                                       readonly=True)
     cost_curr_id = fields.Many2one(comodel_name='res.currency', related='company_id.currency_id',string='Local Currency', readonly=True, store=False)
+    
+    # budget_ids = fields.Many2many('cost.fleet.vehicle.model.budget', 
+    #     'cost_fleet_vehicle_model_budget_fleet_vehicle_model_rel',
+    #     'fleet_vehicle_model_id',
+    #     'cost_fleet_vehicle_model_budget_id', 
+    #     string="Presupuestos")
+        
+    # budget_ids = fields.Many2many(comodel_name='cost.fleet.vehicle.model.budget', 
+    #     compute='get_model_budget_ids',
+    #     string="Presupuestos")
+
+    # def get_model_budget_ids(self):
+    #         domain=[('fleet_vehicle_model_id', '=', self.model_id),]
+    #         self.budget_ids= self.env['cost.fleet.vehicle.model.budget'].search(domain)
 
     def get_line_fuel_cat_cost_def(self):
         vehicle = self
@@ -56,7 +70,6 @@ class FleetVehicle(models.Model):
             vehicle.cost_consu_km=0.0
         #####call vehicle.get_cost_consumables_by_km(vehicle)
 
-    # def get_cost_vehicle_by_km(self, vehicle, date_limit= date.today()):
     def get_cost_vehicle_by_km(self, date_limit= date.today()):
         vehicle = self
         vehicle.ensure_one()

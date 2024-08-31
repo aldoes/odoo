@@ -27,7 +27,7 @@ class CostFleetVehicleModelBudgetConsumablesline(models.Model):
         string='Unit Cost',
         readonly=True,
         store=True,
-        digits='Product Price'
+      #   digits='Product Price'
    )   
    cost_date = fields.Date(
       string='Date Cost',
