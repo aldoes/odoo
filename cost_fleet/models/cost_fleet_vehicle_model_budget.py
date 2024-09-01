@@ -20,14 +20,11 @@ class CostFleetVehicleModelBudget(models.Model):
   partner_id = fields.Many2one(
         comodel_name='res.partner',
         string='Partner',
-      #   compute='_compute_partner_id', inverse='_inverse_partner_id',  readonly=False, precompute=True,
         store=True,
         ondelete='restrict',
-    )
+  )
   service_price = fields.Monetary(string='Costo',
-  currency_field='currency_id'
-    # digits='Product Price', 
-    # groups="base.group_user"
+    currency_field='currency_id'
   )
   currency_id = fields.Many2one(comodel_name='res.currency', default=lambda self: self.env.company.currency_id, string='Moneda')
   supplier_taxes_id = fields.Many2many('account.tax',
@@ -49,24 +46,20 @@ class CostFleetVehicleModelBudget(models.Model):
   )
   costKm_total = fields.Monetary(
         string='Total Cost Km',
+        compute='_compute_amount', 
         readonly=True
   )
   currency_id = fields.Many2one(comodel_name='res.currency', default=lambda self: self.env.company.currency_id, string='Moneda')
   budget_date_upd= fields.Datetime(string="Ult. Actualizacion")
 
-  @api.depends('service_price')
+  @api.depends('service_price','km_use')
   def _compute_amount(self):
       for budget in self:
         budget.amount_total=0
         for det in budget.consum_cat_line_ids:
             budget.amount_total += (det.cost_unit*det.qty)
         budget.amount_total += budget.service_price
-        budget._compute_costKm()
-  
-  @api.depends('km_use')
-  def _compute_costKm(self):
-      for budget in self:
-          budget.costKm_total=budget.amount_total/budget.km_use
+        budget.costKm_total = budget.amount_total/budget.km_use
 
   def update_budget_cost(self):
       self.ensure_one()
@@ -74,7 +67,6 @@ class CostFleetVehicleModelBudget(models.Model):
           line.consum_cat_line_ids.calculate_price_unit()
           line._compute_amount()
           line.budget_date_upd=fields.Datetime.now()
-          # line.budget_date_upd=fields.Datetime.to_string(datetime.now())
       #TODO Campo sumatoria de lineas de servicios y consumibles
 
   def get_budgets_by_models(self, models):
@@ -84,18 +76,3 @@ class CostFleetVehicleModelBudget(models.Model):
             if( list_budgets := self.search(domain)):
               budgets+=list_budgets
         return budgets
-
-
-
-
-
-    #             budgets_list = self.get_spare_for_model(model, category,True)
-    #             if (spare_list):
-    #                 if(len(spare_list)>1):
-    #                     higherCost_spare += spare_list[0]   
-    #                 else:
-    #                     higherCost_spare+= spare_list
-    #     if ( len(higherCost_spare)>1):
-    #         higherCost_spare= higherCost_spare.sorted(key=lambda r: r.last_cost, reverse=True)[0]
-    #     return higherCost_spare
-    # pass

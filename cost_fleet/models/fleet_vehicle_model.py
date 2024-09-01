@@ -15,6 +15,15 @@ class FleetVehicleModel(models.Model):
         'fleet_vehicle_model_id',
         'cost_fleet_vehicle_model_budget_id', 
         string="Presupuestos")
+    consum_km_cost = fields.Monetary(
+        string='Costo Consumibles Km',
+        compute='_compute_consum_km_cost', 
+        readonly=True
+    )
+    currency_id = fields.Many2one(comodel_name='res.currency', default=lambda self: self.env.company.currency_id, string='Moneda')
+    def _compute_consum_km_cost(self):
+        for model in self:
+            model.consum_km_cost=0
+            for budget in model.budget_ids:
+                model.consum_km_cost+=budget.costKm_total
     
-    
-

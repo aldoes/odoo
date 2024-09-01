@@ -34,13 +34,11 @@ class FleetVehicle(models.Model):
                                       currency_field='cost_curr_id',
                                       compute='_compute_last_cost_cons_km',
                                       readonly=True)
+    cost_total_km = fields.Monetary(string='Last Km Consumable Cost',
+                                      currency_field='cost_curr_id',
+                                      compute='_compute_last_cost_total_km',
+                                      readonly=True)
     cost_curr_id = fields.Many2one(comodel_name='res.currency', related='company_id.currency_id',string='Local Currency', readonly=True, store=False)
-    
-    # budget_ids = fields.Many2many('cost.fleet.vehicle.model.budget', 
-    #     'cost_fleet_vehicle_model_budget_fleet_vehicle_model_rel',
-    #     'fleet_vehicle_model_id',
-    #     'cost_fleet_vehicle_model_budget_id', 
-    #     string="Presupuestos")
         
     budget_ids = fields.Many2many(comodel_name='cost.fleet.vehicle.model.budget', 
         compute='get_model_budget_ids',
@@ -67,8 +65,12 @@ class FleetVehicle(models.Model):
 
     def _compute_last_cost_cons_km(self):        
         for vehicle in self:
-            vehicle.cost_consu_km=0.0
-        #####call vehicle.get_cost_consumables_by_km(vehicle)
+            vehicle.cost_consu_km=vehicle.model_id.consum_km_cost
+
+    def _compute_last_cost_total_km(self):        
+        for vehicle in self:
+           vehicle.cost_total_km = vehicle.cost_value_km + vehicle.cost_fuel_km + vehicle.cost_consu_km
+
 
     def get_cost_vehicle_by_km(self, date_limit= date.today()):
         vehicle = self
@@ -94,34 +96,3 @@ class FleetVehicle(models.Model):
         # vehicle = self
         # vehicle.ensure_one()
         return False
-
-    def get_cost_consumables_by_km(self, date_limit= date.today()):
-        vehicle = self
-        vehicle.ensure_one()
-        pass
-
-# net_car_value = fields.Float(string="Purchase Value")
-
-    # odometer = fields.Float(compute='_get_odometer', inverse='_set_odometer', string='Last Odometer',
-    #     help='Odometer measure of the vehicle at the moment of this log')
-
-    #   def _get_odometer(self):
-    #     FleetVehicalOdometer = self.env['fleet.vehicle.odometer']
-    #     for record in self:
-    #         vehicle_odometer = FleetVehicalOdometer.search([('vehicle_id', '=', record.id)], limit=1, order='value desc')
-    #         if vehicle_odometer:
-    #             record.odometer = vehicle_odometer.value
-    #         else:
-    #             record.odometer = 0
-
-    #  def _set_odometer(self):
-    #     for record in self:
-    #         if record.odometer:
-    #             date = fields.Date.context_today(record)
-    #             data = {'value': record.odometer, 'date': date, 'vehicle_id': record.id}
-    #             self.env['fleet.vehicle.odometer'].create(data)
-
-
-    
-
-  
