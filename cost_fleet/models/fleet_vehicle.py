@@ -48,11 +48,24 @@ class FleetVehicle(models.Model):
         for line in self:
             line.budget_ids= self.env['cost.fleet.vehicle.model.budget'].get_budgets_by_models(line.model_id)
 
-    def get_line_fuel_cat_cost_def(self):
+    def get_line_fuel_cat(self):
         vehicle = self
         vehicle.ensure_one()
+        categ_def = self.env['cost.fleet.vehicle.fuel'].get_default_categ()
+        line_fue_cat = self.env['cost.fleet.vehicle.fuel.cats.line']
         domain = [('vehicle_id', '=', vehicle.id)]
-        return vehicle.fuel_enab_cat_ids.search(domain,order='priority')[0] 
+        if(result:=vehicle.fuel_enab_cat_ids.search(domain,order='priority')):
+            line_fue_cat=result
+            if(len(line_fue_cat)>1):
+                line_fue_cat=line_fue_cat[0]   
+        else:
+            line_fue_cat = self.env['cost.fleet.vehicle.fuel.cats.line'].new({
+                'vehicle_id' : vehicle.id,
+                'fuel_cat_id' : categ_def,
+                'fuel_effic' : 1,
+                'priority' : 1
+            })
+        return line_fue_cat
         
     #TODO convertir a moneda local los costos
     def _compute_last_cost_value_km(self):        
@@ -82,13 +95,16 @@ class FleetVehicle(models.Model):
     def get_cost_fuel_by_km(self, date_limit= date.today()):
         vehicle = self
         vehicle.ensure_one()
-        fuel_line = vehicle.get_line_fuel_cat_cost_def()
+        fuel_line = vehicle.get_line_fuel_cat()
         #TODO traer la ultima compra de combustible registrada para ese vehiculo
         #use function get_last_fuel_purchase_for_vehicule()
         #sino
         #TODO Valor default 1.0
         #Trae el mayor costo del combustible de la categoria prioritaria del vehiculo
-        return self.env['cost.fleet.vehicle.fuel'].get_fuels_by_cat(fuel_line.fuel_cat_id, True)[0].last_cost/fuel_line.fuel_effic
+        fuel=self.env['cost.fleet.vehicle.fuel'].get_fuels_by_cat(fuel_line.fuel_cat_id, True)
+        if(len(fuel)>1):
+            fuel=fuel[0]
+        return fuel.last_cost/fuel_line.fuel_effic
         
     
     #Buscar la ultima compra del combustible de este vehiculo

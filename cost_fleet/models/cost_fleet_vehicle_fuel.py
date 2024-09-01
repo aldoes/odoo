@@ -16,11 +16,18 @@ class costFleetVehicleFuel(models.Model):
     def get_fuels_by_cat(self, category, sortBy_highest_cost=False):
         category.ensure_one()
         domain=[('categ_id.complete_name','like','Fuel / '+ category.name)]
-        list_fuels=self.search(domain)
+        list_fuels = self.env['cost.fleet.vehicle.fuel'].new({
+            'name': "INDETERMINADO",
+        })        
+        if(results:=self.search(domain)):
+                list_fuels=results
         if (sortBy_highest_cost and len(list_fuels)>1):
-            #self.env["cost.fleet.vehicle.fuel"].search(domain).sorted(key=lambda r: r.last_cost, reverse=True)
             list_fuels = list_fuels.sorted(key=lambda r: r.last_cost, reverse=True)
         return list_fuels
+    
+    def get_default_categ(self):
+        category = self.env['product.category'].search([('id','=', self.env.ref('cost_fleet.cat_fuel').id),])
+        return category
 
 
     
