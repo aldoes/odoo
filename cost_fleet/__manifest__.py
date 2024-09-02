@@ -14,13 +14,14 @@ Module for Cost of Fleet
     'version': '17.0.0.3.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['base','account_fiscal_year','purchase','fleet'],
+    'depends': ['base','account','account_fiscal_year','purchase','fleet'],
     #'depends': ['base','purchase','fleet',"hr_expense",'account_fiscal_year'],
    
 
     # always loaded
     "data": [
         "security/ir.model.access.csv",
+        "data/cost_fleet_spare_cat.xml",
         "data/product.category.csv",
         "data/cost_fleet_fuel_data.xml",
         "data/cost_fleet_vehicle_data.xml",

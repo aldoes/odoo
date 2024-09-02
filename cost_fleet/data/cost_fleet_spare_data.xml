@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data noupdate="1">
-          <!-- Provider -->
-        <record id='provider01' model="res.partner">
-            <field name="name">DIESA SA</field>   
-        </record>
-
-        <!-- Spare Cat-->
-        <record id="cat_veh" model="product.category">
-            <field name="name">Vehicular</field>
-        </record>
-        <record id="cat_veh_spare" model="product.category">
-            <field name="parent_id" ref="cat_veh"/>
-            <field name="name">Spare</field>
-        </record>
-        <record id="cat_veh_cons" model="product.category">
-            <field name="parent_id" ref="cat_veh"/>
-            <field name="name">Consumable</field>
-        </record>
-
          <!-- Spare -->
         <record id="ms_spa_1" model="cost.fleet.vehicle.model.spare">
             <field name="name">Disco de freno trasero</field>
