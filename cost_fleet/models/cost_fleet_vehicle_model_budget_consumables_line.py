@@ -42,7 +42,7 @@ class CostFleetVehicleModelBudgetConsumablesline(models.Model):
         compute ="_calculate_km_cost"
    )
 
-   obs= fields.Text(string="Details")
+   obs = fields.Text(string="Details")
    currency_id = fields.Many2one(comodel_name='res.currency', default=lambda self: self.env.company.currency_id, string='Moneda')
 
    @api.depends('cost_unit')

@@ -5,7 +5,7 @@ from datetime import datetime
 BUDGET_TYPES = [
     ('mant_rut', 'Mantenimiento Rutinario'),
     ('mant_prev', 'Mantenimiento Preventivo'),
-    ('rep', 'Reparaciones'),
+    ('rep', 'Prevision de Reparaciones'),
     ('imp', 'Impuesto Vehicular'),
     ('otro', 'Otras Previsiones'),
 ]
@@ -26,7 +26,7 @@ class CostFleetVehicleModelBudget(models.Model):
   service_price = fields.Monetary(string='Costo',
     currency_field='currency_id'
   )
-  currency_id = fields.Many2one(comodel_name='res.currency', default=lambda self: self.env.company.currency_id, string='Moneda')
+#   currency_id = fields.Many2one(comodel_name='res.currency', default=lambda self: self.env.company.currency_id, string='Moneda')
   supplier_taxes_id = fields.Many2many('account.tax',
         string='Impuesto Proveedor', 
         domain=[('type_tax_use', '=', 'purchase')],
