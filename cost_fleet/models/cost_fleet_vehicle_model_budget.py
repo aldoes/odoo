@@ -26,11 +26,10 @@ class CostFleetVehicleModelBudget(models.Model):
   service_price = fields.Monetary(string='Costo',
     currency_field='currency_id'
   )
-#   currency_id = fields.Many2one(comodel_name='res.currency', default=lambda self: self.env.company.currency_id, string='Moneda')
   supplier_taxes_id = fields.Many2many('account.tax',
         string='Impuesto Proveedor', 
         domain=[('type_tax_use', '=', 'purchase')],
-        default=lambda self: self.env.companies.account_purchase_tax_id or self.env.companies.root_id.sudo().account_purchase_tax_id,
+        # default=lambda self: self.env.companies.account_purchase_tax_id or self.env.companies.root_id.sudo().account_purchase_tax_id,
   )
   km_use = fields.Integer(string="km Estimados", default=5000)
   obs= fields.Text(string="Details")
@@ -49,7 +48,7 @@ class CostFleetVehicleModelBudget(models.Model):
         compute='_compute_amount', 
         readonly=True
   )
-  currency_id = fields.Many2one(comodel_name='res.currency', default=lambda self: self.env.company.currency_id, string='Moneda')
+  currency_id = fields.Many2one(comodel_name='res.currency', default=lambda self: self.env.company.currency_id, string='Moneda', store=False)
   budget_date_upd= fields.Datetime(string="Ult. Actualizacion")
 
   @api.depends('service_price','km_use')

@@ -1,12 +1,14 @@
 <odoo>
-    <data noupdate="0">
+    <data noupdate="1">
         <record id='pre_001' model="cost.fleet.vehicle.model.budget">
             <field name="name">Mantenimiento Periodico</field>
             <field name="model_ids" eval="[(6, 0, [ref('cost_fleet.volks_saveiro_t'), ref('cost_fleet.volks_saveiro_h'), ref('cost_fleet.volks_gol')])]" />
             <field name="budg_type">mant_rut</field>
             <field name="obs">Reemplazo de Filtros de aceite, filtro de combustible, filtro de aire y aceite de motor</field>
             <field name="service_price">250000</field>
+            <field name="currency_id" eval="ref('base.PYG')"/>
             <field name="km_use">10000</field>
+           <field name="supplier_taxes_id"></field> 
             <field name="consum_cat_line_ids" eval="[
                 (0, 0, {
                     'spare_cat_id': ref('cost_fleet.cons_6'),
@@ -28,7 +30,7 @@
                     'qty': 1,})
                 ]"/>
         </record>
-        <record id='pre_002' model="cost.fleet.vehicle.model.budget">
+        <!-- <record id='pre_002' model="cost.fleet.vehicle.model.budget">
             <field name="name">Cambio de Neumaticos Traseros</field>
             <field name="model_ids" eval="[(6, 0, [ref('cost_fleet.volks_saveiro_t'), ref('cost_fleet.volks_saveiro_h'), ref('cost_fleet.volks_gol')])]" />
             <field name="budg_type">mant_rut</field>
@@ -41,25 +43,39 @@
                     'qty': 2,
                     'obs': 'ARG60',}),
                 ]"/>       
-        </record>
-        <!--<record id='pre_003' model="cost.fleet.vehicle.model.budget">
+        </record> -->
+         <record id='pre_003' model="cost.fleet.vehicle.model.budget">
             <field name="name">Cambio de Neumáticos Delanteros</field>
             <field name="model_ids" eval="[(6, 0, [ref('cost_fleet.volks_saveiro_t'), ref('cost_fleet.volks_saveiro_h'), ref('cost_fleet.volks_gol')])]" />
             <field name="budg_type">mant_rut</field>
             <field name="obs">Reemplazo de 2 cubiertas delanteras</field>
             <field name="service_price">0</field>
             <field name="km_use">40000</field>
-           
-        </record>
-        <record id='pre_003' model="cost.fleet.vehicle.model.budget">
+            <field name="consum_cat_line_ids" eval="[
+            (0, 0, {
+                'spare_cat_id': ref('cost_fleet.cons_1'),
+                'qty': 2,
+                'obs': 'ARG60',}),
+            ]"/>               
+        </record> 
+
+        <record id='pre_004' model="cost.fleet.vehicle.model.budget">
             <field name="name">Cambio de Kit Bujias</field>
             <field name="model_ids" eval="[(6, 0, [ref('cost_fleet.volks_saveiro_t'), ref('cost_fleet.volks_saveiro_h'), ref('cost_fleet.volks_gol')])]" />
             <field name="budg_type">mant_rut</field>
             <field name="obs">Reemplazo de Bujias y Cable Bujias</field>
             <field name="service_price">300000</field>
             <field name="km_use">40000</field>
+            <field name="consum_cat_line_ids" eval="[
+            (0, 0, {
+                'spare_cat_id': ref('cost_fleet.cons_9'),
+                'qty': 1,}),
+            (0, 0, {
+                'spare_cat_id': ref('cost_fleet.cons_10'),
+                'qty': 1,}),
+            ]"/> 
         </record>
-        <record id='pre_003' model="cost.fleet.vehicle.model.budget">
+       <!-- <record id='pre_005' model="cost.fleet.vehicle.model.budget">
             <field name="name">Cambio de Pastillas de Disco de Freno</field>
             <field name="model_ids" eval="[(6, 0, [ref('cost_fleet.volks_saveiro_t'), ref('cost_fleet.volks_saveiro_h'), ref('cost_fleet.volks_gol')])]" />
             <field name="budg_type">mant_prev</field>
@@ -67,7 +83,7 @@
             <field name="service_price">300000</field>
             <field name="km_use">60000</field>
         </record>
-        <record id='pre_003' model="cost.fleet.vehicle.model.budget">
+        <record id='pre_006' model="cost.fleet.vehicle.model.budget">
             <field name="name">Cambio de Disco de Freno delantero</field>
             <field name="model_ids" eval="[(6, 0, [ref('cost_fleet.volks_saveiro_t'), ref('cost_fleet.volks_saveiro_h'), ref('cost_fleet.volks_gol')])]" />
             <field name="budg_type">mant_prev</field>
@@ -75,7 +91,7 @@
             <field name="service_price">300000</field>
             <field name="km_use">60000</field>
         </record>
-        <record id='pre_003' model="cost.fleet.vehicle.model.budget">
+        <record id='pre_007' model="cost.fleet.vehicle.model.budget">
             <field name="name">Cambio de Aceite de Caja Mecanica</field>
             <field name="model_ids" eval="[(6, 0, [ref('cost_fleet.volks_saveiro_t'), ref('cost_fleet.volks_saveiro_h'), ref('cost_fleet.volks_gol')])]" />
             <field name="budg_type">mant_rut</field>
@@ -83,7 +99,7 @@
             <field name="service_price">300000</field>
             <field name="km_use">100000</field>
         </record>
-        <record id='pre_003' model="cost.fleet.vehicle.model.budget">
+        <record id='pre_008' model="cost.fleet.vehicle.model.budget">
             <field name="name">Cambio de Aceite de Caja Mecanica</field>
             <field name="model_ids" eval="[(6, 0, [ref('cost_fleet.volks_saveiro_t'), ref('cost_fleet.volks_saveiro_h'), ref('cost_fleet.volks_gol')])]" />
             <field name="budg_type">mant_rut</field>
@@ -91,7 +107,7 @@
             <field name="service_price">300000</field>
             <field name="km_use">100000</field>
         </record>
-        <record id='pre_003' model="cost.fleet.vehicle.model.budget">
+        <record id='pre_010' model="cost.fleet.vehicle.model.budget">
             <field name="name">Reparaciones de tren delantero</field>
             <field name="model_ids" eval="[(6, 0, [ref('cost_fleet.volks_saveiro_t'), ref('cost_fleet.volks_saveiro_h'), ref('cost_fleet.volks_gol')])]" />
             <field name="budg_type">rep</field>

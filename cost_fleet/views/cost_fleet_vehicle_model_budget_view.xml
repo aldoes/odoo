@@ -13,6 +13,7 @@
                 <field name="km_use" string="Km Estimados"/>
                 <field name="amount_total" string="Costo Total" readonly='1' /> 
                 <field name="costKm_total" string="Costo Km" readonly='1' /> 
+                <field name="currency_id" invisible="1" nolabel="1" />
                 <field name="budget_date_upd" readonly='1' string="Ult.Actualización"/>
             </tree>
         </field>
