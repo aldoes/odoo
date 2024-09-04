@@ -7,20 +7,22 @@ class AccountMoveLine(models.Model):
 
     def get_last_purchase_line_to_date(self, product,date_limit = date.today()):
         product.ensure_one()
-        last_purchase_line = list_purchase_lines = self.get_purchases_lines_to_date(product,date_limit)
-        if len(list_purchase_lines) > 1:
-            last_purchase_line = list_purchase_lines.sorted(key=lambda r: r.move_id.invoice_date, reverse=True)[0]
-
+        last_purchase_line = self.get_purchases_lines_to_date(product,date_limit, True)
+        if (len(last_purchase_line) > 1):
+            last_purchase_line = last_purchase_line[0]
         return last_purchase_line 
 
 
-    def get_purchases_lines_to_date(self, product, date_limit= date.today()):
+    def get_purchases_lines_to_date(self, product, date_limit= date.today(),desc = True):
         product.ensure_one()
+        purchases_lines = self.env['account.move.line']
         domain = [('product_id', '=', product.id), 
                 ('display_type', '=', 'product'), 
                 ('move_id.move_type', '=', 'in_invoice'),
                 ('move_id.state', '!=', 'cancel'),
                 ('move_id.invoice_date', '<=', date_limit)] 
-
-        #return self.env['account.move.line'].search(domain)
-        return self.search(domain)
+        if (result:=self.search(domain)):
+            purchases_lines = result
+            if(len(purchases_lines)>1 and desc):
+                purchases_lines = purchases_lines.sorted(key=lambda r: r.move_id.invoice_date, reverse=True)
+        return purchases_lines
