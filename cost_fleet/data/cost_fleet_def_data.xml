@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+          <!-- Provider -->
+          <function name="write" model="res.company">
+            <value model="res.company" search="[('id', '=', ref('base.main_company'))]"/>
+            <value eval="{'name': 'Syscost', 'currency_id' : ref('base.PYG') }"/>
+          </function>
+
+    </data>
+</odoo>
