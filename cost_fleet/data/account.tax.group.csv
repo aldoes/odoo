@@ -1,0 +1,2 @@
+id,name,country_id/id,tax_payable_account_id/id,tax_receivable_account_id/id
+tax_group_10,Tax 10%,"base.py","account.1_tax_payable","account.1_tax_receivable"

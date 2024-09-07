@@ -20,6 +20,9 @@ Module for Cost of Fleet
 
     # always loaded
     "data": [
+        "data/cost_fleet_def_data.xml",
+        "data/account.tax.group.csv",
+        "data/account.tax.csv",
         "security/ir.model.access.csv",
         "data/cost_fleet_spare_cat.xml",
         "data/product.category.csv",

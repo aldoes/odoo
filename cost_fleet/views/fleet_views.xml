@@ -9,7 +9,7 @@
       <xpath expr="//notebook" position="inside">
         <page string="Combustibles Hab." name="page_fuel_enalb">
           <group>
-            <field name="fuel_enab_cat_ids" widget="one2many" string="Fuels Enabled" mode="tree">
+            <field name="fuel_enab_cat_ids" widget="one2many" string="Combustibles" mode="tree">
                <tree editable="top" >             
                   <field name="fuel_cat_id"/>
                   <field name="fuel_effic"/>
@@ -99,8 +99,8 @@
           <field name="fuel_type" string="Tipo Comb."/>      
           <field name="cost_value_km" string="Costo Valor km" />
           <field name="cost_fuel_km" string="Cons.Combustible Km" />
-          <!-- <field name="cost_consu_km" string="Costo Consumible Km" /> -->
-          <!-- <field name="cost_total_km" string="Costo Km" />-->
+          <field name="cost_consu_km" string="Costo Consumible Km" />
+          <field name="cost_total_km" string="Costo Total Km" />
           <field name="cost_curr_id" invisible="1" nolabel="1" />        
         </tree>
     </field>
