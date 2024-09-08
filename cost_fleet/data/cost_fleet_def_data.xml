@@ -4,7 +4,7 @@
           <!-- Provider -->
           <function name="write" model="res.company">
             <value model="res.company" search="[('id', '=', ref('base.main_company'))]"/>
-            <value eval="{'name': 'Syscost', 'currency_id' : ref('base.PYG') }"/>
+            <value eval="{'name': 'Syscost', 'currency_id' : ref('base.PYG'), 'account_fiscal_country_id' : ref('base.py') }"/>            
           </function>
 
     </data>
