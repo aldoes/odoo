@@ -22,7 +22,7 @@ Module for Cost of Fleet
     "data": [
         "data/cost_fleet_def_data.xml",
         "data/account.tax.group.csv",
-        "data/account.tax.csv",
+        #"data/account.tax.csv",
         "security/ir.model.access.csv",
         "data/cost_fleet_spare_cat.xml",
         "data/product.category.csv",
@@ -31,6 +31,7 @@ Module for Cost of Fleet
         "data/cost_fleet_spare_data.xml",
         "data/cost_fleet_vehicle_model_budgets.xml",
         "views/account_fiscal_year_views.xml",
+        "views/res_company_views.xml",
         "views/product_category_views.xml",
         "views/cost_fleet_vehicle_fuel_view.xml",
         "views/cost_fleet_vehicle_model_spare_view.xml",
