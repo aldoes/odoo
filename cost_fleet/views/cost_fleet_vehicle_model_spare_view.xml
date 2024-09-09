@@ -4,7 +4,7 @@
     <field name="name">cost.fleet.vehicle.model.spare.tree</field>
     <field name="model">cost.fleet.vehicle.model.spare</field>
     <field name="arch" type="xml">
-      <tree string="Consumables and Spare Parts">
+      <tree string="Consumibles y Repuestos">
         <field name="name"/>
         <field name="model_ids" widget="many2many_tags"/>
         <field name="categ_id"/>
@@ -20,7 +20,7 @@
     <field name="name">cost.fleet.vehicle.model.spare.form</field>
     <field name="model">cost.fleet.vehicle.model.spare</field>
     <field name="arch" type="xml">
-      <form string="Vehicular Spare and Consumable" name="Product Template">
+      <form string="Consumibles y Repuestos" name="Product Template">
         <field name="product_variant_count" invisible="1" field_id="product_variant_count_0"/>
         <field name="is_product_variant" invisible="1" field_id="is_product_variant_0"/>
         <field name="attribute_line_ids" invisible="1" on_change="1" field_id="attribute_line_ids_0"/>
