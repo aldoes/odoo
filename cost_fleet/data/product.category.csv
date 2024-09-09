@@ -35,4 +35,11 @@ spare_13,cost_fleet.cat_veh_spare,sensor lamda,320
 spare_14,cost_fleet.cat_veh_spare,Valvula Combustible,330
 spare_15,cost_fleet.cat_veh_spare,Bomba de Direccion,340
 spare_16,cost_fleet.cat_veh_spare,Termostato,350
+spare_17,cost_fleet.cat_veh_spare,Bieleta,350
+cat_gas_85,cost_fleet.cat_fuel,Gasolina 85,10
+cat_gas_88,cost_fleet.cat_fuel,Gasolina 88,11
+cat_gas_93,cost_fleet.cat_fuel,Gasolina 93,12
+cat_gas_97,cost_fleet.cat_fuel,Gasolina 97,13
+cat_fuel_die_pre,cost_fleet.cat_fuel,Diesel Premium,14
+spare_18,cost_fleet.cat_veh_spare,ATF DIRECCION,360
 
