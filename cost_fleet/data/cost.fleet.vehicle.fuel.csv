@@ -1,0 +1,8 @@
+id,name,categ_id/id,standard_price,supplier_taxes_id,uom_id/id,uom_po_id/id,sale_ok,default_code,"seller_ids/partner_id/id","seller_ids/currency_id/id","seller_ids/price/id","seller_ids/delay/id"
+"prod_fuel_7","Nafta Kape 88 Aditiv","cost_fleet.cat_gas_88",0.0,,"uom.product_uom_litre","uom.product_uom_litre",False,"PETRO.GAS.88","cost_fleet.provider02","base.PYG",6430.0,1
+"prod_fuel_8","Nafta Oikoite 93 Aditiv","cost_fleet.cat_gas_93",0.0,,"uom.product_uom_litre","uom.product_uom_litre",False,"PETRO.GAS.93","cost_fleet.provider02","base.PYG",6930.0,1
+"prod_fuel_9","Nafta Aratiri 97 Aditiv","cost_fleet.cat_gas_97",0.0,,"uom.product_uom_litre","uom.product_uom_litre",False,"PETRO.GAS.97","cost_fleet.provider02","base.PYG",8280.0,1
+"prod_fuel_10","Nafta EcoFlex 85 Aditiv","cost_fleet.cat_gas_85",0.0,,"uom.product_uom_litre","uom.product_uom_litre",False,"PETRO.GAS.ECO85","cost_fleet.provider02","base.PYG",7440.0,1
+"prod_fuel_11","Diesel Pora Aditiv","cost_fleet.cat_fuel_diesel",0.0,,"uom.product_uom_litre","uom.product_uom_litre",False,"PETRO.DIE","cost_fleet.provider02","base.PYG",7440.0,1
+"prod_fuel_12","Diesel Mbarete Aditiv","cost_fleet.cat_fuel_die_pre",0.0,,"uom.product_uom_litre","uom.product_uom_litre",False,"PETRO.DIEPRE","cost_fleet.provider02","base.PYG",9240.0,1
+
