@@ -18,7 +18,7 @@ class AbstractPurchaseFields(models.AbstractModel):
             record.info_currency_id = self.env.company.currency_id 
             record.last_info_date = date_limit 
             if (purchaseLine := self.env['account.move'].get_last_purchased_line_to_date(record.product_id, date_limit)):
-                record.last_cost = purchaseLine.currency_id._convert(purchaseLine.price_unit,record.info_currency_id)     
+                record.last_cost = purchaseLine.currency_id._convert((purchaseLine.price_subtotal/purchaseLine.quantity),record.info_currency_id)     
                 record.last_info_date = purchaseLine.move_id.invoice_date 
             elif (supplierCost := self.env["product.supplierinfo"].get_highest_cost_supplierinfo_line(record.product_id)):
                 record.last_cost = supplierCost.currency_id._convert(supplierCost.price,record.info_currency_id)                 
