@@ -21,9 +21,12 @@ class AbstractPurchaseFields(models.AbstractModel):
                 record.last_cost = purchaseLine.currency_id._convert((purchaseLine.price_subtotal/purchaseLine.quantity),record.info_currency_id)     
                 record.last_info_date = purchaseLine.move_id.invoice_date 
             elif (supplierCost := self.env["product.supplierinfo"].get_highest_cost_supplierinfo_line(record.product_id)):
-                record.last_cost = supplierCost.currency_id._convert(supplierCost.price,record.info_currency_id)                 
+                taxes_res = record.supplier_taxes_id.compute_all(supplierCost.price,quantity=1.0,currency=supplierCost.currency_id,product=record.product_id)
+                price_withoutTax = taxes_res['total_excluded']
+                record.last_cost = supplierCost.currency_id._convert(price_withoutTax,record.info_currency_id)                 
             else:
-                record.last_cost = record.standard_price or 0.0
+                taxes_res = record.supplier_taxes_id.compute_all(record.standard_price,quantity=1.0,currency=record.currency_id,product=record.product_id)
+                record.last_cost = record.currency_id._convert(taxes_res['total_excluded'],record.info_currency_id)
 
             
             
