@@ -1,9 +1,9 @@
 "id","name","description","invoice_label","amount","type_tax_use",country_id/id,tax_group_id/id,"repartition_line_ids/document_type","repartition_line_ids/factor_percent","repartition_line_ids/repartition_type",repartition_line_ids/account_id/id
-"sale_tax_template_10","10%","","","10","sale","base.py","cost_fleet.tax_group_10","invoice","100","base",""
+"sale_tax_template_10","IVA 10%","","","10","sale","base.py","cost_fleet.tax_group_10","invoice","100","base",""
 "","","","","","","","","invoice","100","tax","account.1_tax_received"
 "","","","","","","","","refund","100","base",""
 "","","","","","","","","refund","100","tax","account.1_tax_received"
-"purchase_tax_template_10","10%","","","10","purchase","base.py","cost_fleet.tax_group_10","invoice","100","base",""
+"purchase_tax_template_10","IVA 10%","","","10","purchase","base.py","cost_fleet.tax_group_10","invoice","100","base",""
 "","","","","","","","","invoice","100","tax","account.1_tax_paid"
 "","","","","","","","","refund","100","base",""
 "","","","","","","","","refund","100","tax","account.1_tax_paid"

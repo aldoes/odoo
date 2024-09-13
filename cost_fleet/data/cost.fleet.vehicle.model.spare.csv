@@ -3,6 +3,7 @@ id,name,"categ_id/id",standard_price,"taxes_id","supplier_taxes_id/id","uom_id/i
 "ms_spa_90","teste","cost_fleet.spare_17",0.0,,"cost_fleet.purchase_tax_template_10","uom.product_uom_unit","uom.product_uom_unit",False,"DIESA.BIEL","cost_fleet.provider03","base.PYG",334000.0,1,"cost_fleet.volks_gol"
 "ms_spa_91","teste2","cost_fleet.spare_17",0.0,,"cost_fleet.purchase_tax_template_10","uom.product_uom_unit","uom.product_uom_unit",False,"DIESA.BIEL","cost_fleet.provider03","base.PYG",334000.0,1,"cost_fleet.volks_saveiro_t"
 "ms_spa_92","teste3","cost_fleet.spare_17",0.0,,"cost_fleet.purchase_tax_template_10","uom.product_uom_unit","uom.product_uom_unit",False,"DIESA.BIEL","cost_fleet.provider03","base.PYG",334000.0,1,"cost_fleet.volks_saveiro_t"
+"ms_spa_93","teste4","cost_fleet.spare_17",0.0,,"cost_fleet.purchase_tax_template_10","uom.product_uom_unit","uom.product_uom_unit",False,"DIESA.BIEL","cost_fleet.provider03","base.PYG",334000.0,1,"cost_fleet.volks_gol"
 
 
 

@@ -46,6 +46,18 @@
             <field name="sale_ok" eval="False"/>
             <field name="default_code">DIESA.BUJIA</field>
         </record> 
+<!-- 
+        <record id="ms_spa_5" model="cost.fleet.vehicle.model.spare">
+            <field name="name">Bieleta</field>
+            <field name="categ_id" ref="spare_17"/>
+            <field name="standard_price">334000.0</field>
+            <field name="uom_id" ref="uom.product_uom_unit"/>
+            <field name="uom_po_id" ref="uom.product_uom_unit"/>            
+            <field name="model_ids" eval="[(6, 0, [ref('cost_fleet.volks_saveiro_t'), ref('cost_fleet.volks_saveiro_h'), ref('cost_fleet.volks_gol')])]" />           
+            <field name="sale_ok" eval="False"/>
+            <field name="" eval=''/> 
+            <field name="default_code">DIESA.BIELETA</field>
+        </record>  -->
 
 
         <!-- Consumables -->

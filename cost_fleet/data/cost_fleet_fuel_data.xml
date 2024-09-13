@@ -9,6 +9,14 @@
             <field name="name">Estaciones Bahia SRL - Shell</field>   
         </record>
 
+        <record id='provider02' model="res.partner">
+            <field name="name">Petropar</field>   
+        </record>
+
+        <record id='provider03' model="res.partner">
+            <field name="name">DIESA SA</field>   
+        </record>
+
         <!-- Load Product Category Fuel -->
         <record id="cat_fuel" model="product.category">
             <field name="name">Fuel</field>
@@ -26,14 +34,7 @@
             <field name="name">Alcohol</field>
         </record>
 
-        <!-- Load Fuel Reg 
-            Resource: cost.fleet.vehicle.fuel
-                categ_id integer NOT NULL,
-                uom_id integer NOT NULL,
-                uom_po_id integer NOT NULL,
-                detailed_type NOT NULL,
-                name jsonb NOT NULL
-        -->
+
         <record id="prod_fuel_1" model="cost.fleet.vehicle.fuel">
             <field name="name">Shell Formula Regular Nafta 88</field>
             <field name="categ_id" ref="cat_fuel_gasoline"/>
@@ -66,7 +67,7 @@
         </record>
         <record id="prod_fuel_4" model="cost.fleet.vehicle.fuel">
             <field name="name">Shell V-Power Diesel</field>
-            <field name="categ_id" ref="cat_fuel_diesel"/>
+            <field name="categ_id" ref="cost_fleet.cat_fuel_die_pre"/>
             <field name="standard_price">9340.0</field>
             <field name="uom_id" ref="uom.product_uom_litre"/>
             <field name="uom_po_id" ref="uom.product_uom_litre"/>
