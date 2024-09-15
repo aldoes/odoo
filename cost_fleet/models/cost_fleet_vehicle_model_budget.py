@@ -66,7 +66,6 @@ class CostFleetVehicleModelBudget(models.Model):
           line.consum_cat_line_ids.calculate_price_unit()
           line._compute_amount()
           line.budget_date_upd=fields.Datetime.now()
-      #TODO Campo sumatoria de lineas de servicios y consumibles
 
   def get_budgets_by_models(self, models):
         budgets = self.env['cost.fleet.vehicle.model.budget']

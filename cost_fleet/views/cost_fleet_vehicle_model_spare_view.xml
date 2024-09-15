@@ -105,7 +105,7 @@
                   <field name="currency_id" can_create="True" can_write="True" field_id="currency_id_0"/>
                   <field name="delay" optional="show" field_id="delay_0"/>
                   <field name="company_id" column_invisible="True" can_create="True" can_write="True" field_id="company_id_0"/>
-                  <field name="write_date" readonly="1"  options="{'format': 'DD/MM/YYYY'}" field_id="write_date_0"/>
+                  <field name="update_date" readonly="1" force_save="1"  options="{'format': 'DD/MM/YYYY'}" field_id="write_date_0"/>
                 </tree>
               </field>
               <field name="variant_seller_ids" context="{'model': 'product.template', 'active_id': id, 'tree_view_ref':'purchase.product_supplierinfo_tree_view2'}" nolabel="1" invisible="product_variant_count &lt;= 1" readonly="product_variant_count &lt;= 1" field_id="variant_seller_ids_0">
