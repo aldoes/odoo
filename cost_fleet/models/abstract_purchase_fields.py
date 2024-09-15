@@ -24,10 +24,10 @@ class AbstractPurchaseFields(models.AbstractModel):
                 last_info_date = purchaseLine.move_id.invoice_date
             
             if (supplierCost := self.env["product.supplierinfo"].get_cost_supplierinfo_line(record.product_id,True)):  
-                if not(purchaseLine and (purchaseLine.move_id.invoice_date > supplierCost.write_date.date())):  
+                if not(purchaseLine and (purchaseLine.move_id.invoice_date > supplierCost.update_date.date())):  
                     last_cost = supplierCost.price
                     info_currency_id = purchaseLine.currency_id
-                    last_info_date = supplierCost.write_date.date()
+                    last_info_date = supplierCost.update_date.date()
 
             taxes_res = record.supplier_taxes_id.compute_all(last_cost,quantity=1.0,currency=info_currency_id,product=record.product_id)
             record.last_cost = info_currency_id._convert(taxes_res['total_excluded'],record.info_currency_id)

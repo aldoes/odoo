@@ -10,17 +10,18 @@ class SupplierInfo(models.Model):
 
     def get_cost_supplierinfo_line(self, product,highest=True):
         product.ensure_one()
-        supplierinfo_line_highest_cost = list_supplierinfo_lines = self.get_supplierinfo_lines(product)
-        if len(list_supplierinfo_lines) > 1:
-            supplierinfo_line_highest_cost = list_supplierinfo_lines.sorted(key=lambda r: r.price, reverse=highest)[0]
-
-        return supplierinfo_line_highest_cost 
+        supplierinfo_line = self.get_supplierinfo_lines(product)
+        if len(supplierinfo_line) > 1:
+            if(highest):
+                supplierinfo_line = supplierinfo_line.sorted(key=lambda r: r.price, reverse=True)[0]
+            else:
+                supplierinfo_line = supplierinfo_line[0]
+        return supplierinfo_line 
 
     def get_supplierinfo_lines(self, product):
         product.ensure_one()
         domain = [('product_tmpl_id', '=', product.product_tmpl_id.id),] 
-
-        return self.env['product.supplierinfo'].search(domain)
+        return self.env['product.supplierinfo'].search(domain, order='update_date desc')
 
     @api.onchange('price')
     def _onchange_price(self):
