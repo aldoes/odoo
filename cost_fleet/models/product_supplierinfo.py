@@ -8,7 +8,7 @@ class SupplierInfo(models.Model):
 
     update_date = fields.Datetime(string="Ult. Actualización", store=True,default=fields.Datetime.now())
 
-    def get_cost_supplierinfo_line(self, product,highest=True):
+    def get_cost_supplierinfo_line(self, product,highest=False):
         product.ensure_one()
         supplierinfo_line = self.get_supplierinfo_lines(product)
         if len(supplierinfo_line) > 1:

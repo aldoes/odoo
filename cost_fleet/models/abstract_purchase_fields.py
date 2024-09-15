@@ -23,7 +23,7 @@ class AbstractPurchaseFields(models.AbstractModel):
                 info_currency_id = purchaseLine.currency_id
                 last_info_date = purchaseLine.move_id.invoice_date
             
-            if (supplierCost := self.env["product.supplierinfo"].get_cost_supplierinfo_line(record.product_id,True)):  
+            if (supplierCost := self.env["product.supplierinfo"].get_cost_supplierinfo_line(record.product_id,False)):  
                 if not(purchaseLine and (purchaseLine.move_id.invoice_date > supplierCost.update_date.date())):  
                     last_cost = supplierCost.price
                     info_currency_id = purchaseLine.currency_id
